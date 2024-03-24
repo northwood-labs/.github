@@ -1,4 +1,4 @@
-<div align="center"><img src="https://github.com/northwood-labs/mod-template/raw/main/tofu-modules-lightmode.png#gh-light-mode-only" alt="Seal of Approval" width="500"><img src="https://github.com/northwood-labs/mod-template/raw/main/tofu-modules-darkmode.png#gh-dark-mode-only" alt="Seal of Approval" width="500"><br></div>
+<div align="center"><img src="NWL-Full-Vertical-Color-7497.png#gh-light-mode-only" alt="Logo" width="500"><img src="NWL-Full-Vertical-Color-7497.png#gh-dark-mode-only" alt="Logo" width="500"><br></div>
 
 ---
 
