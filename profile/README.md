@@ -1,4 +1,4 @@
-<div align="center"><img src="https://github.com/northwood-labs/.github/raw/main/profile/NWL-Full-Vertical-Color-7497.png#gh-light-mode-only" alt="Logo" width="500"><img src="https://github.com/northwood-labs/.github/raw/main/profile/NWL-Full-Vertical-Color-7497.png#gh-dark-mode-only" alt="Logo" width="500"><br></div>
+<div align="center"><img src="https://github.com/northwood-labs/.github/raw/main/profile/NWL-Full-Vertical-Color-7497.png#gh-light-mode-only" alt="Logo" width="500"><img src="https://github.com/northwood-labs/.github/raw/main/profile/NWL-Full-Vertical-Color-Inverted-7497.png#gh-dark-mode-only" alt="Logo" width="500"><br></div>
 
 ---
 
