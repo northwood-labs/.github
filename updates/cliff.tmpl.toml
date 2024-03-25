@@ -24,24 +24,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
 # https://keats.github.io/tera/docs/#introduction
 body = """
 {% if version %}
-  ## {{ "{{" {{ "}}" }} version | trim_start_matches(pat="v") {{ "}}" }} — {{ "{{" {{ "}}" }} timestamp | date(format="%Y-%m-%d") {{ "}}" }}
+  ## {{ "{{" }} version | trim_start_matches(pat="v") {{ "}}" }} — {{ "{{" }} timestamp | date(format="%Y-%m-%d") {{ "}}" }}
   {% if previous.version %}
-    [Compare: {{ "{{" {{ "}}" }} previous.version {{ "}}" }} → {{ "{{" {{ "}}" }} version {{ "}}" }}]({{ "{{" {{ "}}" }} self::remote_url() {{ "}}" }}/compare/{{ "{{" {{ "}}" }} previous.version {{ "}}" }}...{{ "{{" {{ "}}" }} version {{ "}}" }})
+    [Compare: {{ "{{" }} previous.version {{ "}}" }} → {{ "{{" }} version {{ "}}" }}]({{ "{{" }} self::remote_url() {{ "}}" }}/compare/{{ "{{" }} previous.version {{ "}}" }}...{{ "{{" }} version {{ "}}" }})
   {% endif %}\
 {% else %}
   ## Unreleased
   {% if previous.version %}
-    [Compare: {{ "{{" {{ "}}" }} previous.version {{ "}}" }} → `HEAD`]({{ "{{" {{ "}}" }} self::remote_url() {{ "}}" }}/compare/{{ "{{" {{ "}}" }} previous.version {{ "}}" }}..HEAD)
+    [Compare: {{ "{{" }} previous.version {{ "}}" }} → `HEAD`]({{ "{{" }} self::remote_url() {{ "}}" }}/compare/{{ "{{" }} previous.version {{ "}}" }}..HEAD)
   {% endif %}\
 {% endif %}\
 {% for group, commits in commits | filter(attribute="merge_commit", value=false) | group_by(attribute="group") %}
-  ### {{ "{{" {{ "}}" }} group | upper_first {{ "}}" }}
+  ### {{ "{{" }} group | upper_first {{ "}}" }}
   {% for commit in commits %}
     {% set commit_message = commit.message -%}
     * {% if commit.breaking %}**[BC BREAK]** {% endif %}\
-    [`{{ "{{" {{ "}}" }} commit.id | truncate(length=7, end="") {{ "}}" }}`]({{ "{{" {{ "}}" }} self::remote_url() {{ "}}" }}/commit/{{ "{{" {{ "}}" }} commit.id {{ "}}" }}): {% if commit.scope %}\
-    **{{ "{{" {{ "}}" }} commit.scope {{ "}}" }}**: {% endif %}{{ "{{" {{ "}}" }} commit_message | split(pat="\n") | first | upper_first | trim_end {{ "}}" }} \
-    ({% if commit.github.username %}[@{{ "{{" {{ "}}" }} commit.github.username | replace(from="[bot]", to="") {{ "}}" }}](https://github.com/{{ "{{" {{ "}}" }} commit.github.username | replace(from="[bot]", to="") {{ "}}" }}){%- endif -%})\
+    [`{{ "{{" }} commit.id | truncate(length=7, end="") {{ "}}" }}`]({{ "{{" }} self::remote_url() {{ "}}" }}/commit/{{ "{{" }} commit.id {{ "}}" }}): {% if commit.scope %}\
+    **{{ "{{" }} commit.scope {{ "}}" }}**: {% endif %}{{ "{{" }} commit_message | split(pat="\n") | first | upper_first | trim_end {{ "}}" }} \
+    ({% if commit.github.username %}[@{{ "{{" }} commit.github.username | replace(from="[bot]", to="") {{ "}}" }}](https://github.com/{{ "{{" }} commit.github.username | replace(from="[bot]", to="") {{ "}}" }}){%- endif -%})\
   {%- endfor %}
 {% endfor %}
 {%- macro remote_url() -%}
@@ -55,8 +55,9 @@ trim = true
 # changelog footer
 footer = """
 
-<p>Generated on {{ "{{" {{ "}}" }} now() | date(format="%Y-%m-%d") {{ "}}" }}.</p>
+<p>Generated on {{ "{{" }} now() | date(format="%Y-%m-%d") {{ "}}" }}.</p>
 """
+# goplicate-end:changelog
 
 postprocessors = [
   { pattern = "linrinf", replace = "linting" },
@@ -71,9 +72,8 @@ postprocessors = [
   { pattern = "corefunc_([^(\\.|\\s)]+)", replace = "`$0`" },
   { pattern = "Bump ([^ ]+)", replace = "Bump `$1`" },
   { pattern = "\\(#([0-9]+)\\)", replace = "([#${1}](@REPO/issues/${1}))" },
-  { pattern = '@REPO', replace = "https://github.com/northwood-labs/terraform-provider-corefunc" },
+  { pattern = '@REPO', replace = "https://github.com/northwood-labs/@TODO" },
 ]
-# goplicate-end:changelog
 
 # goplicate-start:git
 [git]
