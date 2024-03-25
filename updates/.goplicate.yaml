@@ -3,7 +3,6 @@
 # which "target" files to sync, where to take the "source"
 # configurations from, and how to fill parameter values.
 
-# goplicate-start:file
 sync-config:
   path: .goplicate.yaml
   source:
@@ -11,6 +10,7 @@ sync-config:
     path: updates/.goplicate.yaml
 
 targets:
+  # goplicate-start:file
   - path: .github/dependabot.yml
     source:
       repository: /tmp/terraform-makefile
@@ -22,12 +22,6 @@ targets:
       repository: /tmp/terraform-makefile
       path: updates/.gitignore
       sync-initial: true
-
-  - path: .golangci.yml
-    source:
-      repository: /tmp/terraform-makefile
-      path: updates/go/.golangci.yml
-      sync-initial: false
 
   - path: .pre-commit-config.yaml
     source:
@@ -64,10 +58,20 @@ targets:
       repository: /tmp/terraform-makefile
       path: updates/SECURITY.md
       sync-initial: true
+  # goplicate-end:file
 
+  # goplicate-start:go
+  - path: .golangci.yml
+    source:
+      repository: /tmp/terraform-makefile
+      path: updates/go/.golangci.yml
+      sync-initial: false
+  # goplicate-end:go
+
+  # goplicate-end:tf
   - path: versions.tf
     source:
       repository: /tmp/terraform-makefile
       path: updates/tf/versions.tf
       sync-initial: false
-# goplicate-end:file
+  # goplicate-end:tf
