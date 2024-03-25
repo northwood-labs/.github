@@ -257,7 +257,8 @@
   "yaml.hover": true,
   "yaml.keyOrdering": false,
   "yaml.schemas": {
-    "https://goreleaser.com/static/schema-pro.json": ".goreleaser.yml"
+    "https://goreleaser.com/static/schema-pro.json": ".goreleaser.yml",
+    "https://golangci-lint.run/jsonschema/golangci.jsonschema.json": ".golangci-lint.yml"
   },
   "yaml.schemaStore.enable": true,
   "yaml.style.flowSequence": "allow",

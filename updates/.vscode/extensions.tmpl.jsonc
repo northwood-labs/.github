@@ -175,6 +175,7 @@
     // goplicate-start:xml
     "redhat.vscode-xml",
     // goplicate-end:xml
+    //
   ],
   "unwantedRecommendations": [
     "ms-azuretools.vscode-azureterraform",
