@@ -161,7 +161,6 @@ linters-settings:
       - style
 
     disabled-tags:
-      - badSyncOnceFunc
       - docStub
       - whyNoLint
 
