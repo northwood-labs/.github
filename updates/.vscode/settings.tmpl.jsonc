@@ -177,7 +177,13 @@
         "prettier.config.js"
       ],
       "url": "http://json.schemastore.org/prettierrc"
-    }
+    },
+    {
+      "fileMatch": [
+        ".markdownlint.*",
+      ],
+      "url": "https://github.com/DavidAnson/markdownlint/raw/main/schema/markdownlint-config-schema.json"
+    },
   ],
   "linter.cache": false,
   "linter.debug": false,

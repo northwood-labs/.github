@@ -185,7 +185,7 @@
 
   // MD043
   "required-headings": {
-    "headings": [],
+    // "headings": [],
     "match_case": true,
   },
 

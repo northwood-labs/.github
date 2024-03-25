@@ -1,4 +1,4 @@
-# .github
+# Core shared files
 
 Northwood Labs home on GitHub.
 
@@ -6,6 +6,12 @@ Northwood Labs home on GitHub.
 
 * `always`
 * `go`
+
+## `updates/.goplicate.yaml`
+
+* `file`
+* `go`
+* `tf`
 
 ## `updates/.pre-commit-config.yaml`
 
