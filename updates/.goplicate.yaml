@@ -32,13 +32,13 @@ targets:
   - path: .vscode/extensions.json
     source:
       repository: /tmp/terraform-makefile
-      path: updates/.vscode/extensions.json
+      path: updates/.vscode/extensions.js
       sync-initial: true
 
   - path: .vscode/settings.json
     source:
       repository: /tmp/terraform-makefile
-      path: updates/.vscode/settings.json
+      path: updates/.vscode/settings.js
       sync-initial: true
 
   - path: cliff.toml
