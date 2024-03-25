@@ -44,7 +44,7 @@ targets:
   - path: cliff.toml
     source:
       repository: /tmp/terraform-makefile
-      path: updates/cliff.toml
+      path: updates/cliff.tmpl.toml
       sync-initial: true
 
   - path: ecrc.toml
