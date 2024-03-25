@@ -29,8 +29,7 @@
   // MD007
   "ul-indent": {
     "indent": 2,
-    "start_indent": 0,
-    "start_indented": false,
+    "start_indented": false
   },
 
   // MD009
@@ -43,7 +42,7 @@
   "no-hard-tabs": {
     "code_blocks": true,
     "ignore_code_languages": [],
-    "spaces_per_tab": 4,
+    "spaces_per_tab": 4
   },
 
   // MD011
@@ -63,7 +62,7 @@
     "headings": true,
     "stern": false,
     "strict": false,
-    "tables": false,
+    "tables": false
   },
 
   // MD014
@@ -174,7 +173,7 @@
   // MD040
   "fenced-code-language": {
     "allowed_languages": [],
-    "language_only": true,
+    "language_only": true
   },
 
   // MD041
@@ -186,7 +185,7 @@
   // MD043
   "required-headings": {
     // "headings": [],
-    "match_case": true,
+    "match_case": true
   },
 
   // MD044
@@ -244,7 +243,7 @@
     "full": true,
     "collapsed": true,
     "shortcut": true,
-    "url_inline": true,
+    "url_inline": true
   },
 
   // MD055
@@ -253,5 +252,5 @@
   },
 
   // MD056
-  "table-column-count": true,
+  "table-column-count": true
 }
