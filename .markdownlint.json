@@ -1,6 +1,0 @@
-{
-    "extends": "full-copy/.markdownlint.base.json",
-    "proper-names": {
-        "names": []
-    }
-}
