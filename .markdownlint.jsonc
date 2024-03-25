@@ -1,5 +1,5 @@
 {
-  "extends": "full-copy/.markdownlint.base.json",
+  "extends": "full-copy/.markdownlint.base.jsonc",
   "proper-names": {
     "names": []
   }

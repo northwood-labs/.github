@@ -46,6 +46,15 @@ Northwood Labs home on GitHub.
 
 * `reporting`
 
+## `updates/go/versions.tf`
+
+* `issues`
+* `linters-settings`
+* `linters`
+* `output`
+* `run`
+* `severity`
+
 ## `updates/tf/versions.tf`
 
 * `aws`

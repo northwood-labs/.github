@@ -3,20 +3,25 @@
 # https://golangci-lint.run/jsonschema/golangci.jsonschema.json
 
 run:
+  skip-files:
+    # - .*\.my\.go$
+    # - lib/bad.go
+
+  # goplicate-start:run
   timeout: 1m
   issues-exit-code: 1
   tests: true
   skip-dirs-use-default: true
   modules-download-mode: readonly
   allow-parallel-runners: false
+  # goplicate-end:run
 
-  skip-files:
-    # - .*\.my\.go$
-    # - lib/bad.go
-
+# goplicate-start:severity
 severity:
   case-sensitive: false
+# goplicate-end:severity
 
+# goplicate-start:linters
 linters:
   disable-all: true
   enable:
@@ -64,15 +69,19 @@ linters:
     - whitespace
     - wrapcheck
     - wsl
+# goplicate-end:linters
 
+# goplicate-start:output
 output:
   format: colored-line-number
   print-issued-lines: true
   print-linter-name: true
   uniq-by-line: true
-  path-prefix: ""
+  path-prefix: ''
   sort-results: true
+# goplicate-end:output
 
+# goplicate-start:linters-settings
 linters-settings:
   decorder:
     disable-dec-order-check: false
@@ -189,7 +198,7 @@ linters-settings:
       - NOTE
       - OPTIMIZE
       - TODO
-      - "@TODO"
+      - '@TODO'
 
   gofmt:
     simplify: true
@@ -211,11 +220,11 @@ linters-settings:
       - assign
 
     ignored-numbers:
-      - "0666"
-      - "0755"
+      - '0666'
+      - '0755'
 
   gosimple:
-    checks: ["*"]
+    checks: ['*']
 
   gosec:
     exclude-generated: true
@@ -228,17 +237,17 @@ linters-settings:
         audit: true
       G101:
         ignore_entropy: false
-        entropy_threshold: "80.0"
-        per_char_threshold: "3.0"
-        truncate: "16"
+        entropy_threshold: '80.0'
+        per_char_threshold: '3.0'
+        truncate: '16'
       G104:
         fmt:
           - Fscanf
       G111:
         pattern: custom\.Dir\(\)
-      G301: "0750"
-      G302: "0600"
-      G306: "0666"
+      G301: '0750'
+      G302: '0600'
+      G306: '0666'
 
   govet:
     check-shadowing: true
@@ -361,10 +370,10 @@ linters-settings:
     args-on-sep-lines: false
 
   staticcheck:
-    checks: ["*"]
+    checks: ['*']
 
   stylecheck:
-    checks: ["*"]
+    checks: ['*']
 
   tagalign:
     align: true
@@ -460,7 +469,9 @@ linters-settings:
     force-err-cuddling: false
     force-short-decl-cuddling: false
     strict-append: true
+# goplicate-end:linters-settings
 
+# goplicate-start:issues
 issues:
   exclude-case-sensitive: false
   exclude-use-default: false
@@ -490,7 +501,7 @@ issues:
         - gomnd
       source: lint:allow_raw_number
 
-    - text: "commentedOutCode: may want to remove commented-out code"
+    - text: 'commentedOutCode: may want to remove commented-out code'
       linters:
         - gocritic
       source: lint:allow_commented
@@ -586,3 +597,4 @@ issues:
       linters:
         - goconst
       source: lint:no_const
+# goplicate-end:issues

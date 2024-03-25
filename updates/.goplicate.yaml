@@ -23,6 +23,12 @@ targets:
       path: updates/.gitignore
       sync-initial: true
 
+  - path: .golangci.yml
+    source:
+      repository: /tmp/terraform-makefile
+      path: updates/go/.golangci.yml
+      sync-initial: false
+
   - path: .pre-commit-config.yaml
     source:
       repository: /tmp/terraform-makefile
@@ -58,7 +64,10 @@ targets:
       repository: /tmp/terraform-makefile
       path: updates/SECURITY.md
       sync-initial: true
-# goplicate-end:file
 
-# updates/go/.golangci.yml
-# updates/tf/versions.tf
+  - path: versions.tf
+    source:
+      repository: /tmp/terraform-makefile
+      path: updates/tf/versions.tf
+      sync-initial: false
+# goplicate-end:file
