@@ -73,7 +73,9 @@ linters:
 
 # goplicate-start:output
 output:
-  format: colored-line-number
+  formats:
+    - path: stdout
+      format: colored-line-number
   print-issued-lines: true
   print-linter-name: true
   uniq-by-line: true
@@ -159,7 +161,6 @@ linters-settings:
       - style
 
     disabled-tags:
-      - badLock
       - badRegexp
       - badSyncOnceFunc
       - docStub
@@ -250,7 +251,6 @@ linters-settings:
       G306: '0666'
 
   govet:
-    check-shadowing: true
     enable:
       - appends
       - asmdecl
