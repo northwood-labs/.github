@@ -29,16 +29,16 @@ targets:
       path: updates/.pre-commit-config.yaml
       sync-initial: true
 
-  - path: .vscode/extensions.js
+  - path: .vscode/extensions.json
     source:
       repository: /tmp/terraform-makefile
-      path: updates/.vscode/extensions.js
+      path: updates/.vscode/extensions.json
       sync-initial: true
 
-  - path: .vscode/settings.js
+  - path: .vscode/settings.json
     source:
       repository: /tmp/terraform-makefile
-      path: updates/.vscode/settings.js
+      path: updates/.vscode/settings.json
       sync-initial: true
 
   - path: cliff.toml
