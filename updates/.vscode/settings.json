@@ -186,14 +186,7 @@
   "linter.runOnTextChange": true,
   "linter-actionlint.config": {
     "capabilities": [],
-    "command": [
-      "actionlint",
-      "-format",
-      "'{{json .}}'",
-      "--stdin-filename",
-      "$file",
-      "-"
-    ],
+    "command": [],
     "configFiles": [
       "actionlint.yaml",
       "actionlint.yml"
