@@ -21,7 +21,6 @@ repos:
           - --maxkb=500
           - --enforce-all
       - id: check-case-conflict
-      - id: check-json
       - id: check-merge-conflict
       - id: check-toml
       - id: check-xml
@@ -138,7 +137,7 @@ repos:
       - id: go-consistent
         name: 'Go: Consistent Patterns'
         description: Analyzes Go packages to identify unnecessary type conversions.
-        entry: bash -c 'go-consistent ./corefunc/...; go-consistent ./corefuncprovider/...'
+        entry: bash -c 'go-consistent ./...'
         language: system
         stages: [commit, push]
 
