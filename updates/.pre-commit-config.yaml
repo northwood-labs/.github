@@ -130,7 +130,6 @@ repos:
     hooks:
       - id: gofumpt
       - id: golangci-lint
-      - id: gomodupdate
 
   - repo: local
     hooks:
