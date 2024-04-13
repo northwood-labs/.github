@@ -19,7 +19,7 @@ permissions: read-all
 jobs:
   lookup:
     runs-on: ubuntu-latest
-    name: Apply Standard Settings
+    name: Apply Standard Settings (${{ inputs.repo }})
     permissions:
       contents: read
     strategy:
