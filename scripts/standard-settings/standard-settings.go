@@ -29,13 +29,13 @@ func main() {
 	client := github.NewClient(nil).WithAuthToken(ghToken)
 
 	_, _, err := client.Repositories.Edit(ctx, "northwood-labs", fRepo, &github.Repository{
-		AllowAutoMerge:      github.Bool(true),
-		AllowMergeCommit:    github.Bool(false),
-		AllowRebaseMerge:    github.Bool(false),
-		AllowSquashMerge:    github.Bool(true),
-		AllowUpdateBranch:   github.Bool(true),
-		Archived:            github.Bool(false),
-		DefaultBranch:       github.String("main"),
+		AllowAutoMerge:    github.Bool(true),
+		AllowMergeCommit:  github.Bool(false),
+		AllowRebaseMerge:  github.Bool(false),
+		AllowSquashMerge:  github.Bool(true),
+		AllowUpdateBranch: github.Bool(true),
+		Archived:          github.Bool(false),
+		// DefaultBranch:       github.String("main"),
 		DeleteBranchOnMerge: github.Bool(true),
 		HasIssues:           github.Bool(true),
 		HasProjects:         github.Bool(false),
