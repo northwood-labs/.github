@@ -38,5 +38,7 @@ jobs:
 
       - name: Apply
         working-directory: ${{ github.workspace }}/scripts/standard-settings
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PUBLIC_TOKEN }}
         run: |
           go run standard-settings.go --repo ${{ inputs.repo }}
