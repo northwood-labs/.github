@@ -1,0 +1,30 @@
+# git-cliff ~ default configuration file
+# https://git-cliff.org/docs/configuration
+#
+# Lines starting with "#" are comments.
+# Configuration options are organized into tables and keys.
+# See documentation for more information on available options.
+
+[remote.github]
+  owner = "northwood-labs"
+  repo  = "@TODO"
+  # token = "" # Use GITHUB_TOKEN environment variable instead.
+
+  # goplicate-start:changelog
+  # goplicate-end:changelog
+
+  postprocessors = [
+    { pattern = "([^ ]+)\\(\\)", replace = "`$0`" },
+    { pattern = "AUTHORS|CONTRIBUTORS|CONTRIBUTING|README", replace = "$0.md" },
+    { pattern = "([^ ]+)\\.md", replace = "`$0`" },
+    { pattern = "([^ ]+)\\.ya?ml", replace = "`$0`" },
+    { pattern = "\\.md\\.md", replace = ".md" },
+    { pattern = "go\\.(mod|sum)", replace = "`$0`" },
+    { pattern = "(?i)pkg\\.go\\.dev", replace = "`$0`" },
+    { pattern = "Bump ([^ ]+)", replace = "Bump `$1`" },
+    { pattern = "\\(#([0-9]+)\\)", replace = "([#${1}](@REPO/issues/${1}))" },
+    { pattern = '@REPO', replace = "https://github.com/northwood-labs/@TODO" },
+  ]
+
+  # goplicate-start:git
+  # goplicate-end:git
