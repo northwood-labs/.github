@@ -1,0 +1,247 @@
+---
+# https://github.com/golangci/golangci-lint/blob/master/.golangci.reference.yml
+# https://golangci-lint.run/jsonschema/golangci.jsonschema.json
+
+# goplicate-start:run
+# goplicate-end:run
+
+# goplicate-start:severity
+# goplicate-end:severity
+
+# goplicate-start:linters
+# goplicate-end:linters
+
+# goplicate-start:output
+# goplicate-end:output
+
+linters-settings:
+  # goplicate-start:settings-asasalint
+  # goplicate-end:settings-asasalint
+
+  # goplicate-start:settings-bidichk
+  # goplicate-end:settings-bidichk
+
+  # goplicate-start:settings-copyloopvar
+  # goplicate-end:settings-copyloopvar
+
+  # goplicate-start:settings-cyclop
+  # goplicate-end:settings-cyclop
+
+  # goplicate-start:settings-decorder
+  # goplicate-end:settings-decorder
+
+  # goplicate-start:settings-depguard
+  # goplicate-end:settings-depguard
+
+  # goplicate-start:settings-dogsled
+  # goplicate-end:settings-dogsled
+
+  # goplicate-start:settings-dupl
+  # goplicate-end:settings-dupl
+
+  # goplicate-start:settings-dupword
+  # goplicate-end:settings-dupword
+
+  # goplicate-start:settings-errcheck
+  # goplicate-end:settings-errcheck
+
+  # goplicate-start:settings-errchkjson
+  # goplicate-end:settings-errchkjson
+
+  # goplicate-start:settings-errorlint
+  # goplicate-end:settings-errorlint
+
+  # goplicate-start:settings-exhaustive
+  # goplicate-end:settings-exhaustive
+
+  # goplicate-start:settings-exhaustruct
+  # goplicate-end:settings-exhaustruct
+
+  # goplicate-start:settings-forbidigo
+  # goplicate-end:settings-forbidigo
+
+  # goplicate-start:settings-funlen
+  # goplicate-end:settings-funlen
+
+  # goplicate-start:settings-ginkgolinter
+  # goplicate-end:settings-ginkgolinter
+
+  # goplicate-start:settings-gocognit
+  # goplicate-end:settings-gocognit
+
+  # goplicate-start:settings-goconst
+  # goplicate-end:settings-goconst
+
+  # goplicate-start:settings-gocritic
+  # goplicate-end:settings-gocritic
+
+  # goplicate-start:settings-gocyclo
+  # goplicate-end:settings-gocyclo
+
+  # goplicate-start:settings-godot
+  # goplicate-end:settings-godot
+
+  # goplicate-start:settings-godox
+  # goplicate-end:settings-godox
+
+  # goplicate-start:settings-gofmt
+  # goplicate-end:settings-gofmt
+
+  # goplicate-start:settings-gofumpt
+  # goplicate-end:settings-gofumpt
+
+  # goplicate-start:settings-goheader
+  # goplicate-end:settings-goheader
+
+  # goplicate-start:settings-goimports
+  # goplicate-end:settings-goimports
+
+  # goplicate-start:settings-gomnd
+  # goplicate-end:settings-gomnd
+
+  # goplicate-start:settings-gomoddirectives
+  # goplicate-end:settings-gomoddirectives
+
+  # goplicate-start:settings-gomodguard
+  # goplicate-end:settings-gomodguard
+
+  # goplicate-start:settings-gosimple
+  # goplicate-end:settings-gosimple
+
+  # goplicate-start:settings-gosec
+  # goplicate-end:settings-gosec
+
+  # goplicate-start:settings-gosmopolitan
+  # gosmopolitan:
+  # goplicate-end:settings-gosmopolitan
+
+  # goplicate-start:settings-govet
+  # goplicate-end:settings-govet
+
+  # goplicate-start:settings-grouper
+  # goplicate-end:settings-grouper
+
+  # goplicate-start:settings-importas
+  # goplicate-end:settings-importas
+
+  # goplicate-start:settings-interfacebloat
+  # goplicate-end:settings-interfacebloat
+
+  # goplicate-start:settings-ireturn
+  # goplicate-end:settings-ireturn
+
+  # goplicate-start:settings-lll
+  # goplicate-end:settings-lll
+
+  # goplicate-start:settings-loggercheck
+  # goplicate-end:settings-loggercheck
+
+  # goplicate-start:settings-maintidx
+  # goplicate-end:settings-maintidx
+
+  # goplicate-start:settings-makezero
+  # goplicate-end:settings-makezero
+
+  # goplicate-start:settings-misspell
+  # goplicate-end:settings-misspell
+
+  # goplicate-start:settings-musttag
+  # goplicate-end:settings-musttag
+
+  # goplicate-start:settings-nakedret
+  # goplicate-end:settings-nakedret
+
+  # goplicate-start:settings-nestif
+  # goplicate-end:settings-nestif
+
+  # goplicate-start:settings-nilnil
+  # goplicate-end:settings-nilnil
+
+  # goplicate-start:settings-nlreturn
+  # goplicate-end:settings-nlreturn
+
+  # goplicate-start:settings-nolintlint
+  # goplicate-end:settings-nolintlint
+
+  # goplicate-start:settings-nonamedreturns
+  # goplicate-end:settings-nonamedreturns
+
+  # goplicate-start:settings-paralleltest
+  # goplicate-end:settings-paralleltest
+
+  # goplicate-start:settings-perfsprint
+  # goplicate-end:settings-perfsprint
+
+  # goplicate-start:settings-prealloc
+  # goplicate-end:settings-prealloc
+
+  # goplicate-start:settings-predeclared
+  # goplicate-end:settings-predeclared
+
+  # goplicate-start:settings-promlinter
+  # goplicate-end:settings-promlinter
+
+  # goplicate-start:settings-reassign
+  # goplicate-end:settings-reassign
+
+  # goplicate-start:settings-revive
+  # goplicate-end:settings-revive
+
+  # goplicate-start:settings-rowserrcheck
+  # goplicate-end:settings-rowserrcheck
+
+  # goplicate-start:settings-sloglint
+  # goplicate-end:settings-sloglint
+
+  # goplicate-start:settings-spancheck
+  # goplicate-end:settings-spancheck
+
+  # goplicate-start:settings-staticcheck
+  # goplicate-end:settings-staticcheck
+
+  # goplicate-start:settings-stylecheck
+  # goplicate-end:settings-stylecheck
+
+  # goplicate-start:settings-tagalign
+  # goplicate-end:settings-tagalign
+
+  # goplicate-start:settings-tagliatelle
+  # goplicate-end:settings-tagliatelle
+
+  # goplicate-start:settings-tenv
+  # goplicate-end:settings-tenv
+
+  # goplicate-start:settings-testifylint
+  # goplicate-end:settings-testifylint
+
+  # goplicate-start:settings-testpackage
+  # goplicate-end:settings-testpackage
+
+  # goplicate-start:settings-thelper
+  # goplicate-end:settings-thelper
+
+  # goplicate-start:settings-usestdlibvars
+  # goplicate-end:settings-usestdlibvars
+
+  # goplicate-start:settings-unconvert
+  # goplicate-end:settings-unconvert
+
+  # goplicate-start:settings-unparam
+  # goplicate-end:settings-unparam
+
+  # goplicate-start:settings-unused
+  # goplicate-end:settings-unused
+
+  # goplicate-start:settings-varnamelen
+  # goplicate-end:settings-varnamelen
+
+  # goplicate-start:settings-whitespace
+  # goplicate-end:settings-whitespace
+
+  # goplicate-start:settings-wrapcheck
+  # goplicate-end:settings-wrapcheck
+
+  # goplicate-start:settings-wsl
+  # goplicate-end:settings-wsl
+# goplicate-start:issues
+# goplicate-end:issues
