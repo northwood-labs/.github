@@ -12,7 +12,8 @@ import (
 )
 
 var (
-	ctx = context.Background()
+	ctx      = context.Background()
+	isPublic bool
 
 	fRepo string
 )
@@ -28,30 +29,63 @@ func main() {
 
 	client := github.NewClient(nil).WithAuthToken(ghToken)
 
-	_, _, err := client.Repositories.Edit(ctx, "northwood-labs", fRepo, &github.Repository{
-		AllowAutoMerge:    github.Bool(true),
-		AllowMergeCommit:  github.Bool(false),
-		AllowRebaseMerge:  github.Bool(false),
-		AllowSquashMerge:  github.Bool(true),
-		AllowUpdateBranch: github.Bool(true),
-		Archived:          github.Bool(false),
-		// DefaultBranch:       github.String("main"),
+	repo, _, err := client.Repositories.Get(ctx, "northwood-labs", fRepo)
+	if err != nil {
+		exiterrorf.ExitErrorf(errors.Wrap(err, "failed to get repository"))
+	}
+
+	isPublic = repo.GetVisibility() == "public"
+
+	_, _, err = client.Repositories.Edit(ctx, "northwood-labs", fRepo, &github.Repository{
+		AllowAutoMerge:      github.Bool(true),
+		AllowMergeCommit:    github.Bool(false),
+		AllowRebaseMerge:    github.Bool(false),
+		AllowSquashMerge:    github.Bool(true),
+		AllowUpdateBranch:   github.Bool(true),
+		Archived:            github.Bool(false),
 		DeleteBranchOnMerge: github.Bool(true),
 		HasIssues:           github.Bool(true),
 		HasProjects:         github.Bool(false),
 		HasWiki:             github.Bool(false),
 		IsTemplate:          github.Bool(false),
-		SecurityAndAnalysis: &github.SecurityAndAnalysis{
-			SecretScanning: &github.SecretScanning{
-				Status: github.String("enabled"),
-			},
-			SecretScanningPushProtection: &github.SecretScanningPushProtection{
-				Status: github.String("enabled"),
-			},
-			SecretScanningValidityChecks: &github.SecretScanningValidityChecks{
-				Status: github.String("enabled"),
-			},
-		},
+		// SecurityAndAnalysis: &github.SecurityAndAnalysis{
+		// 	AdvancedSecurity: &github.AdvancedSecurity{
+		// 		Status: github.String(func() string {
+		// 			if isPublic {
+		// 				return "enabled"
+		// 			}
+
+		// 			return "disabled"
+		// 		}()),
+		// 	},
+		// 	SecretScanning: &github.SecretScanning{
+		// 		Status: github.String(func() string {
+		// 			if isPublic {
+		// 				return "enabled"
+		// 			}
+
+		// 			return "disabled"
+		// 		}()),
+		// 	},
+		// 	SecretScanningPushProtection: &github.SecretScanningPushProtection{
+		// 		Status: github.String(func() string {
+		// 			if isPublic {
+		// 				return "enabled"
+		// 			}
+
+		// 			return "disabled"
+		// 		}()),
+		// 	},
+		// 	SecretScanningValidityChecks: &github.SecretScanningValidityChecks{
+		// 		Status: github.String(func() string {
+		// 			if isPublic {
+		// 				return "enabled"
+		// 			}
+
+		// 			return "disabled"
+		// 		}()),
+		// 	},
+		// },
 	})
 	if err != nil {
 		exiterrorf.ExitErrorf(errors.Wrap(err, "failed to edit repository"))
