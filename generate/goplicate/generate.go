@@ -32,7 +32,7 @@ func main() {
 	writeFileFromTemplate(
 		varMap,
 		getAbs("./goplicate.tmpl.yaml"),
-		getAbs("./.goplicate.yaml"),
+		getAbs("/../../updates/.goplicate.yaml"),
 	)
 }
 
