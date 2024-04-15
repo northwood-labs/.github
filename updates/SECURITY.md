@@ -17,7 +17,7 @@ currently being supported with security updates.
 <!-- goplicate-start:reporting -->
 ## Reporting a Vulnerability
 
-If you believe you have found a legitimate security vulnerability, please [report it](./security/advisories/new).
+If you believe you have found a legitimate security vulnerability, please [report it](../security/advisories/new).
 
 There is no bounty program, and there are no payments for discovering/reporting security vulnerabilities, but we **all** benefit from software that is more secure. Happy to provide public thanks once the issue has been resolved.
 
