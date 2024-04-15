@@ -1,0 +1,53 @@
+{
+  /*
+  https://github.com/ilaif/goplicate
+  */
+  "recommendations": [
+    // goplicate-start:always
+    // goplicate-end:always
+    //
+    // goplicate-start:aws
+    // goplicate-end:aws
+    //
+    // goplicate-start:containers
+    // goplicate-end:containers
+    //
+    // goplicate-start:frontend
+    // goplicate-end:frontend
+    //
+    // goplicate-start:golang
+    // goplicate-end:golang
+    //
+    // goplicate-start:graphql
+    // goplicate-end:graphql
+    //
+    // goplicate-start:iac
+    // goplicate-end:iac
+    //
+    // goplicate-start:markdown
+    // goplicate-end:markdown
+    //
+    // goplicate-start:protobuf
+    // goplicate-end:protobuf
+    //
+    // goplicate-start:python
+    // goplicate-end:python
+    //
+    // goplicate-start:security
+    // goplicate-end:security
+    //
+    // goplicate-start:shell
+    // goplicate-end:shell
+    //
+    // goplicate-start:wasm
+    // goplicate-end:wasm
+    //
+    // goplicate-start:xml
+    // goplicate-end:xml
+    //
+  ],
+  "unwantedRecommendations": [
+    // goplicate-start:unwanted
+    // goplicate-end:unwanted
+  ]
+}
