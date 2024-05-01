@@ -71,5 +71,6 @@ Exclude = [
   "min\\.css$",
   "min\\.js$",
   "package-lock\\.json$",
+  "standard\\.mk$",
   # goplicate-end:excludes
 ]
