@@ -2,7 +2,7 @@
 # See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 default_language_version:
-  python: python3.11
+  python: python3.10
 
 default_stages:
   - commit
@@ -71,7 +71,7 @@ repos:
       - id: trivy-vuln
         name: Trivy (Vulnerabilities)
         description: Check for security vulnerabilities. (https://trivy.dev)
-        entry: bash -c 'trivy fs --config trivy-vuln.yaml .'
+        entry: bash -c 'trivy fs --config trivy-vuln.yaml --ignorefile .trivyignore.yaml .'
         language: system
         stages: [commit, push]
   # goplicate-end:always
