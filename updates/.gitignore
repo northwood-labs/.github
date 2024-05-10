@@ -4,6 +4,7 @@ _*.txt
 _/
 _cache_/*
 .dccache
+.private.env
 *.cache.json
 *.zip
 dist/
