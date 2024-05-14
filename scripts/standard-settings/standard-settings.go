@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"time"
 
+	"github.com/charmbracelet/log"
 	"github.com/google/go-github/v61/github"
-	"github.com/northwood-labs/golang-utils/exiterrorf"
-	"github.com/pkg/errors"
 	flag "github.com/spf13/pflag"
 )
 
@@ -16,12 +16,18 @@ var (
 	isPublic bool
 
 	fRepo string
+
+	logger = log.NewWithOptions(os.Stderr, log.Options{
+		ReportTimestamp: true,
+		TimeFormat:      time.Kitchen,
+		Prefix:          "standard-settings",
+	})
 )
 
 func main() {
 	ghToken := os.Getenv("GITHUB_TOKEN")
 	if ghToken == "" {
-		exiterrorf.ExitErrorf(errors.New("GITHUB_TOKEN is required"))
+		logger.Fatal("GITHUB_TOKEN is required")
 	}
 
 	flag.StringVarP(&fRepo, "repo", "r", "", "Repository to update inside NWL organization")
@@ -31,7 +37,7 @@ func main() {
 
 	repo, _, err := client.Repositories.Get(ctx, "northwood-labs", fRepo)
 	if err != nil {
-		exiterrorf.ExitErrorf(errors.Wrap(err, "failed to get repository"))
+		logger.Fatalf("failed to get repository: %s", err.Error())
 	}
 
 	isPublic = repo.GetVisibility() == "public"
@@ -88,7 +94,7 @@ func main() {
 		// },
 	})
 	if err != nil {
-		exiterrorf.ExitErrorf(errors.Wrap(err, "failed to edit repository"))
+		logger.Fatalf("failed to edit repository: %s", err.Error())
 	}
 
 	fmt.Println("OK")
