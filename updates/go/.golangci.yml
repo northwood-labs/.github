@@ -86,7 +86,6 @@ linters:
     - gofumpt
     # - goheader
     - goimports
-    - gomnd
     # - gomoddirectives
     # - gomodguard
     - gosec
@@ -102,6 +101,7 @@ linters:
     - maintidx
     - makezero
     - misspell
+    - mnd
     # - musttag
     - nakedret
     - nestif
@@ -369,14 +369,14 @@ linters-settings:
 
   # goplicate-start:settings-exhaustruct
   exhaustruct:
-    # List of regular expressions to match struct packages and names.
-    # If this list is empty, all structs are tested.
-    # Default: []
-    # include: []
+  # List of regular expressions to match struct packages and names.
+  # If this list is empty, all structs are tested.
+  # Default: []
+  # include: []
 
-    # List of regular expressions to exclude struct packages and names from check.
-    # Default: []
-    # exclude: []
+  # List of regular expressions to exclude struct packages and names from check.
+  # Default: []
+  # exclude: []
   # goplicate-end:settings-exhaustruct
 
   # goplicate-start:settings-forbidigo
@@ -518,45 +518,45 @@ linters-settings:
         skipTestFuncs: true
 
       ruleguard:
-        # Enable debug to identify which 'Where' condition was rejected.
-        # The value of the parameter is the name of a function in a ruleguard file.
-        #
-        # When a rule is evaluated:
-        # If:
-        #   The Match() clause is accepted; and
-        #   One of the conditions in the Where() clause is rejected,
-        # Then:
-        #   ruleguard prints the specific Where() condition that was rejected.
-        #
-        # The flag is passed to the ruleguard 'debug-group' argument.
-        # Default: ""
-        # debug: ''
+      # Enable debug to identify which 'Where' condition was rejected.
+      # The value of the parameter is the name of a function in a ruleguard file.
+      #
+      # When a rule is evaluated:
+      # If:
+      #   The Match() clause is accepted; and
+      #   One of the conditions in the Where() clause is rejected,
+      # Then:
+      #   ruleguard prints the specific Where() condition that was rejected.
+      #
+      # The flag is passed to the ruleguard 'debug-group' argument.
+      # Default: ""
+      # debug: ''
 
-        # Determines the behavior when an error occurs while parsing ruleguard files.
-        # If flag is not set, log error and skip rule files that contain an error.
-        # If flag is set, the value must be a comma-separated list of error conditions.
-        # - 'all':    fail on all errors.
-        # - 'import': ruleguard rule imports a package that cannot be found.
-        # - 'dsl':    gorule file does not comply with the ruleguard DSL.
-        # Default: ""
-        # failOn: ''
+      # Determines the behavior when an error occurs while parsing ruleguard files.
+      # If flag is not set, log error and skip rule files that contain an error.
+      # If flag is set, the value must be a comma-separated list of error conditions.
+      # - 'all':    fail on all errors.
+      # - 'import': ruleguard rule imports a package that cannot be found.
+      # - 'dsl':    gorule file does not comply with the ruleguard DSL.
+      # Default: ""
+      # failOn: ''
 
-        # Comma-separated list of file paths containing ruleguard rules.
-        # If a path is relative, it is relative to the directory where the golangci-lint command is executed.
-        # The special '${configDir}' variable is substituted with the absolute directory containing the golangci config file.
-        # Glob patterns such as 'rules-*.go' may be specified.
-        # Default: ""
-        # rules: ''
+      # Comma-separated list of file paths containing ruleguard rules.
+      # If a path is relative, it is relative to the directory where the golangci-lint command is executed.
+      # The special '${configDir}' variable is substituted with the absolute directory containing the golangci config file.
+      # Glob patterns such as 'rules-*.go' may be specified.
+      # Default: ""
+      # rules: ''
 
-        # Comma-separated list of enabled groups or skip empty to enable everything.
-        # Tags can be defined with # character prefix.
-        # Default: "<all>"
-        # enable: "myGroupName,#myTagName"
+      # Comma-separated list of enabled groups or skip empty to enable everything.
+      # Tags can be defined with # character prefix.
+      # Default: "<all>"
+      # enable: "myGroupName,#myTagName"
 
-        # Comma-separated list of disabled groups or skip empty to enable everything.
-        # Tags can be defined with # character prefix.
-        # Default: ""
-        # disable: "myGroupName,#myTagName"
+      # Comma-separated list of disabled groups or skip empty to enable everything.
+      # Tags can be defined with # character prefix.
+      # Default: ""
+      # disable: "myGroupName,#myTagName"
 
       tooManyResultsChecker:
         # Maximum number of results.
@@ -641,8 +641,8 @@ linters-settings:
     local-prefixes: github.com/northwood-labs/
   # goplicate-end:settings-goimports
 
-  # goplicate-start:settings-gomnd
-  gomnd:
+  # goplicate-start:settings-mnd
+  mnd:
     # List of enabled checks, see https://github.com/tommy-muehle/go-mnd/#checks for description.
     # Default: ["argument", "case", "condition", "operation", "return", "assign"]
     checks:
@@ -675,7 +675,7 @@ linters-settings:
     # ignored-functions:
     #   - '^math\.'
     #   - '^http\.StatusText$'
-  # goplicate-end:settings-gomnd
+  # goplicate-end:settings-mnd
 
   # goplicate-start:settings-gomoddirectives
   # gomoddirectives:
@@ -1121,23 +1121,23 @@ linters-settings:
 
   # goplicate-start:settings-spancheck
   spancheck:
-    # Checks to enable.
-    # Options include:
-    # - `end`: check that `span.End()` is called
-    # - `record-error`: check that `span.RecordError(err)` is called when an error is returned
-    # - `set-status`: check that `span.SetStatus(codes.Error, msg)` is called when an error is returned
-    # Default: ["end"]
-    # checks:
-    #   - end
-    #   - record-error
-    #   - set-status
+  # Checks to enable.
+  # Options include:
+  # - `end`: check that `span.End()` is called
+  # - `record-error`: check that `span.RecordError(err)` is called when an error is returned
+  # - `set-status`: check that `span.SetStatus(codes.Error, msg)` is called when an error is returned
+  # Default: ["end"]
+  # checks:
+  #   - end
+  #   - record-error
+  #   - set-status
 
-    # A list of regexes for function signatures that silence `record-error` and `set-status` reports
-    # if found in the call path to a returned error.
-    # https://github.com/jjti/go-spancheck#ignore-check-signatures
-    # Default: []
-    # ignore-check-signatures:
-    #   - "telemetry.RecordError"
+  # A list of regexes for function signatures that silence `record-error` and `set-status` reports
+  # if found in the call path to a returned error.
+  # https://github.com/jjti/go-spancheck#ignore-check-signatures
+  # Default: []
+  # ignore-check-signatures:
+  #   - "telemetry.RecordError"
   # goplicate-end:settings-spancheck
 
   # goplicate-start:settings-staticcheck
@@ -1499,7 +1499,7 @@ linters-settings:
     # this is set to true - the append call must append either a variable
     # assigned, called or used on the line above.
     strict-append: true
-  # goplicate-end:settings-wsl
+    # goplicate-end:settings-wsl
 
 # goplicate-start:issues
 issues:
@@ -1595,7 +1595,7 @@ issues:
       source: lint:allow_param
 
     - linters:
-        - gomnd
+        - mnd
       source: lint:allow_raw_number
 
     - text: 'commentedOutCode: may want to remove commented-out code'

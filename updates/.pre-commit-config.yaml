@@ -74,6 +74,13 @@ repos:
         entry: bash -c 'trivy fs --config trivy-vuln.yaml --ignorefile .trivyignore.yaml .'
         language: system
         stages: [commit, push]
+
+      - id: yamlfmt
+        name: yamlfmt
+        description: Format YAML to canonical style
+        entry: bash -c 'yamlfmt .'
+        language: system
+        stages: [commit, push]
   # goplicate-end:always
 
   # ----------------------------------------------------------------------------
@@ -133,13 +140,6 @@ repos:
 
   - repo: local
     hooks:
-      - id: go-consistent
-        name: 'Go: Consistent Patterns'
-        description: Analyzes Go packages to identify unnecessary type conversions.
-        entry: bash -c 'go-consistent ./...'
-        language: system
-        stages: [commit, push]
-
       - id: unconvert
         name: 'Go: unconvert (current GOOS/GOARCH)'
         description: Analyzes Go packages to identify unnecessary type conversions.
