@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+GIT_CLONE_PROTECTION_ACTIVE=false
+
 # Root directory of the repository.
 # shellcheck disable=2312
 ROOT_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
