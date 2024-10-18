@@ -10,7 +10,13 @@ Historically, most of the tools built to address these areas have done a poor jo
 
 We believe that all of this can be made better, and we intend to try.
 
-<https://northwood-labs.com>
-
 [Colorado]: https://en.wikipedia.org/wiki/Colorado
 [Rocky Mountains]: https://en.wikipedia.org/wiki/Rocky_Mountains
+
+---
+
+<div align="center">
+  
+[Website](https://northwood-labs.com) • [LinkedIn](https://www.linkedin.com/company/northwood-labs/) • [Facebook](https://www.facebook.com/profile.php?id=61558955227346) • [Instagram](https://www.instagram.com/northwood.labs/) • [TikTok](https://www.tiktok.com/@northwood.labs) • Mastodon • Threads
+
+</div>
