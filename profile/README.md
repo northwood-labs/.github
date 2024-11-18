@@ -17,10 +17,11 @@ We believe that all of this can be made better, and we intend to try.
 
 <div align="center">
   
-[Website] • [Crunchbase] • [LinkedIn] • [Facebook] • [Instagram] • [TikTok] • YouTube • Mastodon • [Threads] • Bluesky
+[Website] • [Crunchbase] • [LinkedIn] • [Facebook] • [Instagram] • [TikTok] • YouTube • Mastodon • [Threads] • [Bluesky]
 
 </div>
 
+[Bluesky]: https://bsky.app/profile/northwood-labs.bsky.social
 [Crunchbase]: https://www.crunchbase.com/organization/northwood-labs
 [Facebook]: https://www.facebook.com/profile.php?id=61558955227346
 [Instagram]: https://www.instagram.com/northwood.labs/
