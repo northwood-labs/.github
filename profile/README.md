@@ -17,7 +17,7 @@ We believe that all of this can be made better, and we intend to try.
 
 <div align="center">
   
-[Website] • [Crunchbase] • [LinkedIn] • [Facebook] • [Instagram] • [TikTok] • YouTube • [Mastodon] • [Threads] • [Bluesky]
+[Website] • [Crunchbase] • [LinkedIn] • [Facebook] • [Instagram] • [TikTok] • [YouTube] • [Mastodon] • [Threads] • [Bluesky]
 
 </div>
 
@@ -30,3 +30,4 @@ We believe that all of this can be made better, and we intend to try.
 [Threads]: https://www.threads.net/@northwood.labs
 [TikTok]: https://www.tiktok.com/@northwood.labs
 [Website]: https://northwood-labs.com
+[YouTube]: https://www.youtube.com/@northwoodlabs
