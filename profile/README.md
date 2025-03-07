@@ -21,7 +21,7 @@ We believe that all of this can be made better, and we intend to try.
 
 </div>
 
-[Bluesky]: https://bsky.app/profile/northwood-labs.bsky.social
+[Bluesky]: https://bsky.app/profile/northwood-labs.com
 [Crunchbase]: https://www.crunchbase.com/organization/northwood-labs
 [Facebook]: https://www.facebook.com/profile.php?id=61558955227346
 [Instagram]: https://www.instagram.com/northwood.labs/
