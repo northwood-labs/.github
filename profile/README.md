@@ -17,16 +17,17 @@ We believe that all of this can be made better, and we intend to try.
 
 <div align="center">
   
-[Website] • [Crunchbase] • [LinkedIn] • [Facebook] • [Instagram] • [TikTok] • [YouTube] • [Mastodon] • [Threads] • [Bluesky]
+[Website] • [Crunchbase] • [LinkedIn] • [Pinterest] • [Facebook] • [Instagram] • [TikTok] • [YouTube] • [Mastodon] • [Threads] • [Bluesky]
 
 </div>
 
 [Bluesky]: https://bsky.app/profile/northwood-labs.com
 [Crunchbase]: https://www.crunchbase.com/organization/northwood-labs
 [Facebook]: https://www.facebook.com/profile.php?id=61558955227346
-[Instagram]: https://www.instagram.com/northwood.labs/
-[LinkedIn]: https://www.linkedin.com/company/northwood-labs/
+[Instagram]: https://www.instagram.com/northwood.labs
+[LinkedIn]: https://www.linkedin.com/company/northwood-labs
 [Mastodon]: https://techhub.social/@northwoodlabs
+[Pinterest]: https://www.pinterest.com/northwoodlabs
 [Threads]: https://www.threads.net/@northwood.labs
 [TikTok]: https://www.tiktok.com/@northwood.labs
 [Website]: https://northwood-labs.com
