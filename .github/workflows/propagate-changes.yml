@@ -1,0 +1,30 @@
+name: Propagate Configuration Changes
+
+on:
+  push:
+    branches: [main]
+    paths: ['templates/**']
+  workflow_dispatch:
+    inputs:
+      target_repos:
+        description: 'Comma-separated list of repos (or "all")'
+        required: false
+        default: 'all'
+
+jobs:
+  propagate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get list of target repositories
+        id: repos
+        run: |
+          # Query GitHub API for repositories with .repo-config.toml
+          # Or use input parameter
+
+      - name: Update configurations
+        run: |
+          config-manager propagate \
+            --repos="${{ steps.repos.outputs.repo_list }}" \
+            --token="${{ secrets.CONFIG_SYNC_TOKEN }}"

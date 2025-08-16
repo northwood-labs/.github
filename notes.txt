@@ -1,0 +1,17 @@
++ .shellcheckrc
++ .lefthook.yml
++ .lefthook/
+- .githooks
+
+config-templates/
+├── templates/
+│   ├── .github/workflows/
+│   ├── .eslintrc.js
+│   ├── package.json
+│   ├── tsconfig.json
+│   └── ...
+├── schemas/
+│   └── repo-config.schema.json
+├── .github/workflows/
+│   └── propagate-changes.yml
+└── config-manager.js
