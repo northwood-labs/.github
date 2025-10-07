@@ -1,0 +1,16 @@
+# config-sets.toml
+# Configuration sets and sections available for config-manager.
+
+[standard]
+version     = "1.0"
+description = "Standard configuration definitions for config-manager"
+
+# Configuration Sets - Collections of related stub files
+[sets.golang]
+description = "Go language support with build targets, testing, and linting."
+stub_files = [
+  "stubs/Makefile.stub",
+  "stubs/go.mod.stub",
+  "stubs/.golangci.yml.stub",
+  "stubs/cmd/app/main.go.stub",
+]

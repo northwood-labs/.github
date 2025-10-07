@@ -1,0 +1,12 @@
+##
+# Generate with:
+#   tomljson ecrc.toml > .editorconfig-checker.json
+##
+
+# @config-manager:start config
+# @config-manager:end config
+
+Exclude = [
+  # @config-manager:start excludes
+  # @config-manager:end excludes
+]
