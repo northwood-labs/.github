@@ -1,0 +1,6 @@
+# Write glob rules for ignored files.
+# Check syntax on https://deepcode.freshdesk.com/support/solutions/articles/60000531055-how-can-i-ignore-files-or-directories-
+# Used by Snyk; https://docs.snyk.io/features/integrations/ide-tools/visual-studio-code-extension-for-snyk-code
+
+# @config-manager:start standard
+# @config-manager:end standard

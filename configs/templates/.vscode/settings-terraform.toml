@@ -1,0 +1,26 @@
+# @config-manager:start terraform-top-level
+# These are for working with Terraform/OpenTofu.
+'terraform.codelens.referenceCount' = false
+'terraform.experimentalFeatures.validateOnSave' = true
+'terraform.languageServer.tcp.port' = 0.0
+# @config-manager:end terraform-top-level
+
+# @config-manager:start terraform
+['[terraform-vars]']
+  'editor.defaultFormatter' = 'hashicorp.terraform'
+  'editor.formatOnSave' = false
+
+  ['[terraform-vars]'.'editor.codeActionsOnSave']
+    'source.formatAll.terraform' = 'always'
+
+['[terraform]']
+  'editor.defaultFormatter' = 'hashicorp.terraform'
+  'editor.formatOnSave' = false
+
+  ['[terraform]'.'editor.codeActionsOnSave']
+    'source.formatAll.terraform' = 'always'
+
+['[terraform][terraform-vars]']
+  ['[terraform][terraform-vars]'.'editor.codeActionsOnSave']
+    'source.formatAll.terraform' = 'explicit'
+    # @config-manager:end terraform

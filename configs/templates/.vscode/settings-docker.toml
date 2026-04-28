@@ -1,0 +1,21 @@
+# @config-manager:start docker-top-level
+# These are for working with containers of all kinds.
+'docker.languageserver.diagnostics.instructionJSONInSingleQuotes' = 'error'
+'hadolint.cliOptions' = [ '--no-color' ]
+# @config-manager:end docker-top-level
+
+# @config-manager:start docker
+['[dockercompose]']
+  'editor.autoIndent' = 'advanced'
+  'editor.defaultFormatter' = 'redhat.vscode-yaml'
+  'editor.insertSpaces' = true
+  'editor.tabSize' = 2.0
+
+  ['[dockercompose]'.'editor.quickSuggestions']
+    comments = false
+    other = true
+    strings = true
+
+['[dockerfile]']
+  'editor.defaultFormatter' = 'foxundermoon.shell-format'
+  # @config-manager:end docker

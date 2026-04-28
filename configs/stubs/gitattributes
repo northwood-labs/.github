@@ -1,0 +1,5 @@
+# Helps Git use the right algorithms for diffs
+# https://git-scm.com/docs/gitattributes
+
+# @config-manager:start gitattributes
+# @config-manager:end gitattributes

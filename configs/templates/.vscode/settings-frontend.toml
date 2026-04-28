@@ -1,0 +1,8 @@
+# @config-manager:start frontend-top-level
+'eslint.validate' = [ 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' ]
+# @config-manager:end frontend-top-level
+
+# @config-manager:start frontend
+['[css]']
+  'editor.defaultFormatter' = 'esbenp.prettier-vscode'
+  # @config-manager:end frontend
