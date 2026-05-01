@@ -76,3 +76,34 @@ description = "Go language support with build targets, testing, and linting."
 #   * https://agent-safehouse.dev
 # 1Password
 #   * https://github.com/1Password/onepassword-sdk-go
+
+
+[[files]]
+stub = 'configs/stubs/.vscode/settings-docker.toml'
+source = 'configs/templates/.vscode/settings-docker.toml'
+destination = '.vscode/settings-docker.toml'
+
+[[files]]
+stub = 'configs/stubs/.vscode/settings-frontend.toml'
+source = 'configs/templates/.vscode/settings-frontend.toml'
+destination = '.vscode/settings-frontend.toml'
+
+[[files]]
+stub = 'configs/stubs/.vscode/settings-go.toml'
+source = 'configs/templates/.vscode/settings-go.toml'
+destination = '.vscode/settings-go.toml'
+
+[[files]]
+stub = 'configs/stubs/.vscode/settings-llm.toml'
+source = 'configs/templates/.vscode/settings-llm.toml'
+destination = '.vscode/settings-llm.toml'
+
+[[files]]
+stub = 'configs/stubs/.vscode/settings-python.toml'
+source = 'configs/templates/.vscode/settings-python.toml'
+destination = '.vscode/settings-python.toml'
+
+[[files]]
+stub = 'configs/stubs/.vscode/settings-terraform.toml'
+source = 'configs/templates/.vscode/settings-terraform.toml'
+destination = '.vscode/settings-terraform.toml'
