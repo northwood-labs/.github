@@ -1,0 +1,13 @@
+recommendations = [
+  # @config-manager:start frontend
+  'bradlc.vscode-tailwindcss',
+  'cipchk.cssrem',
+  'formulahendry.auto-close-tag',
+  'kamikillerto.vscode-colorize',
+  'MikeBovenlander.formate',
+  'Orta.vscode-jest',
+  'pranaygp.vscode-css-peek',
+  'wix.vscode-import-cost',
+  'Zignd.html-css-class-completion',
+  # @config-manager:end frontend
+]

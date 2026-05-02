@@ -1,0 +1,8 @@
+recommendations = [
+  # @config-manager:start graphql
+  'GraphQL.vscode-graphql-execution',
+  'GraphQL.vscode-graphql',
+  'GraphQL.vscode-graphql-syntax',
+  'meta.relay',
+  # @config-manager:end graphql
+]

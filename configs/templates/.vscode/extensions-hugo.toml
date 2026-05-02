@@ -1,0 +1,5 @@
+recommendations = [
+  # @config-manager:start hugo
+  'budparr.language-hugo-vscode',
+  # @config-manager:end hugo
+]

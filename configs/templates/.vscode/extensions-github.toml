@@ -1,0 +1,8 @@
+recommendations = [
+  # @config-manager:start github
+  'chdsbd.github-code-owners',
+  'dt.ghlink',
+  'github.vscode-github-actions',
+  'GitHub.vscode-pull-request-github',
+  # @config-manager:end github
+]

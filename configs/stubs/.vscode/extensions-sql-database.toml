@@ -1,0 +1,4 @@
+recommendations = [
+  # @config-manager:start sql-database
+  # @config-manager:end sql-database
+]

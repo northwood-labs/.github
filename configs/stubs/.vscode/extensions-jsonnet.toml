@@ -1,0 +1,4 @@
+recommendations = [
+  # @config-manager:start jsonnet
+  # @config-manager:end jsonnet
+]

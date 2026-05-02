@@ -1,0 +1,5 @@
+recommendations = [
+  # @config-manager:start deep-security
+  'ms-sarifvscode.sarif-viewer',
+  # @config-manager:end deep-security
+]

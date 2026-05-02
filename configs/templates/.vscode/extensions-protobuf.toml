@@ -1,0 +1,7 @@
+recommendations = [
+  # @config-manager:start protobuf
+  'DrBlury.protobuf-vsc',
+  'dancheg97.grpc-clicker',
+  'mercari.grpc-federation',
+  # @config-manager:end protobuf
+]

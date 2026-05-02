@@ -2,108 +2,109 @@
 # Configuration sets and sections available for config-manager.
 
 [standard]
-version     = "1.0"
-description = "Standard configuration definitions for config-manager"
+  version = "1.0"
+  description = "Standard configuration definitions for config-manager"
 
 # Configuration Sets - Collections of related stub files
 [sets.golang]
-description = "Go language support with build targets, testing, and linting."
-[[sets.golang.files]]
+  description = "Go language support with build targets, testing, and linting."
+  [[sets.golang.files]]
 
-# Standard: ALWAYS
-#   * bash
-#   * dasel
-#   * jq
-#   * watchman?
-# Go CLI
-#   * Template project containing core patterns
-# Go library
-#   * Template project containing core patterns
-#   * Testing frameworks
-#   * Fuzzing
-#   * pprof
-# Terraform module
-#   * Template project containing core patterns
-#   * terraform-mcp-server
-# Terraform provider
-#   * Template project containing core patterns
-# Frontend
-#   * Template project containing core patterns
-#   * Node.js
-#   * pnpm
-#   * parcel.js
-#   * Deno?
-#   * Vite?
-# Python script
-#   * Template project containing core patterns
-#   * python
-#   * ruff
-#   * uv
-#   * yapf
-#   * zuban
-# Bash script
-#   * Template project containing core patterns
-#   * Shellcheck
-#   * shfmt
-# Database
-#   * Template project containing core patterns
-#   * atlas
-#   * tbls
-#   * Datagrip
-# Containers
-#   * Template project containing core patterns
-#   * docker-desktop
-#   * tilt-dev/tap/tilt
-# Building GraphQL APIs in Go
-#   * Template project containing core patterns
-#   * Ent
-# Calling GraphQL APIs from Go
-#   * https://github.com/Khan/genqlient
-# Building REST APIs in Go
-#   * Template project containing core patterns
-#   * OpenAPI tooling
-# Building Protobuf APIs in Go
-#   * Template project containing core patterns
-#   * buf
-# AWS
-#   * awscli
-#   * aws-sso-manager
-#   * aws-vault
-# MCP server patterns
-#   * https://www.gitagent.sh
-#   * https://shuru.run
-#   * https://github.com/mksglu/context-mode
-#   * https://agent-safehouse.dev
-# 1Password
-#   * https://github.com/1Password/onepassword-sdk-go
-
-
-[[files]]
-stub = 'configs/stubs/.vscode/settings-docker.toml'
-source = 'configs/templates/.vscode/settings-docker.toml'
-destination = '.vscode/settings-docker.toml'
+    # Standard: ALWAYS
+    #   * bash
+    #   * dasel
+    #   * jq
+    #   * watchman?
+    # Go CLI
+    #   * Template project containing core patterns
+    # Go library
+    #   * Template project containing core patterns
+    #   * Testing frameworks
+    #   * Fuzzing
+    #   * pprof
+    # Terraform module
+    #   * Template project containing core patterns
+    #   * terraform-mcp-server
+    # Terraform provider
+    #   * Template project containing core patterns
+    # Frontend
+    #   * Template project containing core patterns
+    #   * Node.js
+    #   * pnpm
+    #   * parcel.js
+    #   * Deno?
+    #   * Vite?
+    # Python script
+    #   * Template project containing core patterns
+    #   * python
+    #   * ruff
+    #   * uv
+    #   * yapf
+    #   * zuban
+    # Bash script
+    #   * Template project containing core patterns
+    #   * Shellcheck
+    #   * shfmt
+    # Database
+    #   * Template project containing core patterns
+    #   * atlas
+    #   * tbls
+    #   * Datagrip
+    # Containers
+    #   * Template project containing core patterns
+    #   * docker-desktop
+    #   * tilt-dev/tap/tilt
+    # Building GraphQL APIs in Go
+    #   * Template project containing core patterns
+    #   * Ent
+    # Calling GraphQL APIs from Go
+    #   * https://github.com/Khan/genqlient
+    # Building REST APIs in Go
+    #   * Template project containing core patterns
+    #   * OpenAPI tooling
+    # Building Protobuf APIs in Go
+    #   * Template project containing core patterns
+    #   * buf
+    # AWS
+    #   * awscli
+    #   * aws-sso-manager
+    #   * aws-vault
+    # MCP server patterns
+    #   * https://www.gitagent.sh
+    #   * https://shuru.run
+    #   * https://github.com/mksglu/context-mode
+    #   * https://agent-safehouse.dev
+    # 1Password
+    #   * https://github.com/1Password/onepassword-sdk-go
+    # Hugo site
+    #   * Template project containing core patterns
 
 [[files]]
-stub = 'configs/stubs/.vscode/settings-frontend.toml'
-source = 'configs/templates/.vscode/settings-frontend.toml'
-destination = '.vscode/settings-frontend.toml'
+  stub = 'configs/stubs/.vscode/settings-docker.toml'
+  source = 'configs/templates/.vscode/settings-docker.toml'
+  destination = '.vscode/settings-docker.toml'
 
 [[files]]
-stub = 'configs/stubs/.vscode/settings-go.toml'
-source = 'configs/templates/.vscode/settings-go.toml'
-destination = '.vscode/settings-go.toml'
+  stub = 'configs/stubs/.vscode/settings-frontend.toml'
+  source = 'configs/templates/.vscode/settings-frontend.toml'
+  destination = '.vscode/settings-frontend.toml'
 
 [[files]]
-stub = 'configs/stubs/.vscode/settings-llm.toml'
-source = 'configs/templates/.vscode/settings-llm.toml'
-destination = '.vscode/settings-llm.toml'
+  stub = 'configs/stubs/.vscode/settings-go.toml'
+  source = 'configs/templates/.vscode/settings-go.toml'
+  destination = '.vscode/settings-go.toml'
 
 [[files]]
-stub = 'configs/stubs/.vscode/settings-python.toml'
-source = 'configs/templates/.vscode/settings-python.toml'
-destination = '.vscode/settings-python.toml'
+  stub = 'configs/stubs/.vscode/settings-llm.toml'
+  source = 'configs/templates/.vscode/settings-llm.toml'
+  destination = '.vscode/settings-llm.toml'
 
 [[files]]
-stub = 'configs/stubs/.vscode/settings-terraform.toml'
-source = 'configs/templates/.vscode/settings-terraform.toml'
-destination = '.vscode/settings-terraform.toml'
+  stub = 'configs/stubs/.vscode/settings-python.toml'
+  source = 'configs/templates/.vscode/settings-python.toml'
+  destination = '.vscode/settings-python.toml'
+
+[[files]]
+  stub = 'configs/stubs/.vscode/settings-terraform.toml'
+  source = 'configs/templates/.vscode/settings-terraform.toml'
+  destination = '.vscode/settings-terraform.toml'

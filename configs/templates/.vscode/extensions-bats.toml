@@ -1,0 +1,5 @@
+recommendations = [
+  # @config-manager:start bats
+  'jetmartin.bats',
+  # @config-manager:end bats
+]

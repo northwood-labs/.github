@@ -1,0 +1,4 @@
+recommendations = [
+  # @config-manager:start graphql
+  # @config-manager:end graphql
+]

@@ -1,0 +1,4 @@
+recommendations = [
+  # @config-manager:start protobuf
+  # @config-manager:end protobuf
+]

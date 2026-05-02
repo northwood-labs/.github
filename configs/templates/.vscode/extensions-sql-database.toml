@@ -1,0 +1,6 @@
+recommendations = [
+  # @config-manager:start sql-database
+  'Ariga.atlas-hcl',
+  'ReneSaarsoo.sql-formatter-vsc',
+  # @config-manager:end sql-database
+]

@@ -1,0 +1,5 @@
+recommendations = [
+  # @config-manager:start wasm
+  'dtsvet.vscode-wasm',
+  # @config-manager:end wasm
+]

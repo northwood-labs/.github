@@ -1,0 +1,8 @@
+recommendations = [
+  # @config-manager:start terraform
+  'hashicorp.hcl',
+  'hashicorp.terraform',
+  'Infracost.infracost',
+  'opentofu.vscode-opentofu',
+  # @config-manager:end terraform
+]

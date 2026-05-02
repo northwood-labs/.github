@@ -1,0 +1,7 @@
+recommendations = [
+  # @config-manager:start containers
+  'docker.docker',
+  'exiasr.hadolint',
+  'ms-azuretools.vscode-containers',
+  # @config-manager:end containers
+]

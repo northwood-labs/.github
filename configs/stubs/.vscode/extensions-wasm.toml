@@ -1,0 +1,4 @@
+recommendations = [
+  # @config-manager:start wasm
+  # @config-manager:end wasm
+]

@@ -1,0 +1,5 @@
+recommendations = [
+  # @config-manager:start jsonnet
+  'liamdawson.jsonnet-language',
+  # @config-manager:end jsonnet
+]

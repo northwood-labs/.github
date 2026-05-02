@@ -1,0 +1,7 @@
+recommendations = [
+  # @config-manager:start rest
+  '42Crunch.vscode-openapi',
+  'AndrewButson.vscode-openapi-viewer',
+  'stoplight.spectral',
+  # @config-manager:end rest
+]

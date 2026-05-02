@@ -1,0 +1,5 @@
+recommendations = [
+  # @config-manager:start rust
+  'rust-lang.rust-analyzer',
+  # @config-manager:end rust
+]
