@@ -1,0 +1,11 @@
+[config]
+  # @config-manager:start config
+  # @config-manager:end config
+
+[matchers]
+  # @config-manager:start matchers
+  # @config-manager:end matchers
+
+[examples]
+  # @config-manager:start examples
+  # @config-manager:end examples

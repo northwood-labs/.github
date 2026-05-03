@@ -9,7 +9,6 @@ kirograph
 go (and tools)
 python3 + uv (and tools)
 node + pnpm (look at deno/bun)
-shellcheck
 lefthook
 trivy
 taskfile (or whatever it's called)
@@ -23,9 +22,9 @@ project bootstrapping
 claude-code
 copilot-cli
 docker-desktop
+kiro
 kiro-cli
 raycast
 slack
 textexpander
 visual-studio-code
-zed
