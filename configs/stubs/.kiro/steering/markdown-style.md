@@ -5,7 +5,7 @@ fileMatchPattern: "**/*.md"
 
 # Markdown Style Guide
 
-This project enforces markdown conventions via `.markdownlint.json` and `.editorconfig`. Follow these rules when writing or editing any `.md` file.
+This project enforces markdown conventions via `.rumdl.toml` and `.editorconfig`. Follow these rules when writing or editing any `.md` file.
 
 ## Indentation and whitespace
 
@@ -62,21 +62,12 @@ This project enforces markdown conventions via `.markdownlint.json` and `.editor
 <!-- @config-manager:start hr -->
 <!-- @config-manager:end hr -->
 
-## Spec document patterns
+## Footnotes
 
-This project uses structured spec documents under `.kiro/specs/`. Follow these patterns:
+<!-- @config-manager:start footnotes -->
+<!-- @config-manager:end footnotes -->
 
-### requirements.md
+## Front matter
 
-<!-- @config-manager:start spec-requirements -->
-<!-- @config-manager:end spec-requirements -->
-
-### design.md
-
-<!-- @config-manager:start spec-design -->
-<!-- @config-manager:end spec-design -->
-
-### tasks.md
-
-<!-- @config-manager:start spec-tasks -->
-<!-- @config-manager:end spec-tasks -->
+<!-- @config-manager:start frontmatter -->
+<!-- @config-manager:end frontmatter -->

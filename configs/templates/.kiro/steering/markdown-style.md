@@ -5,7 +5,7 @@ fileMatchPattern: "**/*.md"
 
 # Markdown Style Guide
 
-This project enforces markdown conventions via `.markdownlint.json` and `.editorconfig`. Follow these rules when writing or editing any `.md` file.
+This project enforces markdown conventions via `.rumdl.toml` and `.editorconfig`. Follow these rules when writing or editing any `.md` file.
 
 ## Indentation and whitespace
 
@@ -122,38 +122,16 @@ Inline HTML is restricted to these allowed elements: `a`, `b`, `br`, `code`, `de
 * Do not use them immediately before headings.
 <!-- @config-manager:end hr -->
 
-## Spec document patterns
+## Footnotes
 
-This project uses structured spec documents under `.kiro/specs/`. Follow these patterns:
+<!-- @config-manager:start footnotes -->
+* All footnote references must have a corresponding definition.
+* Footnote definitions must appear in the order they are referenced.
+* No empty footnote definitions.
+<!-- @config-manager:end footnotes -->
 
-### requirements.md
+## Front matter
 
-<!-- @config-manager:start spec-requirements -->
-* Start with `# Requirements Document`.
-* Include `## Introduction`, `## Glossary`, and `## Requirements` sections.
-* Each requirement gets `### Requirement N: Title` with a `**User story:**` line and `#### Acceptance criteria` numbered list.
-* Glossary entries use `* **Term**: Definition` format.
-* Acceptance criteria use WHEN/THEN/SHALL phrasing.
-<!-- @config-manager:end spec-requirements -->
-
-### design.md
-
-<!-- @config-manager:start spec-design -->
-* Start with `# Design Document: Feature Name`.
-* Include `## Overview`, `## Architecture`, `## Components and Interfaces`, `## Data Models`, `## Correctness Properties`, `## Error Handling`, `## Testing Strategy`.
-* Use mermaid code blocks (` ```mermaid `) for architecture diagrams.
-* Use tables for impact analysis, supported styles, and test matrices.
-* Properties use _italic_ universal quantifiers: _For any_ valid input...
-<!-- @config-manager:end spec-design -->
-
-### tasks.md
-
-<!-- @config-manager:start spec-tasks -->
-* Start with `# Implementation Plan: Feature Name`.
-* Include `## Overview` and `## Tasks` sections.
-* Use `* [ ] N. Task title` for top-level tasks (asterisk list marker, checkbox).
-* Use `  * [ ] N.M Subtask title` for subtasks (2-space indent). <!-- markdownlint-disable-line MD038 -->
-* Bullet points under subtasks describe implementation details.
-* End subtasks with `* _Requirements: X.Y, X.Z_` for traceability.
-* Checkpoint tasks have no subtasks — just a description paragraph.
-<!-- @config-manager:end spec-tasks -->
+<!-- @config-manager:start frontmatter -->
+* Include a blank line after YAML front matter closing `---`.
+<!-- @config-manager:end frontmatter -->

@@ -4,8 +4,8 @@ kirograph
 
 go (and tools)
 python3 + uv (and tools)
-node + pnpm (look at deno/bun)
-lefthook
+node + pnpm
+hk
 trivy
 taskfile (or whatever it's called)
 mise
