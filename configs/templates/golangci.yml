@@ -7,17 +7,11 @@
 version: "2"
 
 linters:
-  # Default set of linters.
-  # The value can be:
-  # - `standard`: https://golangci-lint.run/docs/linters/#enabled-by-default
-  # - `all`: enables all linters by default.
-  # - `none`: disables all linters by default.
-  # - `fast`: enables only linters considered as "fast" (`golangci-lint help linters --json | jq '[ .[] | select(.fast==true) ] | map(.name)'`).
-  # Default: standard
   default: none
 
-  # Enable specific linter.
+  # Enable specific linters.
   enable:
+    # @config-manager:start linters-enable
     - arangolint
     # - asasalint
     - asciicheck
@@ -126,15 +120,19 @@ linters:
     # - wsl
     - wsl_v5
     - zerologlint
+    # @config-manager:end linters-enable
 
-  # All available settings of specific linters.
+    # All available settings of specific linters.
   settings:
     copyloopvar:
+      # @config-manager:start linters-settings-copyloopvar
       # Check all assigning the loop variable to another variable.
       # Default: false
       check-alias: true
+      # @config-manager:end linters-settings-copyloopvar
 
     decorder:
+      # @config-manager:start linters-settings-decorder
       # Required order of `type`, `const`, `var` and `func` declarations inside a file.
       # Default: types before constants before variables before functions.
       dec-order:
@@ -170,18 +168,24 @@ linters:
       # If true, var declarations will be ignored for dec num check.
       # Default: false (var statements are not ignored)
       disable-var-dec-num-check: false
+      # @config-manager:end linters-settings-decorder
 
     dogsled:
+      # @config-manager:start linters-settings-dogsled
       # Checks assignments with too many blank identifiers.
       # Default: 2
       max-blank-identifiers: 2
+      # @config-manager:end linters-settings-dogsled
 
     dupl:
+      # @config-manager:start linters-settings-dupl
       # Tokens count to trigger issue.
       # Default: 150
       threshold: 150
+      # @config-manager:end linters-settings-dupl
 
     dupword:
+      # @config-manager:start linters-settings-dupword
       # Keywords for detecting duplicate words.
       # If this list is not empty, only the words defined in this list will be detected.
       # Default: []
@@ -197,13 +201,17 @@ linters:
       # Default: []
       # ignore:
       #   - "0C0C"
+      # @config-manager:end linters-settings-dupword
 
     embeddedstructfieldcheck:
+      # @config-manager:start linters-settings-embeddedstructfieldcheck
       # Checks that sync.Mutex and sync.RWMutex are not used as embedded fields.
       # Default: false
       forbid-mutex: true
+      # @config-manager:end linters-settings-embeddedstructfieldcheck
 
     errcheck:
+      # @config-manager:start linters-settings-errcheck
       # Report about not checking of errors in type assertions: `a := b.(MyStruct)`.
       # Such cases aren't reported by default.
       # Default: false
@@ -229,8 +237,10 @@ linters:
       # Display function signature instead of selector.
       # Default: false
       verbose: true
+      # @config-manager:end linters-settings-errcheck
 
     errchkjson:
+      # @config-manager:start linters-settings-errchkjson
       # With check-error-free-encoding set to true, errchkjson does warn about errors
       # from json encoding functions that are safe to be ignored,
       # because they are not possible to happen.
@@ -251,8 +261,10 @@ linters:
       # Issue on struct encoding that doesn't have exported fields.
       # Default: false
       report-no-exported: false
+      # @config-manager:end linters-settings-errchkjson
 
     errorlint:
+      # @config-manager:start linters-settings-errorlint
       # Check whether fmt.Errorf uses the %w verb for formatting errors.
       # See the https://github.com/polyfloyd/go-errorlint for caveats.
       # Default: true
@@ -280,8 +292,10 @@ linters:
       # allowed-errors-wildcard:
       #   - err: "example.com/pkg.ErrMagic"
       #     fun: "example.com/pkg.Magic"
+      # @config-manager:end linters-settings-errorlint
 
     exhaustive:
+      # @config-manager:start linters-settings-exhaustive
       # Program elements to check for exhaustiveness.
       # Default: [ switch ]
       check:
@@ -318,29 +332,33 @@ linters:
       # Switch statement requires default case even if exhaustive.
       # Default: false
       default-case-required: true
+      # @config-manager:end linters-settings-exhaustive
 
-    # exhaustruct:
-    #   # List of regular expressions to match struct packages and their names.
-    #   # Regular expressions must match complete canonical struct package/name/structname.
-    #   # If this list is empty, all structs are tested.
-    #   # Default: []
-    #   # include:
-    #   #   - '.+\.Test'
-    #   #   - 'example\.com/package\.ExampleStruct[\d]{1,2}'
+      # exhaustruct:
+      #   # List of regular expressions to match struct packages and their names.
+      #   # Regular expressions must match complete canonical struct package/name/structname.
+      #   # If this list is empty, all structs are tested.
+      #   # Default: []
+      #   # include:
+      #   #   - '.+\.Test'
+      #   #   - 'example\.com/package\.ExampleStruct[\d]{1,2}'
 
-    #   # List of regular expressions to exclude struct packages and their names from checks.
-    #   # Regular expressions must match complete canonical struct package/name/structname.
-    #   # Default: []
-    #   exclude:
-    #     - '.+/cobra\.Command$'
+      #   # List of regular expressions to exclude struct packages and their names from checks.
+      #   # Regular expressions must match complete canonical struct package/name/structname.
+      #   # Default: []
+      #   exclude:
+      #     - '.+/cobra\.Command$'
 
     fatcontext:
+      # @config-manager:start linters-settings-fatcontext
       # Check for potential fat contexts in struct pointers.
       # May generate false positives.
       # Default: false
       check-struct-pointers: false
+      # @config-manager:end linters-settings-fatcontext
 
     funcorder:
+      # @config-manager:start linters-settings-funcorder
       # Checks that constructors are placed after the structure declaration.
       # Default: true
       constructor: true
@@ -352,8 +370,10 @@ linters:
       # Checks if the constructors and/or structure methods are sorted alphabetically.
       # Default: false
       alphabetical: false
+      # @config-manager:end linters-settings-funcorder
 
     funlen:
+      # @config-manager:start linters-settings-funlen
       # Checks the number of lines in a function.
       # If lower than 0, disable the check.
       # Default: 60
@@ -367,22 +387,29 @@ linters:
       # Ignore comments when counting lines.
       # Default: true
       ignore-comments: true
+      # @config-manager:end linters-settings-funlen
 
     gochecksumtype:
-      # Presence of `default` case in switch statements satisfies exhaustiveness, if all members are not listed.
+      # @config-manager:start linters-settings-gochecksumtype
+      # Presence of `default` case in switch statements satisfies
+      # exhaustiveness, if all members are not listed.
       # Default: true
       default-signifies-exhaustive: true
 
       # Include shared interfaces in the exhaustiveness check.
       # Default: false
       include-shared-interfaces: false
+      # @config-manager:end linters-settings-gochecksumtype
 
     gocognit:
+      # @config-manager:start linters-settings-gocognit
       # Minimal code complexity to report.
       # Default: 30 (but we recommend 10-20)
       min-complexity: 20
+      # @config-manager:end linters-settings-gocognit
 
     goconst:
+      # @config-manager:start linters-settings-goconst
       # Minimal length of string constant.
       # Default: 3
       min-len: 80
@@ -423,8 +450,10 @@ linters:
       # Evaluates of constant expressions like Prefix + "suffix".
       # Default: false
       eval-const-expressions: true
+      # @config-manager:end linters-settings-goconst
 
     gocritic:
+      # @config-manager:start linters-settings-gocritic
       # Disable all checks.
       # Default: false
       # disable-all: true
@@ -887,8 +916,10 @@ linters:
           # Whether to check exported functions.
           # Default: false
           checkExported: false
+      # @config-manager:end linters-settings-gocritic
 
     godox:
+      # @config-manager:start linters-settings-godox
       # Report any comments starting with keywords, this is useful for TODO or FIXME comments that
       # might be left in the code accidentally and should be resolved before merging.
       # Default: ["TODO", "BUG", "FIXME"]
@@ -900,8 +931,10 @@ linters:
         - OPTIMIZE
         - TODO
         - "@TODO"
+      # @config-manager:end linters-settings-godox
 
     gomoddirectives:
+      # @config-manager:start linters-settings-gomoddirectives
       # Allow local `replace` directives.
       # Default: false
       replace-local: false
@@ -941,8 +974,10 @@ linters:
       # Defines a pattern to validate `go` minimum version directive.
       # Default: '' (no match)
       # go-version-pattern: '\d\.\d+(\.0)?'
+      # @config-manager:end linters-settings-gomoddirectives
 
     gosec:
+      # @config-manager:start linters-settings-gosec
       # To select a subset of rules to run.
       # Available rules: https://github.com/securego/gosec#available-rules
       # Default: [] - means include all rules
@@ -1123,17 +1158,19 @@ linters:
 
         # Maximum allowed permissions mode for os.Mkdir and os.MkdirAll.
         # Default: "0750"
-        G301: "0750"
+        G301: "0755"
 
         # Maximum allowed permissions mode for os.OpenFile and os.Chmod.
         # Default: "0600"
-        G302: "0600"
+        G302: "0644"
 
         # Maximum allowed permissions mode for os.WriteFile and ioutil.WriteFile.
         # Default: "0600"
         G306: "0666"
+      # @config-manager:end linters-settings-gosec
 
     govet:
+      # @config-manager:start linters-settings-govet
       # Disable all analyzers.
       # Default: false
       disable-all: true
@@ -1282,8 +1319,10 @@ linters:
         # Default: []
         # stringmethods:
         #   - MyMethod
+        # @config-manager:end linters-settings-govet
 
     iface:
+      # @config-manager:start linters-settings-iface
       # List of analyzers.
       # Default: ["identical"]
       enable:
@@ -1297,8 +1336,10 @@ linters:
         #   # Default: []
         #   exclude:
         #     - github.com/example/log
+      # @config-manager:end linters-settings-iface
 
     importas:
+      # @config-manager:start linters-settings-importas
       # Do not allow unaliased imports of aliased packages.
       # Default: false
       no-unaliased: true
@@ -1328,18 +1369,24 @@ linters:
       #   # Multiple packages can use an empty alias.
       #   - pkg: errors
       #     alias: ""
+      # @config-manager:end linters-settings-importas
 
     inamedparam:
+      # @config-manager:start linters-settings-inamedparam
       # Skips check for interface methods with only a single parameter.
       # Default: false
       skip-single-param: false
+      # @config-manager:end linters-settings-inamedparam
 
     interfacebloat:
+      # @config-manager:start linters-settings-interfacebloat
       # The maximum number of methods allowed for an interface.
       # Default: 10
       max: 10
+      # @config-manager:end linters-settings-interfacebloat
 
     lll:
+      # @config-manager:start linters-settings-lll
       # Max line length, lines longer will be reported.
       # '\t' is counted as 1 character by default, and can be changed with the tab-width option.
       # Default: 120.
@@ -1348,19 +1395,25 @@ linters:
       # Tab width in spaces.
       # Default: 1
       tab-width: 1
+      # @config-manager:end linters-settings-lll
 
     maintidx:
+      # @config-manager:start linters-settings-maintidx
       # Show functions with maintainability index lower than N.
       # A high index indicates better maintainability (it's kind of the opposite of complexity).
       # Default: 20
       under: 20
+      # @config-manager:end linters-settings-maintidx
 
     makezero:
+      # @config-manager:start linters-settings-makezero
       # Allow only slices initialized with a length of zero.
       # Default: false
       always: false
+      # @config-manager:end linters-settings-makezero
 
     misspell:
+      # @config-manager:start linters-settings-misspell
       # Correct spellings using locale preferences for US or UK.
       # Setting locale to US will correct the British spelling of 'colour' to 'color'.
       # Default is to use a neutral variety of English.
@@ -1386,8 +1439,10 @@ linters:
       # - restricted: checks only comments.
       # Default: ""
       # mode: restricted
+      # @config-manager:end linters-settings-misspell
 
     mnd:
+      # @config-manager:start linters-settings-mnd
       # List of enabled checks, see https://github.com/tommy-muehle/go-mnd/#checks for description.
       # Default: ["argument", "case", "condition", "operation", "return", "assign"]
       checks:
@@ -1420,18 +1475,25 @@ linters:
       # ignored-functions:
       #   - '^math\.'
       #   - '^http\.StatusText$'
+      # @config-manager:end linters-settings-mnd
 
     nakedret:
-      # Make an issue if func has more lines of code than this setting, and it has naked returns.
+      # @config-manager:start linters-settings-nakedret
+      # Make an issue if func has more lines of code than this setting, and it
+      # has naked returns.
       # Default: 30
       max-func-lines: 30
+      # @config-manager:end linters-settings-nakedret
 
     nestif:
+      # @config-manager:start linters-settings-nestif
       # Minimal complexity of if statements to report.
       # Default: 5
       min-complexity: 10
+      # @config-manager:end linters-settings-nestif
 
     nilnil:
+      # @config-manager:start linters-settings-nilnil
       # To check functions with only two return values (`return nil, nil`).
       # If disabled then returns like `return nil, nil, ..., nil` are supported.
       # Default: true
@@ -1452,19 +1514,25 @@ linters:
         - ptr
         - uintptr
         - unsafeptr
+      # @config-manager:end linters-settings-nilnil
 
     nlreturn:
+      # @config-manager:start linters-settings-nlreturn
       # Size of the block (including return statement that is still "OK"),
       # so no return split required.
       # Default: 1
       block-size: 2
+      # @config-manager:end linters-settings-nlreturn
 
     nonamedreturns:
+      # @config-manager:start linters-settings-nonamedreturns
       # Report named error if it is assigned inside defer.
       # Default: false
       report-error-in-defer: false
+      # @config-manager:end linters-settings-nonamedreturns
 
     paralleltest:
+      # @config-manager:start linters-settings-paralleltest
       # Ignore missing calls to `t.Parallel()` and only report incorrect uses of it.
       # Default: false
       ignore-missing: true
@@ -1473,8 +1541,10 @@ linters:
       # still required to have `t.Parallel`, but subtests are allowed to skip it.
       # Default: false
       ignore-missing-subtests: true
+      # @config-manager:end linters-settings-paralleltest
 
     perfsprint:
+      # @config-manager:start linters-settings-perfsprint
       # Enable/disable optimization of integer formatting.
       # Default: true
       integer-format: true
@@ -1514,27 +1584,29 @@ linters:
       # Enable/disable optimization of hex formatting.
       # Default: true
       hex-format: true
+      # @config-manager:end linters-settings-perfsprint
 
-    # protogetter:
-    #   # Skip files generated by specified generators from the checking.
-    #   # Checks only the file's initial comment, which must follow the format: "// Code generated by <generator-name>".
-    #   # Files generated by protoc-gen-go, protoc-gen-go-grpc, and protoc-gen-grpc-gateway are always excluded automatically.
-    #   # Default: []
-    #   skip-generated-by: ["protoc-gen-go-my-own-generator"]
-    #   # Skip files matching the specified glob pattern from the checking.
-    #   # Default: []
-    #   skip-files:
-    #     - "*.pb.go"
-    #     - "*/vendor/*"
-    #     - "/full/path/to/file.go"
-    #   # Skip any generated files from the checking.
-    #   # Default: false
-    #   skip-any-generated: true
-    #   # Skip first argument of append function.
-    #   # Default: false
-    #   replace-first-arg-in-append: true
+      # protogetter:
+      #   # Skip files generated by specified generators from the checking.
+      #   # Checks only the file's initial comment, which must follow the format: "// Code generated by <generator-name>".
+      #   # Files generated by protoc-gen-go, protoc-gen-go-grpc, and protoc-gen-grpc-gateway are always excluded automatically.
+      #   # Default: []
+      #   skip-generated-by: ["protoc-gen-go-my-own-generator"]
+      #   # Skip files matching the specified glob pattern from the checking.
+      #   # Default: []
+      #   skip-files:
+      #     - "*.pb.go"
+      #     - "*/vendor/*"
+      #     - "/full/path/to/file.go"
+      #   # Skip any generated files from the checking.
+      #   # Default: false
+      #   skip-any-generated: true
+      #   # Skip first argument of append function.
+      #   # Default: false
+      #   replace-first-arg-in-append: true
 
     recvcheck:
+      # @config-manager:start linters-settings-recvcheck
       # Disables the built-in method exclusions:
       # - `MarshalText`
       # - `MarshalJSON`
@@ -1551,8 +1623,10 @@ linters:
       # Default: []
       exclusions:
         - "*.Value"
+      # @config-manager:end linters-settings-recvcheck
 
     sloglint:
+      # @config-manager:start linters-settings-sloglint
       # See also https://github.com/go-simpler/sloggen
 
       # Enforce not mixing key-value pairs and attributes.
@@ -1624,8 +1698,10 @@ linters:
       # https://github.com/go-simpler/sloglint?tab=readme-ov-file#arguments-on-separate-lines
       # Default: false
       args-on-sep-lines: false
+      # @config-manager:end linters-settings-sloglint
 
     spancheck:
+      # @config-manager:start linters-settings-spancheck
       # Checks to enable.
       # Options include:
       # - `end`: check that `span.End()` is called
@@ -1650,8 +1726,10 @@ linters:
       # Default: []
       # extra-start-span-signatures:
       #   - "github.com/user/repo/telemetry/trace.Start:opentelemetry"
+      # @config-manager:end linters-settings-spancheck
 
     staticcheck:
+      # @config-manager:start linters-settings-staticcheck
       # https://staticcheck.dev/docs/configuration/options/#dot_import_whitelist
       # Default: ["github.com/mmcloughlin/avo/build", "github.com/mmcloughlin/avo/operand", "github.com/mmcloughlin/avo/reg"]
       # dot-import-whitelist:
@@ -1670,8 +1748,10 @@ linters:
       # Run `GL_DEBUG=staticcheck golangci-lint run --enable=staticcheck` to see all available checks and enabled by config checks.
       # Default: ["all", "-ST1000", "-ST1003", "-ST1016", "-ST1020", "-ST1021", "-ST1022"]
       checks: [ "all" ]
+      # @config-manager:end linters-settings-staticcheck
 
     tagalign:
+      # @config-manager:start linters-settings-tagalign
       # Align and sort can be used together or separately.
       #
       # Whether enable align. If true, the struct tags will be aligned.
@@ -1705,8 +1785,10 @@ linters:
       # Note: This option will be ignored if 'align' or 'sort' is false.
       # Default: false
       strict: true
+      # @config-manager:end linters-settings-tagalign
 
     tagliatelle:
+      # @config-manager:start linters-settings-tagliatelle
       # Checks the struct tag name case.
       case:
         # Defines the association between tag name and case.
@@ -1801,8 +1883,10 @@ linters:
         #     # Ignore the package (takes precedence over all other configurations).
         #     # Default: false
         #     ignore: true
+        # @config-manager:end linters-settings-tagliatelle
 
     thelper:
+      # @config-manager:start linters-settings-thelper
       test:
         # Check *testing.T is first param (or after context.Context) of helper function.
         # Default: true
@@ -1854,8 +1938,10 @@ linters:
         # Check f.Helper() begins helper function.
         # Default: true
         begin: true
+      # @config-manager:end linters-settings-thelper
 
     usestdlibvars:
+      # @config-manager:start linters-settings-usestdlibvars
       # Suggest the use of http.MethodXX.
       # Default: true
       http-method: true
@@ -1899,8 +1985,10 @@ linters:
       # Suggest the use of constant.Kind.String().
       # Default: false
       constant-kind: false
+      # @config-manager:end linters-settings-usestdlibvars
 
     unconvert:
+      # @config-manager:start linters-settings-unconvert
       # Remove conversions that force intermediate rounding.
       # Default: false
       fast-math: false
@@ -1908,8 +1996,10 @@ linters:
       # Be more conservative (experimental).
       # Default: false
       safe: false
+      # @config-manager:end linters-settings-unconvert
 
     unparam:
+      # @config-manager:start linters-settings-unparam
       # Inspect exported functions.
       #
       # Set to true if no external program/library imports your code.
@@ -1919,8 +2009,10 @@ linters:
       #
       # Default: false
       check-exported: false
+      # @config-manager:end linters-settings-unparam
 
     unused:
+      # @config-manager:start linters-settings-unused
       # Mark all struct fields that have been written to as used.
       # Default: true
       field-writes-are-uses: true
@@ -1944,8 +2036,10 @@ linters:
       # Mark all identifiers inside generated files as used.
       # Default: true
       generated-is-used: true
+      # @config-manager:end linters-settings-unused
 
     whitespace:
+      # @config-manager:start linters-settings-whitespace
       # Enforces newlines (or comments) after every multi-line if statement.
       # Default: false
       multi-if: false
@@ -1953,8 +2047,10 @@ linters:
       # Enforces newlines (or comments) after every multi-line function signature.
       # Default: false
       multi-func: false
+      # @config-manager:end linters-settings-whitespace
 
     wrapcheck:
+      # @config-manager:start linters-settings-wrapcheck
       # An array of strings specifying additional substrings of signatures to ignore.
       # Unlike 'ignore-sigs', this option extends the default set (or the set specified in 'ignore-sigs') without replacing it entirely.
       # This allows you to add specific signatures to the ignore list
@@ -1998,8 +2094,10 @@ linters:
       # Determines whether wrapcheck should report errors returned from inside the package.
       # Default: false
       report-internal-errors: true
+      # @config-manager:end linters-settings-wrapcheck
 
     wsl_v5:
+      # @config-manager:start linters-settings-wslv5
       # Allow cuddling a variable if it's used first in the immediate following block,
       # even if the statement with the block doesn't use the variable.
       # https://github.com/bombsimon/wsl/tree/main?tab=readme-ov-file#configuration
@@ -2063,8 +2161,10 @@ linters:
       # https://github.com/bombsimon/wsl/tree/main?tab=readme-ov-file#checks-and-configuration
       # Default: []
       disable: []
+      # @config-manager:end linters-settings-wslv5
 
   exclusions:
+    # @config-manager:start linters-exclusions
     rules:
       # Exclude some linters from running on tests files.
       - source: lint:ignore_length
@@ -2074,6 +2174,11 @@ linters:
       - source: lint:allow_666
         linters:
           - gosec
+
+      - source: lint:allow_755
+        linters:
+          - gosec
+          - mnd
 
       - source: lint:allow_possible_insecure
         linters:
@@ -2128,6 +2233,11 @@ linters:
 
       - source: lint:allow_unhandled
         text: (G104)
+        linters:
+          - gosec
+
+      - source: lint:allow_dynamic_filename
+        text: (G304)
         linters:
           - gosec
 
@@ -2191,20 +2301,29 @@ linters:
         linters:
           - errcheck
 
+      - source: lint:allow_defer_close
+        text: (is not checked)
+        linters:
+          - errcheck
+    # @config-manager:end linters-exclusions
+
 formatters:
   # Enable specific formatter.
   # Default: [] (uses standard Go formatting)
   enable:
+    # @config-manager:start formatters-enable
     # - gci
     - gofmt
     - gofumpt
     - goimports
     - golines
     # - swaggo
+    # @config-manager:end formatters-enable
 
     # Formatters settings.
   settings:
     gofmt:
+      # @config-manager:start formatters-settings-gofmt
       # Simplify code: gofmt with `-s` option.
       # Default: true
       simplify: true
@@ -2217,8 +2336,10 @@ formatters:
           replacement: "any"
         - pattern: "a[b:len(a)]"
           replacement: "a[b:]"
+      # @config-manager:end formatters-settings-gofmt
 
     gofumpt:
+      # @config-manager:start formatters-settings-gofumpt
       # Module path which contains the source code being formatted.
       # Default: ""
       module-path: ""
@@ -2226,16 +2347,20 @@ formatters:
       # Choose whether to use the extra rules.
       # Default: false
       extra-rules: true
+      # @config-manager:end formatters-settings-gofumpt
 
     goimports:
+      # @config-manager:start formatters-settings-goimports
       # A list of prefixes, which, if set, checks import paths
       # with the given prefixes are grouped after 3rd-party packages.
       # Default: []
       local-prefixes:
         - go.nwlabs.dev
         - github.com/skyzyx
+      # @config-manager:end formatters-settings-goimports
 
     golines:
+      # @config-manager:start formatters-settings-golines
       # Target maximum line length.
       # Default: 100
       max-len: 120
@@ -2254,8 +2379,10 @@ formatters:
       # Split chained methods on the dots as opposed to the arguments.
       # Default: true
       chain-split-dots: false
+      # @config-manager:end formatters-settings-golines
 
   exclusions:
+    # @config-manager:start formatters-exclusions
     # Log a warning if an exclusion path is unused.
     # Default: false
     warn-unused: false
@@ -2271,8 +2398,10 @@ formatters:
     #
     # Default: lax
     generated: strict
+    # @config-manager:end formatters-exclusions
 
 issues:
+  # @config-manager:start issues
   # Maximum issues count per one linter.
   # Set to 0 to disable.
   # Default: 50
@@ -2315,9 +2444,11 @@ issues:
   # Fix found issues (if it's supported by the linter).
   # Default: false
   fix: true
+  # @config-manager:end issues
 
-# Output configuration options.
+  # Output configuration options.
 output:
+  # @config-manager:start output
   # The formats used to render issues.
   formats:
     # Prints issues in a text format with colors, line number, and linter name.
@@ -2422,9 +2553,11 @@ output:
   # Show statistics per linter.
   # Default: true
   show-stats: true
+  # @config-manager:end output
 
-# Options for analysis running.
+  # Options for analysis running.
 run:
+  # @config-manager:start run
   # Timeout for total work, e.g. 30s, 5m, 5m30s.
   # If the value is lower or equal to 0, the timeout is disabled.
   # Default: 0 (disabled)
@@ -2478,14 +2611,16 @@ run:
 
   # Define the Go version limit.
   # Default: use Go version from the go.mod file, fallback on the env var `GOVERSION`, fallback on 1.22.
-  go: "1.24"
+  go: "1.25"
 
   # Number of operating system threads (`GOMAXPROCS`) that can execute golangci-lint simultaneously.
   # Default: 0 (automatically set to match Linux container CPU quota and
   # fall back to the number of logical CPUs in the machine)
   concurrency: 0
+  # @config-manager:end run
 
 severity:
+  # @config-manager:start severity
   # Set the default severity for issues.
   #
   # If severity rules are defined and the issues do not match or no severity is provided to the rule
@@ -2510,3 +2645,4 @@ severity:
   #
   # Default: []
   # rules:
+  # @config-manager:end severity

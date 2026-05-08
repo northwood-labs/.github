@@ -7,16 +7,16 @@
 
 [matchers]
   # @config-manager:start matchers
-  all = "(?:build|ci|deps|docs|feat|fix|lint|perf|refactor|relprep|style|test)(?:\\([^\\)]*\\))?: (?:.+)"
+  all = "(?:build|chore|ci|deps|docs|feat|fix|lint|perf|refactor|relprep|style|test)(?:\\([^\\)]*\\))?: (?:(.|\n)+)"
   # @config-manager:end matchers
 
 [examples]
   # @config-manager:start examples
   a_simple_commit = """
-[build|ci|deps|docs|feat|fix|lint|perf|refactor|relprep|style|test](module): A commit message
+[build|chore|ci|deps|docs|feat|fix|lint|perf|refactor|relprep|style|test](module): A commit message
 """
   an_extended_commit = """
-[build|ci|deps|docs|feat|fix|lint|perf|refactor|relprep|style|test](module): A commit message
+[build|chore|ci|deps|docs|feat|fix|lint|perf|refactor|relprep|style|test](module): A commit message
 
 * first line
 * second line

@@ -1,0 +1,31 @@
+---
+# @config-manager:start extras
+# @config-manager:end extras
+
+cache:
+  # @config-manager:start cache
+  # @config-manager:end cache
+
+db:
+  # @config-manager:start db
+  # @config-manager:end db
+
+misconfiguration:
+  # @config-manager:start misconfiguration
+  # @config-manager:end misconfiguration
+
+scan:
+  # @config-manager:start scan
+  # @config-manager:end scan
+
+secret:
+  # @config-manager:start secret
+  # @config-manager:end secret
+
+severity:
+  # @config-manager:start severity
+  # @config-manager:end severity
+
+vulnerability:
+  # @config-manager:start vulnerability
+  # @config-manager:end vulnerability

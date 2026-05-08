@@ -1,0 +1,65 @@
+---
+name: PR Dependency Review
+on: [pull_request]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    name: Scan for issues
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Harden Runner
+        uses: step-security/harden-runner@a5ad31d6a139d249332a2605b85202e8c0b78450 # v2.19.1
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
+            api.cloudflare.com:443
+            api.deps.dev:443
+            api.github.com:443
+            api.gumroad.com:443
+            api.osv.dev:443
+            api.scorecard.dev:443
+            api.securityscorecards.dev:443
+            checkpoint-api.hashicorp.com:443
+            fulcio.sigstore.dev:443
+            get.opentofu.org:443
+            ghcr.io:443
+            github.com:443
+            gitlab.com:443
+            golang.org:443
+            goreleaser.com:443
+            objects.githubusercontent.com:443
+            oss-fuzz-build-logs.storage.googleapis.com:443
+            osv-vulnerabilities.storage.googleapis.com:443
+            pkg-containers.githubusercontent.com:443
+            proxy.golang.org:443
+            registry.npmjs.org:443
+            rekor.sigstore.dev:443
+            releases.hashicorp.com:443
+            storage.googleapis.com:443
+            sum.golang.org:443
+            tuf-repo-cdn.sigstore.dev:443
+            uploads.github.com:443
+            vuln.go.dev:443
+            www.bestpractices.dev:443
+
+      - name: Checkout Repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Dependency Review
+        uses: actions/dependency-review-action@2031cfc080254a8a887f58cffee85186f0e49e48 # v4.9.0
+        with:
+          fail-on-severity: low
+          license-check: true
+          vulnerability-check: true
+          comment-summary-in-pr: on-failure
+          allow-licenses: Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, MPL-2.0, MIT

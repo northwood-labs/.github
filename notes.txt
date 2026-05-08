@@ -1,7 +1,3 @@
-+ .lefthook.yml
-+ .lefthook/
-- .githooks
-
 npm install -g context-mode
 npx -y @open-gitagent/gitagent@latest run -r https://github.com/shreyas-lyzr/architect -a claude
 kirograph

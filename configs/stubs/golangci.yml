@@ -1,0 +1,272 @@
+---
+# https://github.com/golangci/golangci-lint/blob/master/.golangci.reference.yml
+# https://golangci-lint.run/jsonschema/golangci.jsonschema.json
+
+# Defines the configuration version.
+# The only possible value is "2".
+version: "2"
+
+linters:
+  default: none
+
+  # Enable specific linters.
+  enable:
+    # @config-manager:start linters-enable
+    # @config-manager:end linters-enable
+
+    # All available settings of specific linters.
+  settings:
+    copyloopvar:
+      # @config-manager:start linters-settings-copyloopvar
+      # @config-manager:end linters-settings-copyloopvar
+
+    decorder:
+      # @config-manager:start linters-settings-decorder
+      # @config-manager:end linters-settings-decorder
+
+    dogsled:
+      # @config-manager:start linters-settings-dogsled
+      # @config-manager:end linters-settings-dogsled
+
+    dupl:
+      # @config-manager:start linters-settings-dupl
+      # @config-manager:end linters-settings-dupl
+
+    dupword:
+      # @config-manager:start linters-settings-dupword
+      # @config-manager:end linters-settings-dupword
+
+    embeddedstructfieldcheck:
+      # @config-manager:start linters-settings-embeddedstructfieldcheck
+      # @config-manager:end linters-settings-embeddedstructfieldcheck
+
+    errcheck:
+      # @config-manager:start linters-settings-errcheck
+      # @config-manager:end linters-settings-errcheck
+
+    errchkjson:
+      # @config-manager:start linters-settings-errchkjson
+      # @config-manager:end linters-settings-errchkjson
+
+    errorlint:
+      # @config-manager:start linters-settings-errorlint
+      # @config-manager:end linters-settings-errorlint
+
+    exhaustive:
+      # @config-manager:start linters-settings-exhaustive
+      # @config-manager:end linters-settings-exhaustive
+
+    fatcontext:
+      # @config-manager:start linters-settings-fatcontext
+      # @config-manager:end linters-settings-fatcontext
+
+    funcorder:
+      # @config-manager:start linters-settings-funcorder
+      # @config-manager:end linters-settings-funcorder
+
+    funlen:
+      # @config-manager:start linters-settings-funlen
+      # @config-manager:end linters-settings-funlen
+
+    gochecksumtype:
+      # @config-manager:start linters-settings-gochecksumtype
+      # @config-manager:end linters-settings-gochecksumtype
+
+    gocognit:
+      # @config-manager:start linters-settings-gocognit
+      # @config-manager:end linters-settings-gocognit
+
+    goconst:
+      # @config-manager:start linters-settings-goconst
+      # @config-manager:end linters-settings-goconst
+
+    gocritic:
+      # @config-manager:start linters-settings-gocritic
+      # @config-manager:end linters-settings-gocritic
+
+    godox:
+      # @config-manager:start linters-settings-godox
+      # @config-manager:end linters-settings-godox
+
+    gomoddirectives:
+      # @config-manager:start linters-settings-gomoddirectives
+      # @config-manager:end linters-settings-gomoddirectives
+
+    gosec:
+      # @config-manager:start linters-settings-gosec
+      # @config-manager:end linters-settings-gosec
+
+    govet:
+      # @config-manager:start linters-settings-govet
+      # @config-manager:end linters-settings-govet
+
+    iface:
+      # @config-manager:start linters-settings-iface
+      # @config-manager:end linters-settings-iface
+
+    importas:
+      # @config-manager:start linters-settings-importas
+      # @config-manager:end linters-settings-importas
+
+    inamedparam:
+      # @config-manager:start linters-settings-inamedparam
+      # @config-manager:end linters-settings-inamedparam
+
+    interfacebloat:
+      # @config-manager:start linters-settings-interfacebloat
+      # @config-manager:end linters-settings-interfacebloat
+
+    lll:
+      # @config-manager:start linters-settings-lll
+      # @config-manager:end linters-settings-lll
+
+    maintidx:
+      # @config-manager:start linters-settings-maintidx
+      # @config-manager:end linters-settings-maintidx
+
+    makezero:
+      # @config-manager:start linters-settings-makezero
+      # @config-manager:end linters-settings-makezero
+
+    misspell:
+      # @config-manager:start linters-settings-misspell
+      # @config-manager:end linters-settings-misspell
+
+    mnd:
+      # @config-manager:start linters-settings-mnd
+      # @config-manager:end linters-settings-mnd
+
+    nakedret:
+      # @config-manager:start linters-settings-nakedret
+      # @config-manager:end linters-settings-nakedret
+
+    nestif:
+      # @config-manager:start linters-settings-nestif
+      # @config-manager:end linters-settings-nestif
+
+    nilnil:
+      # @config-manager:start linters-settings-nilnil
+      # @config-manager:end linters-settings-nilnil
+
+    nlreturn:
+      # @config-manager:start linters-settings-nlreturn
+      # @config-manager:end linters-settings-nlreturn
+
+    nonamedreturns:
+      # @config-manager:start linters-settings-nonamedreturns
+      # @config-manager:end linters-settings-nonamedreturns
+
+    paralleltest:
+      # @config-manager:start linters-settings-paralleltest
+      # @config-manager:end linters-settings-paralleltest
+
+    perfsprint:
+      # @config-manager:start linters-settings-perfsprint
+      # @config-manager:end linters-settings-perfsprint
+
+    recvcheck:
+      # @config-manager:start linters-settings-recvcheck
+      # @config-manager:end linters-settings-recvcheck
+
+    sloglint:
+      # @config-manager:start linters-settings-sloglint
+      # @config-manager:end linters-settings-sloglint
+
+    spancheck:
+      # @config-manager:start linters-settings-spancheck
+      # @config-manager:end linters-settings-spancheck
+
+    staticcheck:
+      # @config-manager:start linters-settings-staticcheck
+      # @config-manager:end linters-settings-staticcheck
+
+    tagalign:
+      # @config-manager:start linters-settings-tagalign
+      # @config-manager:end linters-settings-tagalign
+
+    tagliatelle:
+      # @config-manager:start linters-settings-tagliatelle
+      # @config-manager:end linters-settings-tagliatelle
+
+    thelper:
+      # @config-manager:start linters-settings-thelper
+      # @config-manager:end linters-settings-thelper
+
+    usestdlibvars:
+      # @config-manager:start linters-settings-usestdlibvars
+      # @config-manager:end linters-settings-usestdlibvars
+
+    unconvert:
+      # @config-manager:start linters-settings-unconvert
+      # @config-manager:end linters-settings-unconvert
+
+    unparam:
+      # @config-manager:start linters-settings-unparam
+      # @config-manager:end linters-settings-unparam
+
+    unused:
+      # @config-manager:start linters-settings-unused
+      # @config-manager:end linters-settings-unused
+
+    whitespace:
+      # @config-manager:start linters-settings-whitespace
+      # @config-manager:end linters-settings-whitespace
+
+    wrapcheck:
+      # @config-manager:start linters-settings-wrapcheck
+      # @config-manager:end linters-settings-wrapcheck
+
+    wsl_v5:
+      # @config-manager:start linters-settings-wslv5
+      # @config-manager:end linters-settings-wslv5
+
+  exclusions:
+    # @config-manager:start linters-exclusions
+    # @config-manager:end linters-exclusions
+
+formatters:
+  # Enable specific formatter.
+  # Default: [] (uses standard Go formatting)
+  enable:
+    # @config-manager:start formatters-enable
+    # @config-manager:end formatters-enable
+
+  # Formatters settings.
+  settings:
+    gofmt:
+      # @config-manager:start formatters-settings-gofmt
+      # @config-manager:end formatters-settings-gofmt
+
+    gofumpt:
+      # @config-manager:start formatters-settings-gofumpt
+      # @config-manager:end formatters-settings-gofumpt
+
+    goimports:
+      # @config-manager:start formatters-settings-goimports
+      # @config-manager:end formatters-settings-goimports
+
+    golines:
+      # @config-manager:start formatters-settings-golines
+      # @config-manager:end formatters-settings-golines
+
+  exclusions:
+    # @config-manager:start formatters-exclusions
+    # @config-manager:end formatters-exclusions
+
+issues:
+  # @config-manager:start issues
+  # @config-manager:end issues
+
+# Output configuration options.
+output:
+  # @config-manager:start output
+  # @config-manager:end output
+
+# Options for analysis running.
+run:
+  # @config-manager:start run
+  # @config-manager:end run
+
+severity:
+  # @config-manager:start severity
+  # @config-manager:end severity
