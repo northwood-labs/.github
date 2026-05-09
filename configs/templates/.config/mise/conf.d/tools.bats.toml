@@ -1,0 +1,4 @@
+[tools]
+  # @config-manager:start bats
+  bats = "1.13.0"
+  # @config-manager:end bats

@@ -1,0 +1,5 @@
+[tools]
+  # @config-manager:start rust
+  rust = "1.95.0"
+  rust-analyzer = "2026-05-04"
+  # @config-manager:end rust

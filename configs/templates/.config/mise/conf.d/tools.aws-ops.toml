@@ -1,0 +1,6 @@
+[tools]
+  # @config-manager:start aws-ops
+  awsweeper = "0.12.0"
+  steampipe = "2.4.2"
+  tailpipe = "0.7.3"
+  # @config-manager:end aws-ops

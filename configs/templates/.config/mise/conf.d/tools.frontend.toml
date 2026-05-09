@@ -1,0 +1,7 @@
+[tools]
+  # @config-manager:start frontend
+  aube = "1.9.1"
+  deno = "2.7.14"
+  node = "25.9.0"
+  # ogvs
+  # @config-manager:end frontend

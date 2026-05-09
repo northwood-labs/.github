@@ -1,0 +1,10 @@
+[tools]
+  # @config-manager:start protobuf
+  buf = "1.69.0"
+  grpcurl = "1.9.3"
+  protobuf = "34.1"
+  protoc = "25.9"
+  protoc-gen-connect-go = "1.19.2"
+  protoc-gen-go = "1.36.11"
+  protoc-gen-go-grpc = "1.6.1"
+  # @config-manager:end protobuf

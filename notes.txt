@@ -4,19 +4,19 @@ kirograph
 
 go (and tools)
 python3 + uv (and tools)
-node + pnpm
+node + aube
 hk
 trivy
 taskfile (or whatever it's called)
 mise
+    https://mise.jdx.dev/shell-aliases.html
+    https://mise.jdx.dev/tasks/
 aws-vault
 aws-sso-manager
 tbls
 
 project bootstrapping
 
-claude-code
-copilot-cli
 docker-desktop
 kiro
 kiro-cli
@@ -24,3 +24,17 @@ raycast
 slack
 textexpander
 visual-studio-code
+
+---
+
+# cloudflared = "latest"
+# duckdb = "latest"
+# ffmpeg = "latest"
+# goreleaser = "latest"
+# vhs = "latest"
+
+awscli
+cf-terraforming
+cfn-lint
+container
+qsv
