@@ -1,76 +1,79 @@
 #-------------------------------------------------------------------------------
 # HEADING RULES
 
-# @config-manager:start headings
-# @config-manager:end headings
+[rules]
 
-#-------------------------------------------------------------------------------
-# LIST RULES
+  # @config-manager:start headings
+  # @config-manager:end headings
 
-# @config-manager:start lists
-# @config-manager:end lists
+  #-------------------------------------------------------------------------------
+  # LIST RULES
 
-#-------------------------------------------------------------------------------
-# WHITESPACE RULES
+  # @config-manager:start lists
+  # @config-manager:end lists
 
-# @config-manager:start whitespace
-# @config-manager:end whitespace
+  #-------------------------------------------------------------------------------
+  # WHITESPACE RULES
 
-#-------------------------------------------------------------------------------
-# FORMATTING RULES
+  # @config-manager:start whitespace
+  # @config-manager:end whitespace
 
-# @config-manager:start formatting
-# @config-manager:end formatting
+  #-------------------------------------------------------------------------------
+  # FORMATTING RULES
 
-# https://rumdl.dev/md044/
-[proper-names]
-  enabled = true
-  code-blocks = false
-  html-elements = false
-  html-comments = true
-  names = [
-    # @config-manager:start proper-names
-    # @config-manager:end proper-names
-  ]
+  # @config-manager:start formatting
+  # @config-manager:end formatting
 
-#-------------------------------------------------------------------------------
-# CODE BLOCK RULES
+  # https://rumdl.dev/md044/
+  [rules.MD044]
+    # proper-names
+    enabled = true
+    code-blocks = false
+    html-elements = false
+    html-comments = true
+    names = [
+      # @config-manager:start proper-names
+      # @config-manager:end proper-names
+    ]
 
-# @config-manager:start code-block
-# @config-manager:end code-block
+    #-------------------------------------------------------------------------------
+    # CODE BLOCK RULES
 
-#-------------------------------------------------------------------------------
-# LINK AND IMAGE RULES
+    # @config-manager:start code-block
+    # @config-manager:end code-block
 
-# @config-manager:start link-image
-# @config-manager:end link-image
+    #-------------------------------------------------------------------------------
+    # LINK AND IMAGE RULES
 
-#-------------------------------------------------------------------------------
-# TABLE RULES
+    # @config-manager:start link-image
+    # @config-manager:end link-image
 
-# @config-manager:start tables
-# @config-manager:end tables
+    #-------------------------------------------------------------------------------
+    # TABLE RULES
 
-#-------------------------------------------------------------------------------
-# FOOTNOTE RULES
+    # @config-manager:start tables
+    # @config-manager:end tables
 
-# @config-manager:start footnotes
-# @config-manager:end footnotes
+    #-------------------------------------------------------------------------------
+    # FOOTNOTE RULES
 
-#-------------------------------------------------------------------------------
-# FRONTMATTER RULES
+    # @config-manager:start footnotes
+    # @config-manager:end footnotes
 
-# @config-manager:start frontmatter
-# @config-manager:end frontmatter
+    #-------------------------------------------------------------------------------
+    # FRONTMATTER RULES
 
-#-------------------------------------------------------------------------------
-# OTHER RULES
+    # @config-manager:start frontmatter
+    # @config-manager:end frontmatter
 
-# @config-manager:start other
-# @config-manager:end other
+    #-------------------------------------------------------------------------------
+    # OTHER RULES
 
-#-------------------------------------------------------------------------------
-# GLOBAL CONFIG
+    # @config-manager:start other
+    # @config-manager:end other
+
+    #-------------------------------------------------------------------------------
+    # GLOBAL CONFIG
 
 [global]
   # @config-manager:start globals
