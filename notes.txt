@@ -1,11 +1,24 @@
-npm install -g context-mode
-npx -y @open-gitagent/gitagent@latest run -r https://github.com/shreyas-lyzr/architect -a claude
+aube add -g context-mode
+aubx -y @open-gitagent/gitagent@latest run -r https://github.com/shreyas-lyzr/architect -a claude
 kirograph
+go install golang.org/x/vuln/cmd/govulncheck@latest
+go install .../modernizer@latest
+go get -tool -modfile go.tools.mod github.com/mdempsky/unconvert@latest
+go get -tool -modfile go.tools.mod github.com/nikolaydubina/smrcptr@latest
+go get -tool -modfile go.tools.mod github.com/quasilyte/go-consistent@latest
+go get -tool -modfile go.tools.mod golang.org/x/tools/go/analysis/passes/fieldalignment@latest
+
 
 go (and tools)
 python3 + uv (and tools)
 node + aube
 hk
+    dclint
+    deno-check
+    deno
+    eslint
+    ghalint-action
+    ghalint-workflow
 trivy
 taskfile (or whatever it's called)
 mise
@@ -14,6 +27,10 @@ mise
 aws-vault
 aws-sso-manager
 tbls
+
+aube add -D @contextlint/cli
+aubx contextlint init
+aubx contextlint
 
 project bootstrapping
 

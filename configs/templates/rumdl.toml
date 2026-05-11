@@ -132,7 +132,7 @@
     # ul-indent
     enabled = true
     indent = 2
-    start-indent = 4
+    # start-indent = 4
     start-indented = false
     style = "fixed"
 
