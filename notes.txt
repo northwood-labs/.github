@@ -3,7 +3,6 @@ aubx -y @open-gitagent/gitagent@latest run -r https://github.com/shreyas-lyzr/ar
 kirograph
 go install golang.org/x/vuln/cmd/govulncheck@latest
 go install .../modernizer@latest
-go get -tool -modfile go.tools.mod github.com/mdempsky/unconvert@latest
 go get -tool -modfile go.tools.mod github.com/nikolaydubina/smrcptr@latest
 go get -tool -modfile go.tools.mod github.com/quasilyte/go-consistent@latest
 go get -tool -modfile go.tools.mod golang.org/x/tools/go/analysis/passes/fieldalignment@latest
@@ -34,14 +33,6 @@ aubx contextlint
 
 project bootstrapping
 
-docker-desktop
-kiro
-kiro-cli
-raycast
-slack
-textexpander
-visual-studio-code
-
 ---
 
 # cloudflared = "latest"
@@ -50,8 +41,52 @@ visual-studio-code
 # goreleaser = "latest"
 # vhs = "latest"
 
-awscli
-cf-terraforming
-cfn-lint
-container
-qsv
+---
+
+# tap "aws/tap"
+
+# tap "minamijoyo/tfschema"
+# tap "terraform-docs/tap"
+
+# awscli
+# gh
+# go
+# golangci-lint
+# hadolint
+# hugo
+# infracost
+# mise
+# mlx
+# mlx-c
+# mlx-lm
+# pnpm
+# protobuf
+# python3
+# qsv
+# shfmt
+# terraform-docs
+# terrascan
+# tflint
+# tfschema
+# uv
+
+# aws-vault-binary
+# claude-code
+# container
+# cyberduck
+# dash
+# datagrip
+# docker
+# docker-desktop
+# insomnia
+# kiro
+# kiro-cli
+# mountain-duck
+# obsidian
+# parallels
+# parallels-virtualization-sdk
+# sketch
+# raycast
+# textexpander
+# visual-studio-code
+# zed

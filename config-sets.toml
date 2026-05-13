@@ -8,13 +8,11 @@
 # Configuration Sets - Collections of related stub files
 [sets.golang]
   description = "Go language support with build targets, testing, and linting."
+
   [[sets.golang.files]]
 
     # Standard: ALWAYS
-    #   * bash
-    #   * dasel
-    #   * jq
-    #   * watchman?
+    #   * Run Brewfiles FIRST
     # Go CLI
     #   * Template project containing core patterns
     # Go library
@@ -88,11 +86,6 @@
   stub = 'configs/stubs/.vscode/settings-frontend.toml'
   source = 'configs/templates/.vscode/settings-frontend.toml'
   destination = '.vscode/settings-frontend.toml'
-
-[[files]]
-  stub = 'configs/stubs/.vscode/settings-go.toml'
-  source = 'configs/templates/.vscode/settings-go.toml'
-  destination = '.vscode/settings-go.toml'
 
 [[files]]
   stub = 'configs/stubs/.vscode/settings-llm.toml'
