@@ -1,6 +1,8 @@
 aube add -g context-mode
 aubx -y @open-gitagent/gitagent@latest run -r https://github.com/shreyas-lyzr/architect -a claude
 kirograph
+npx skills add aws/agent-toolkit-for-aws/skills
+
 go install golang.org/x/vuln/cmd/govulncheck@latest
 go install .../modernizer@latest
 go get -tool -modfile go.tools.mod github.com/nikolaydubina/smrcptr@latest
