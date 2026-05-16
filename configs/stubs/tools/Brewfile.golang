@@ -1,0 +1,9 @@
+##
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.golang
+##
+
+# @config-manager:start brew
+# @config-manager:end brew
+
+# @config-manager:start go
+# @config-manager:end go

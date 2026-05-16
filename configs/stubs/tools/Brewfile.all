@@ -1,0 +1,9 @@
+##
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.all
+##
+
+# @config-manager:start brew
+# @config-manager:end brew
+
+# @config-manager:start cask
+# @config-manager:end cask

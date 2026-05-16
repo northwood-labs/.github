@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+##
+# https://taskfile.dev/docs/guide
+##
+
+# @config-manager:start standard
+# @config-manager:end standard

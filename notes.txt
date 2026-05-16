@@ -7,12 +7,8 @@ go install golang.org/x/vuln/cmd/govulncheck@latest
 go install .../modernizer@latest
 go get -tool -modfile go.tools.mod github.com/nikolaydubina/smrcptr@latest
 go get -tool -modfile go.tools.mod github.com/quasilyte/go-consistent@latest
-go get -tool -modfile go.tools.mod golang.org/x/tools/go/analysis/passes/fieldalignment@latest
 
-
-go (and tools)
 python3 + uv (and tools)
-node + aube
 hk
     dclint
     deno-check
@@ -21,13 +17,12 @@ hk
     ghalint-action
     ghalint-workflow
 trivy
-taskfile (or whatever it's called)
-mise
-    https://mise.jdx.dev/shell-aliases.html
-    https://mise.jdx.dev/tasks/
 aws-vault
 aws-sso-manager
 tbls
+
+@ $(HEADER) "=====> Installing Chag (may require password)..."
+curl -sSLf https://raw.githubusercontent.com/mtdowling/chag/master/install.sh | sudo bash
 
 aube add -D @contextlint/cli
 aubx contextlint init
