@@ -5,12 +5,12 @@ fileMatchPattern: "**/*.md"
 
 # Markdown Style Guide
 
-This project enforces markdown conventions via `.rumdl.toml` and `.editorconfig`. Follow these rules when writing or editing any `.md` file.
+This project enforces Markdown conventions via `.rumdl.toml` and `.editorconfig`. Follow these rules when writing or editing any `.md` file.
 
 ## Indentation and whitespace
 
 <!-- @config-manager:start whitespace -->
-* Use 2-space indentation for markdown files (per `.editorconfig`).
+* Use 2-space indentation for Markdown files (per `.editorconfig`).
 * Use LF line endings, no trailing whitespace.
 * End every file with a single trailing newline.
 * Maximum one consecutive blank line (no double blanks).
@@ -72,6 +72,7 @@ Example:
 |----------|----------|
 | value    | value    |
 ```
+
 <!-- @config-manager:end tables -->
 
 ## Links and images
@@ -89,22 +90,29 @@ Example:
 <!-- @config-manager:start proper-names -->
 These terms must use exact casing wherever they appear in prose (not enforced inside code blocks or HTML):
 
+* Commonmark
+* CSS
+* GFM
+* GitHub-Flavored Markdown
+* HTML
 * JSON
 * macOS
+* Markdown
 * Northwood Labs
 * OpenTofu
 * Terraform
 * Terragrunt
 * Terratest
 * TOML
+* XML
 * YAML
 <!-- @config-manager:end proper-names -->
 
 ## HTML
 
-<!-- @config-manager:start html -->
+<!-- @config-manager:start elements -->
 Inline HTML is restricted to these allowed elements: `a`, `b`, `br`, `code`, `details`, `div`, `img`, `li`, `nobr`, `ol`, `p`, `pre`, `span`, `summary`, `ul`. All other HTML elements will trigger a lint warning.
-<!-- @config-manager:end html -->
+<!-- @config-manager:end elements -->
 
 ## Blockquotes
 

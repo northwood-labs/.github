@@ -1,0 +1,8 @@
+# https://github.com/okooo5km/OGVS
+
+# @config-manager:start ogvs-parent
+# @config-manager:end ogvs-parent
+
+plugins:
+  # @config-manager:start ogvs-plugins
+  # @config-manager:end ogvs-plugins

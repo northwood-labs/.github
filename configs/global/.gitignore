@@ -1,0 +1,50 @@
+## Temp files, caches, and logs
+._*
+.cache
+.dccache
+.iac-data
+.infracost
+.jfrog
+.lychee-cookie-jar
+.lycheecache
+.rumdl_cache
+.sass-cache
+.vagrant/
+.venv
+.vscode/*.log
+.vsgitbuild
+*.diff
+*.err
+*.log
+*.orig
+*.out
+*.pyc
+*~
+logs/
+lychee.md
+node_modules
+npm-debug.log
+phantomjsdriver.log
+TAGS
+tags
+tmp/
+venv
+
+## OS artifacts
+.DS_Store
+.Spotlight-V100
+.Trashes
+Desktop.ini
+file:
+Thumbs.db
+
+## Non-reusable IDE artifacts
+.idea
+*.sublime-project
+*.sublime-workspace
+
+## Version control artifacts
+.hg
+.svn
+
+## User-specific (not synced)

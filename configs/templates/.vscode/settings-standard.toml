@@ -152,7 +152,7 @@
 
 [['json.schemas']]
   fileMatch = [ '.prettierrc', 'prettier.config.js' ]
-  url = 'http://json.schemastore.org/prettierrc'
+  url = 'https://www.schemastore.org/prettierrc'
 
 ['[markdown]']
   'editor.defaultFormatter' = 'fcrespo82.markdown-table-formatter'
@@ -172,4 +172,4 @@
 
 ['yaml.schemas']
   'https://goreleaser.com/static/schema-pro.json' = '.goreleaser.yml'
-# @config-manager:end core-editor
+  # @config-manager:end core-editor

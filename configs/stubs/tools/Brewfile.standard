@@ -2,14 +2,26 @@
 # brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.standard
 ##
 
+#-------------------------------------------------------------------------------
+# TAPS
+
 # @config-manager:start taps
 # @config-manager:end taps
+
+#-------------------------------------------------------------------------------
+# FORMULAE
 
 # @config-manager:start brew
 # @config-manager:end brew
 
+#-------------------------------------------------------------------------------
+# NPM
+
 # @config-manager:start npm
 # @config-manager:end npm
+
+#-------------------------------------------------------------------------------
+# GO PACKAGES
 
 # @config-manager:start go
 # @config-manager:end go

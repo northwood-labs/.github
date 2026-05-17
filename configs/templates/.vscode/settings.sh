@@ -25,7 +25,10 @@ while IFS= read -r file; do
     keys+=("\$${key}")
 done < <(echo "${sorted_files}")
 
-merge="merge($(IFS=', '; echo "${keys[*]}"))"
+merge="merge($(
+    IFS=', '
+    echo "${keys[*]}"
+))"
 
 # We want the spaces in the string represented by ${vars[*]}. This allows the
 # output to be independent CLI flags.
@@ -34,5 +37,5 @@ dasel_command="dasel query --in toml --out json ${vars[*]} '${merge}'"
 
 # Execute the command we constructed as a string. Pass through jq for
 # formatting, and write output to sibling file.
-eval "${dasel_command}" | jq -Mr --sort-keys '.' > "${SCRIPT_DIR}/settings.json"
+eval "${dasel_command}" | jq -Mr --sort-keys '.' >"${SCRIPT_DIR}/settings.json"
 # @config-manager:end settings-merge

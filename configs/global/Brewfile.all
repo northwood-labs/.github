@@ -2,7 +2,9 @@
 # brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.all
 ##
 
-# @config-manager:start brew
+#-------------------------------------------------------------------------------
+# FORMULAE
+
 # https://www.gnu.org/software/bash/
 brew "bash"
 
@@ -104,10 +106,12 @@ brew "zlib"
 
 # https://facebook.github.io/zstd/
 brew "zstd"
-# @config-manager:end brew
 
-# @config-manager:start cask
+#-------------------------------------------------------------------------------
+# CASKS
+
 # https://1password.com/
+# PAID LICENSE: https://1password.com/pricing/password-manager
 cask "1password"
 
 # https://developer.1password.com/docs/cli
@@ -119,13 +123,15 @@ cask "apparency"
 # https://github.com/insidegui/AssetCatalogTinkerer
 cask "asset-catalog-tinkerer"
 
-# https://getcleanshot.com/
+# https://cleanshot.com/
+# PAID LICENSE: https://cleanshot.com/pricing
 cask "cleanshot"
 
 # https://corretto.aws/
 cask "corretto@25"
 
 # https://flexibits.com/fantastical
+# PAID LICENSE: https://flexibits.com/pricing
 cask "fantastical"
 
 # https://gpgtools.org/
@@ -138,8 +144,8 @@ cask "imageoptim"
 cask "sf-symbols"
 
 # https://slack.com/
+# PAID LICENSE: https://slack.com/pricing
 cask "slack"
 
 # https://www.mothersruin.com/software/SuspiciousPackage/
 cask "suspicious-package"
-# @config-manager:end cask

@@ -2,10 +2,16 @@
 # brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.golang
 ##
 
+#-------------------------------------------------------------------------------
+# FORMULAE
+
 # @config-manager:start brew
 # https://golangci-lint.run
 brew "golangci-lint"
 # @config-manager:end brew
+
+#-------------------------------------------------------------------------------
+# GO PACKAGES
 
 # @config-manager:start go
 go "github.com/mdempsky/unconvert"
@@ -18,6 +24,7 @@ go "github.com/segmentio/golines"
 go "golang.org/x/perf/cmd/benchstat"
 go "golang.org/x/tools/cmd/godoc"
 go "golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment"
+go "golang.org/x/tools/go/analysis/passes/modernize/cmd/modernize"
 go "golang.org/x/vuln/cmd/govulncheck"
 go "gotest.tools/gotestsum"
 go "mvdan.cc/gofumpt"

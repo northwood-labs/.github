@@ -3,23 +3,24 @@ aubx -y @open-gitagent/gitagent@latest run -r https://github.com/shreyas-lyzr/ar
 kirograph
 npx skills add aws/agent-toolkit-for-aws/skills
 
-go install golang.org/x/vuln/cmd/govulncheck@latest
-go install .../modernizer@latest
 go get -tool -modfile go.tools.mod github.com/nikolaydubina/smrcptr@latest
 go get -tool -modfile go.tools.mod github.com/quasilyte/go-consistent@latest
 
 python3 + uv (and tools)
 hk
-    dclint
-    deno-check
-    deno
     eslint
     ghalint-action
     ghalint-workflow
-trivy
 aws-vault
 aws-sso-manager
 tbls
+
+go mod edit -json | jq -r .Go
+go list -deps -json ./... | jq -rc 'select(.Standard!=true and .Module.GoVersion!=null) | [.Module.GoVersion,.Module.Path] | join(" ")' | sort -V | uniq
+go list -u -m $(go list -m -f '{{.Indirect}} {{.}}' all | grep '^false' | cut -d ' ' -f2) | grep '\['
+go list -deps -json ./... | jq -rc 'select(.Standard!=true and .Module.GoVersion==null) | .Module.Path' | sort -u
+go run github.com/nieomylnieja/go-libyear/cmd/go-libyear@latest --releases --skip-fresh --json go.mod
+go run github.com/adonovan/spaghetti@latest .
 
 @ $(HEADER) "=====> Installing Chag (may require password)..."
 curl -sSLf https://raw.githubusercontent.com/mtdowling/chag/master/install.sh | sudo bash
@@ -35,7 +36,6 @@ project bootstrapping
 # cloudflared = "latest"
 # duckdb = "latest"
 # ffmpeg = "latest"
-# goreleaser = "latest"
 # vhs = "latest"
 
 ---
@@ -47,12 +47,8 @@ project bootstrapping
 
 # awscli
 # gh
-# go
-# golangci-lint
-# hadolint
 # hugo
 # infracost
-# mise
 # mlx
 # mlx-c
 # mlx-lm
@@ -60,7 +56,6 @@ project bootstrapping
 # protobuf
 # python3
 # qsv
-# shfmt
 # terraform-docs
 # terrascan
 # tflint
