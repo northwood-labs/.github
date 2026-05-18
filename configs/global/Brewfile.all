@@ -65,7 +65,7 @@ brew "htop"
 # https://imagemagick.org/index.php
 brew "imagemagick-full"
 
-# https://jqlang.github.io/jq/
+# https://jqlang.org/
 brew "jq"
 
 # https://wiki.gnome.org/Projects/LibRsvg
@@ -127,7 +127,7 @@ cask "asset-catalog-tinkerer"
 # PAID LICENSE: https://cleanshot.com/pricing
 cask "cleanshot"
 
-# https://corretto.aws/
+# https://docs.aws.amazon.com/corretto/
 cask "corretto@25"
 
 # https://flexibits.com/fantastical

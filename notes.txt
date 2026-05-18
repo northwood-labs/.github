@@ -3,9 +3,6 @@ aubx -y @open-gitagent/gitagent@latest run -r https://github.com/shreyas-lyzr/ar
 kirograph
 npx skills add aws/agent-toolkit-for-aws/skills
 
-go get -tool -modfile go.tools.mod github.com/nikolaydubina/smrcptr@latest
-go get -tool -modfile go.tools.mod github.com/quasilyte/go-consistent@latest
-
 python3 + uv (and tools)
 hk
     eslint
