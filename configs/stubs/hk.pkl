@@ -1,0 +1,12 @@
+// @config-manager:start imports
+// @config-manager:end imports
+
+local linters = new Mapping<String, Group> {
+  // @config-manager:start standard
+  // @config-manager:end standard
+}
+
+hooks {
+  // @config-manager:start hooks
+  // @config-manager:end hooks
+}

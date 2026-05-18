@@ -4,18 +4,12 @@ kirograph
 npx skills add aws/agent-toolkit-for-aws/skills
 
 python3 + uv (and tools)
-hk
-    eslint
-    ghalint-action
-    ghalint-workflow
 aws-vault
 aws-sso-manager
 tbls
 
-go mod edit -json | jq -r .Go
-go list -deps -json ./... | jq -rc 'select(.Standard!=true and .Module.GoVersion!=null) | [.Module.GoVersion,.Module.Path] | join(" ")' | sort -V | uniq
-go list -u -m $(go list -m -f '{{.Indirect}} {{.}}' all | grep '^false' | cut -d ' ' -f2) | grep '\['
-go list -deps -json ./... | jq -rc 'select(.Standard!=true and .Module.GoVersion==null) | .Module.Path' | sort -u
+go get -tool -modfile go.tools.mod github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server@latest
+go get -tool -modfile go.tools.mod github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest
 go run github.com/nieomylnieja/go-libyear/cmd/go-libyear@latest --releases --skip-fresh --json go.mod
 go run github.com/adonovan/spaghetti@latest .
 
@@ -27,6 +21,7 @@ aubx contextlint init
 aubx contextlint
 
 project bootstrapping
+support removals
 
 ---
 

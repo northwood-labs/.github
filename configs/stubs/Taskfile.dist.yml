@@ -1,0 +1,72 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+##
+# You can _add_ to this Taskfile.dist.yml by adding tasks outside of the
+# `@config-manager` markers. Tasks inside the `@config-manager` markers are
+# managed by the config-manager.
+#
+# If you want to _override_ a task from this file, copy it to Taskfile.yml and
+# make changes there.
+#
+# https://taskfile.dev/docs/guide
+##
+
+version: "3"
+
+set: [pipefail]
+shopt: [globstar]
+
+vars:
+  # @config-manager:start standard-vars
+  # @config-manager:end standard-vars
+
+includes:
+  # @config-manager:start standard
+  # @config-manager:end standard
+
+  # @config-manager:start aws-user
+  # @config-manager:end aws-user
+
+  # @config-manager:start golang
+  # @config-manager:end golang
+
+tasks:
+  #-----------------------------------------------------------------------------
+  # Installation and setup
+
+  # @config-manager:start installation-standard
+  # @config-manager:end installation-standard
+
+  # @config-manager:start gitconfig-standard
+  # @config-manager:end gitconfig-standard
+
+  #-----------------------------------------------------------------------------
+  # Linting and code quality
+
+  # @config-manager:start linting-standard
+  # @config-manager:end linting-standard
+
+  #-----------------------------------------------------------------------------
+  # Building
+
+  #-----------------------------------------------------------------------------
+  # Testing
+
+  #-------------------------------------------------------------------------------
+  # Documentation
+
+  # @config-manager:start docs-standard
+  # @config-manager:end docs-standard
+
+  #-------------------------------------------------------------------------------
+  # Compliance
+
+  # @config-manager:start compliance-standard
+  # @config-manager:end compliance-standard
+
+  #-----------------------------------------------------------------------------
+  # Cleanup
+
+  # @config-manager:start cleaning-standard
+  # @config-manager:end cleaning-standard

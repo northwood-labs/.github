@@ -1,0 +1,48 @@
+# https://lychee.cli.rs/guides/config/
+
+#-------------------------------------------------------------------------------
+# DISPLAY
+
+# @config-manager:start display
+# @config-manager:end display
+
+#-------------------------------------------------------------------------------
+# CACHE
+
+# @config-manager:start cache
+# @config-manager:end cache
+
+#-------------------------------------------------------------------------------
+# RUNTIME
+
+# @config-manager:start runtime
+# @config-manager:end runtime
+
+#-------------------------------------------------------------------------------
+# REQUESTS
+
+# @config-manager:start requests
+# @config-manager:end requests
+
+#-------------------------------------------------------------------------------
+# EXCLUSIONS
+
+# @config-manager:start exclusions
+# @config-manager:end exclusions
+
+#-------------------------------------------------------------------------------
+# OTHER
+
+# @config-manager:start other
+# @config-manager:end other
+
+#-------------------------------------------------------------------------------
+# HOSTS
+
+# @config-manager:start hosts
+# @config-manager:end hosts
+
+exclude = [
+  # @config-manager:start host-excludes
+  # @config-manager:end host-excludes
+]
