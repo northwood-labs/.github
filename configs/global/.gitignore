@@ -1,12 +1,16 @@
 ## Temp files, caches, and logs
+__pycache__
 ._*
 .cache
 .dccache
+.hypothesis
 .iac-data
 .infracost
 .jfrog
 .lychee-cookie-jar
 .lycheecache
+.pytest_cache
+.ruff_cache
 .rumdl_cache
 .sass-cache
 .vagrant/
