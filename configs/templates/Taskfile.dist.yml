@@ -56,7 +56,7 @@ tasks:
   # Installation and setup
 
   # @config-manager:start installation-standard
-  install-hooks:
+  install:hooks:
     desc: Install Git hooks which perform standard tasks on pre-commit.
     summary: |
       Installs Git hooks which perform standard tasks on pre-commit.
@@ -70,9 +70,9 @@ tasks:
     cmds:
       - task: internal:header
         vars: { TEXT: "Installing Git hooks..." }
-      - hk install
+      - cmd: hk install
 
-  install-tools:
+  install:tools:
     desc: Install all dependencies required for development for this project.
     summary: |
       Install all dependencies required for development for this project.
@@ -82,10 +82,11 @@ tasks:
     cmds:
       - task: internal:header
         vars: { TEXT: "Installing dependencies from Brewfiles..." }
-      - >
+      - cmd: >
         gfind ./tools -type f -name "Brewfile.*"
         | gxargs -I% brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file="%"
   # @config-manager:end installation-standard
+
   # @config-manager:start gitconfig-standard
   gitconfig:
     desc: Apply standard project git configurations.
@@ -98,7 +99,7 @@ tasks:
     cmds:
       - task: internal:header
         vars: { TEXT: "Configuring project Git configuration..." }
-      - git config blame.ignoreRevsFile .git-blame-ignore-revs
+      - cmd: git config blame.ignoreRevsFile .git-blame-ignore-revs
   # @config-manager:end gitconfig-standard
 
   #-----------------------------------------------------------------------------
@@ -116,7 +117,7 @@ tasks:
     cmds:
       - task: internal:header
         vars: { TEXT: "Linting changed files..." }
-      - hk fix --no-fail-fast
+      - cmd: hk fix --no-fail-fast
 
   lint:deep:
     desc: Run a battery of linters to ensure high quality on ALL files.
@@ -128,7 +129,7 @@ tasks:
     cmds:
       - task: internal:header
         vars: { TEXT: "Linting ALL files..." }
-      - hk fix --all --no-fail-fast
+      - cmd: hk fix --all --no-fail-fast
 
   lint:deep:*:
     desc: Run a specific linter on ALL files.
@@ -139,7 +140,7 @@ tasks:
     cmds:
       - task: internal:header
         vars: { TEXT: "Linting ALL files with {{ .STEP }}..." }
-      - hk fix --all --no-fail-fast --step {{ .STEP }}
+      - cmd: hk fix --all --no-fail-fast --step {{ .STEP }}
 
   lint:list:
     desc: Get a list of available linters.
@@ -178,7 +179,7 @@ tasks:
       jq, then using a for-loop to call the matches.
     vars:
       TASKS:
-        sh: task --list --json | jq -Mr '.tasks[] | select(.name | startswith("docs-") and . != "docs-serve") | .name'
+        sh: task --list --json | jq -Mr '.tasks[] | select(.name | startswith("docs:") and . != "docs:serve") | .name'
     cmds:
       - for:
           var: TASKS
@@ -230,7 +231,9 @@ tasks:
       jq, then using a for-loop to call the matches.
     vars:
       TASKS:
-        sh: task --list --json | jq -Mr '.tasks[] | select(.name | startswith("clean:") and . != "clean:go") | .name'
+        sh: >
+          task --list --json
+          | jq -Mr '.tasks[] | select(.name | startswith("clean:") and . != "clean:go") | .name'
     cmds:
       - for:
           var: TASKS
@@ -248,7 +251,7 @@ tasks:
     cmds:
       - task: internal:header
         vars: { TEXT: "Cleaning .DS_Store files..." }
-      - '{{ .FIND }} . -type f -name ".DS_Store" | {{ .XARGS }} -I% {{ .RM }} -fv "%"'
+      - cmd: '{{ .FIND }} . -type f -name ".DS_Store" | {{ .XARGS }} -I% {{ .RM }} -fv "%"'
 
   clean:lychee:
     desc: Clean Lychee artifacts.
@@ -259,5 +262,5 @@ tasks:
     cmds:
       - task: internal:header
         vars: { TEXT: "Cleaning Lychee artifacts..." }
-      - "{{ .RM }} -vf .lychee* lychee.md"
+      - cmd: "{{ .RM }} -vf .lychee* lychee.md"
   # @config-manager:end cleaning-standard
