@@ -1,4 +1,6 @@
 ---
+#:schema https://golangci-lint.run/jsonschema/golangci.jsonschema.json
+#
 # https://github.com/golangci/golangci-lint/blob/master/.golangci.reference.yml
 # https://golangci-lint.run/jsonschema/golangci.jsonschema.json
 

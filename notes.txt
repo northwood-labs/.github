@@ -13,6 +13,34 @@ go get -tool -modfile go.tools.mod github.com/hashicorp/terraform-plugin-docs/cm
 go run github.com/nieomylnieja/go-libyear/cmd/go-libyear@latest --releases --skip-fresh --json go.mod
 go run github.com/adonovan/spaghetti@latest .
 
+---
+
+# github.com/nicksnyder/go-i18n/v2/goi18n
+
+# mvdan.cc/garble
+# github.com/siderolabs/conform/cmd/conform
+# github.com/dependabot/cli/cmd/dependabot
+
+# go-consistent -v ./...
+
+# https://github.com/nicksnyder/go-i18n
+
+# entgo.io/contrib/entproto/cmd/protoc-gen-entgrpc
+# google.golang.org/protobuf/cmd/protoc-gen-go
+# google.golang.org/grpc/cmd/protoc-gen-go-grpc
+# brew install protobuf
+
+# github.com/open-telemetry/opentelemetry-collector-contrib/cmd/telemetrygen
+
+# github.com/hashicorp/terraform-config-inspect
+# github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs
+
+# github.com/99designs/gqlgen
+# github.com/Khan/genqlient
+# github.com/suessflorian/gqlfetch/gqlfetch
+
+---
+
 @ $(HEADER) "=====> Installing Chag (may require password)..."
 curl -sSLf https://raw.githubusercontent.com/mtdowling/chag/master/install.sh | sudo bash
 
@@ -22,6 +50,7 @@ aubx contextlint
 
 project bootstrapping
 support removals
+    .vscode/settings-go.toml
 
 ---
 
