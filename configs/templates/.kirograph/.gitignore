@@ -11,9 +11,11 @@
 
 # Single file databases
 # @config-manager:start kg-single
+.session-id
 kirograph.db
-vec.db
 orama.json
+token-savings.jsonl
+vec.db
 # @config-manager:end kg-single
 
 # Database directories

@@ -155,6 +155,23 @@ Remove commented-out code blocks. If the code is needed for reference, move it b
 
 `SyncOptions.Logger` can be nil. Any function that uses the logger outside of `RunSync` (which sets the default) must guard against nil — use a `safeLogger` helper or check before calling.
 
+### Test performance (huh TUI blocking)
+
+`huh.NewInput().Run()` and other `huh` form calls start a bubbletea TUI program that **blocks indefinitely** without a TTY (common in CI and `go test`). Tests that call `cmd.RunE` directly will hang at the test timeout if the code path reaches any `huh` input.
+
+**Fix pattern:** Provide all config values via viper so the command skips every `huh` prompt:
+
+```go
+asmConfig = viper.New()
+asmConfig.Set("profile-name", "test-profile")
+```
+
+**Cobra context nil panic:** Calling `cmd.RunE(cmd, args)` directly (without Cobra's `Execute` dispatch) leaves `cmd.Context()` as nil. Any code that calls `context.WithTimeout(cmd.Context(), ...)` will panic with `cannot create context from nil parent`. Fix by calling `cmd.SetContext(context.Background())` before `RunE`.
+
+### Suppression comment scope
+
+`lint:allow_unhandled` suppresses `gosec` G104 but does NOT suppress `errcheck`. `lint:allow_defer_close` suppresses `errcheck` but does NOT suppress `gosec`. When both linters flag the same unhandled error, prefer handling the error properly (e.g., `if closeErr := f.Close(); closeErr != nil { t.Fatal(closeErr) }`) rather than stacking suppression comments.
+
 ## Suppression
 
 When a diagnostic cannot be resolved cleanly, use the project's lint suppression comments. Always include a justification. Suppression is a last resort — STRONGLY prefer fixing the root cause.
