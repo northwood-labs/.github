@@ -1,6 +1,5 @@
 aube add -g context-mode
 aubx -y @open-gitagent/gitagent@latest run -r https://github.com/shreyas-lyzr/architect -a claude
-kirograph
 npx skills add aws/agent-toolkit-for-aws/skills
 
 python3 + uv (and tools)
@@ -17,11 +16,8 @@ go run github.com/adonovan/spaghetti@latest .
 
 # github.com/nicksnyder/go-i18n/v2/goi18n
 
-# mvdan.cc/garble
 # github.com/siderolabs/conform/cmd/conform
 # github.com/dependabot/cli/cmd/dependabot
-
-# go-consistent -v ./...
 
 # https://github.com/nicksnyder/go-i18n
 
