@@ -1,0 +1,66 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+##
+# https://taskfile.dev/docs/guide
+##
+
+# @config-manager:start python
+version: "3"
+
+set: [pipefail]
+shopt: [globstar]
+
+vars:
+  # BASH: /opt/homebrew/opt/bash/bin/bash
+  # FIND: /opt/homebrew/opt/findutils/bin/gfind
+  # XARGS: /opt/homebrew/opt/findutils/bin/gxargs
+
+tasks:
+  #-----------------------------------------------------------------------------
+  # Building
+
+  build:
+    desc: Bundle the code into a package
+    summary: |
+      Bundles the code into a package.
+
+      @TODO
+    cmds:
+      - task: internal:header
+        vars:
+          TEXT: "Packaging..."
+      - cmd: echo "@TODO"
+
+  deps:
+    desc: Update packages to their latest semver minor versions.
+    summary: |
+      Updates all of the packages to their latest semver minor versions.
+
+      This is useful for keeping the dependencies up to date with little effort.
+    cmds:
+      - task: internal:header
+        vars:
+          TEXT: "Upgrade the minor versions of Python dependencies..."
+      - cmd: echo "@TODO"
+
+  #-----------------------------------------------------------------------------
+  # Testing
+
+  #-------------------------------------------------------------------------------
+  # Documentation
+
+  #-----------------------------------------------------------------------------
+  # Cleanup
+
+  clean:py:
+    desc: Clean Python artifacts
+    summary: Cleans Python artifacts.
+    prompt: Are you certain that you want to remove Python cache and artifacts?
+    cmds:
+      - task: internal:header
+        vars:
+          TEXT: "Cleaning Python cache and artifacts..."
+      - cmd: echo "@TODO"
+
+# @config-manager:end python

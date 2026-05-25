@@ -3,6 +3,7 @@ inclusion: fileMatch
 fileMatchPattern: "**/*.py"
 ---
 
+<!-- @config-manager:start zdp -->
 # Python Zero Diagnostics
 
 This project uses [Zuban](https://zubanls.com) as its Python type checker. Zuban is a fast type checker and LSP server written in Rust. Always use Zuban — not mypy or pyright — unless Zuban is unavailable.
@@ -27,6 +28,24 @@ zuban check {file1} {file2} {file3}
 4. Run `uv run pytest` for the affected package to confirm no regressions.
 
 Do not present work as finished while diagnostics remain.
+
+## Commands
+
+This project uses [Ruff](https://docs.astral.sh/ruff/) as its Python formatter and linter. Ruff replaces YAPF, Black, isort, and flake8 in a single tool. Always use Ruff — do not run YAPF, Black, autopep8, or isort alongside it.
+
+```bash
+# Format all Python files in-place
+uv run ruff format
+
+# Lint and auto-fix what is fixable
+uv run ruff check --fix
+
+# Check formatting without modifying (useful in CI)
+uv run ruff format --check
+
+# Check linting without modifying (useful in CI)
+uv run ruff check
+```
 
 ## Rules learned from resolving diagnostics
 
@@ -402,3 +421,8 @@ def main() -> None:
 #!/usr/bin/env -S uv run --script
 # scripts/my_script.py — entry point script
 ```
+
+## Learning
+
+Whenever you learn something new, make sure to update this document with the latest information that you have discovered. This document will be shared and reused across many different repositories, so make sure that you generalize the documentation (that should still be optimized for AI understanding) rather than project-specific details.
+<!-- @config-manager:end zdp -->

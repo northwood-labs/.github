@@ -1,6 +1,4 @@
 ---
-#:schema https://golangci-lint.run/jsonschema/golangci.jsonschema.json
-#
 # https://github.com/golangci/golangci-lint/blob/master/.golangci.reference.yml
 # https://golangci-lint.run/jsonschema/golangci.jsonschema.json
 
@@ -16,8 +14,20 @@ linters:
     # @config-manager:start linters-enable
     # @config-manager:end linters-enable
 
-    # All available settings of specific linters.
+  # All available settings of specific linters.
   settings:
+    asasalint:
+      # @config-manager:start linters-settings-asasalint
+      # @config-manager:end linters-settings-asasalint
+
+    bidichk:
+      # @config-manager:start linters-settings-bidichk
+      # @config-manager:end linters-settings-bidichk
+
+    bodyclose:
+      # @config-manager:start linters-settings-bodyclose
+      # @config-manager:end linters-settings-bodyclose
+
     copyloopvar:
       # @config-manager:start linters-settings-copyloopvar
       # @config-manager:end linters-settings-copyloopvar
@@ -25,6 +35,11 @@ linters:
     decorder:
       # @config-manager:start linters-settings-decorder
       # @config-manager:end linters-settings-decorder
+
+    depguard:
+      rules:
+        # @config-manager:start linters-settings-depguard
+        # @config-manager:end linters-settings-depguard
 
     dogsled:
       # @config-manager:start linters-settings-dogsled
@@ -86,9 +101,25 @@ linters:
       # @config-manager:start linters-settings-gocritic
       # @config-manager:end linters-settings-gocritic
 
+    gocyclo:
+      # @config-manager:start linters-settings-gocyclo
+      # @config-manager:end linters-settings-gocyclo
+
+    godoclint:
+      # @config-manager:start linters-settings-godoclint
+      # @config-manager:end linters-settings-godoclint
+
+    godot:
+      # @config-manager:start linters-settings-godot
+      # @config-manager:end linters-settings-godot
+
     godox:
       # @config-manager:start linters-settings-godox
       # @config-manager:end linters-settings-godox
+
+    goheader:
+      # @config-manager:start linters-settings-goheader
+      # @config-manager:end linters-settings-goheader
 
     gomoddirectives:
       # @config-manager:start linters-settings-gomoddirectives
@@ -102,6 +133,10 @@ linters:
       # @config-manager:start linters-settings-govet
       # @config-manager:end linters-settings-govet
 
+    grouper:
+      # @config-manager:start linters-settings-grouper
+      # @config-manager:end linters-settings-grouper
+
     iface:
       # @config-manager:start linters-settings-iface
       # @config-manager:end linters-settings-iface
@@ -114,9 +149,17 @@ linters:
       # @config-manager:start linters-settings-inamedparam
       # @config-manager:end linters-settings-inamedparam
 
+    ineffassign:
+      # @config-manager:start linters-settings-ineffassign
+      # @config-manager:end linters-settings-ineffassign
+
     interfacebloat:
       # @config-manager:start linters-settings-interfacebloat
       # @config-manager:end linters-settings-interfacebloat
+
+    iotamixing:
+      # @config-manager:start linters-settings-iotamixing
+      # @config-manager:end linters-settings-iotamixing
 
     lll:
       # @config-manager:start linters-settings-lll
@@ -138,6 +181,10 @@ linters:
       # @config-manager:start linters-settings-mnd
       # @config-manager:end linters-settings-mnd
 
+    modernize:
+      # @config-manager:start linters-settings-modernize
+      # @config-manager:end linters-settings-modernize
+
     nakedret:
       # @config-manager:start linters-settings-nakedret
       # @config-manager:end linters-settings-nakedret
@@ -154,6 +201,10 @@ linters:
       # @config-manager:start linters-settings-nlreturn
       # @config-manager:end linters-settings-nlreturn
 
+    nolintlint:
+      # @config-manager:start linters-settings-nolintlint
+      # @config-manager:end linters-settings-nolintlint
+
     nonamedreturns:
       # @config-manager:start linters-settings-nonamedreturns
       # @config-manager:end linters-settings-nonamedreturns
@@ -166,9 +217,37 @@ linters:
       # @config-manager:start linters-settings-perfsprint
       # @config-manager:end linters-settings-perfsprint
 
+    prealloc:
+      # @config-manager:start linters-settings-prealloc
+      # @config-manager:end linters-settings-prealloc
+
+    predeclared:
+      # @config-manager:start linters-settings-predeclared
+      # @config-manager:end linters-settings-predeclared
+
+    promlinter:
+      # @config-manager:start linters-settings-promlinter
+      # @config-manager:end linters-settings-promlinter
+
+    protogetter:
+      # @config-manager:start linters-settings-protogetter
+      # @config-manager:end linters-settings-protogetter
+
+    reassign:
+      # @config-manager:start linters-settings-reassign
+      # @config-manager:end linters-settings-reassign
+
     recvcheck:
       # @config-manager:start linters-settings-recvcheck
       # @config-manager:end linters-settings-recvcheck
+
+    revive:
+      # @config-manager:start linters-settings-revive
+      # @config-manager:end linters-settings-revive
+
+    rowserrcheck:
+      # @config-manager:start linters-settings-rowserrcheck
+      # @config-manager:end linters-settings-rowserrcheck
 
     sloglint:
       # @config-manager:start linters-settings-sloglint
@@ -190,6 +269,10 @@ linters:
       # @config-manager:start linters-settings-tagliatelle
       # @config-manager:end linters-settings-tagliatelle
 
+    testifylint:
+      # @config-manager:start linters-settings-testifylint
+      # @config-manager:end linters-settings-testifylint
+
     thelper:
       # @config-manager:start linters-settings-thelper
       # @config-manager:end linters-settings-thelper
@@ -209,6 +292,10 @@ linters:
     unused:
       # @config-manager:start linters-settings-unused
       # @config-manager:end linters-settings-unused
+
+    # unqueryvet:
+    # @config-manager:start linters-settings-unqueryvet
+    # @config-manager:end linters-settings-unqueryvet
 
     whitespace:
       # @config-manager:start linters-settings-whitespace

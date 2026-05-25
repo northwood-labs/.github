@@ -1,0 +1,25 @@
+##
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.tfprovider
+##
+
+#-------------------------------------------------------------------------------
+# TAPS
+
+# @config-manager:start taps
+tap "minamijoyo/tfschema"
+# @config-manager:end taps
+
+#-------------------------------------------------------------------------------
+# FORMULAE
+
+# @config-manager:start brew
+brew "tfschema"
+# @config-manager:end brew
+
+#-------------------------------------------------------------------------------
+# GO PACKAGES
+
+# @config-manager:start go
+go "github.com/hashicorp/terraform-config-inspect"
+go "github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs"
+# @config-manager:end go

@@ -1,0 +1,26 @@
+##
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.aws-developer
+##
+
+#-------------------------------------------------------------------------------
+# TAPS
+
+# @config-manager:start taps
+tap "aws/tap"
+tap "localstack/tap"
+# @config-manager:end taps
+
+#-------------------------------------------------------------------------------
+# FORMULAE
+
+# @config-manager:start brew
+brew "ec2-metadata-mock"
+brew "localstack-cli"
+brew "lstk"
+# @config-manager:end brew
+
+#-------------------------------------------------------------------------------
+# UV PACKAGES
+
+# @config-manager:start uv
+# @config-manager:end uv

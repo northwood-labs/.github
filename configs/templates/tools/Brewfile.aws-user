@@ -1,0 +1,23 @@
+##
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.aws-user
+##
+
+#-------------------------------------------------------------------------------
+# TAPS
+
+# @config-manager:start taps
+# @config-manager:end taps
+
+#-------------------------------------------------------------------------------
+# FORMULAE
+
+# @config-manager:start brew
+aws-vault
+aws-sso-manager
+# @config-manager:end brew
+
+#-------------------------------------------------------------------------------
+# UV PACKAGES
+
+# @config-manager:start uv
+# @config-manager:end uv

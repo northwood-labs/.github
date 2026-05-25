@@ -39,13 +39,13 @@ linters:
     # - exhaustruct
     - exptostd
     - fatcontext
-    # - forbidigo #####
+    # - forbidigo
     - forcetypeassert
     - funcorder
     - funlen
-    # - ginkgolinter #####
+    # - ginkgolinter
     - gocheckcompilerdirectives
-    # - gochecknoglobals #####
+    # - gochecknoglobals
     - gochecknoinits
     - gochecksumtype
     - gocognit
@@ -56,11 +56,11 @@ linters:
     - godot
     - godox
     - goheader
-    # - gomoddirectives #####
+    # - gomoddirectives
     # - gomodguard_v2
     - goprintffuncname
     - gosec
-    # - gosmopolitan #####
+    # - gosmopolitan
     - govet
     - grouper
     - iface
@@ -70,16 +70,16 @@ linters:
     - interfacebloat
     - intrange
     - iotamixing
-    # - ireturn #####
+    # - ireturn
     - lll
-    # - loggercheck #####
+    # - loggercheck
     - maintidx
     - makezero
     - mirror
     - misspell
     - mnd
     - modernize
-    # - musttag #####
+    # - musttag
     - nakedret
     - nestif
     - nilerr
@@ -93,14 +93,14 @@ linters:
     - nosprintfhostport
     - paralleltest
     - perfsprint
-    # - prealloc #####
-    # - predeclared #####
-    # - promlinter #####
+    # - prealloc
+    # - predeclared
+    # - promlinter
     - protogetter
     - reassign
     - recvcheck
     - revive
-    # - rowserrcheck #####
+    # - rowserrcheck
     - sloglint
     - spancheck
     - sqlclosecheck
@@ -109,16 +109,16 @@ linters:
     - tagliatelle
     - testableexamples
     - testifylint
-    # - testpackage #####
+    # - testpackage
     - thelper
     - tparallel
     - unconvert
     - unparam
-    - unqueryvet
+    # - unqueryvet
     - unused
     - usestdlibvars
     - usetesting
-    # - varnamelen #####
+    # - varnamelen
     - wastedassign
     - whitespace
     - wrapcheck
@@ -862,7 +862,26 @@ linters:
           # Default: false
           include-unexported: false
 
-    godot: # @TODO
+    godot:
+      # @config-manager:start linters-settings-godot
+      # Comments to be checked: `declarations`, `toplevel`, `noinline` or `all`.
+      scope: all
+
+      # List of regexps for excluding particular comment lines from check.
+      # Default: []
+      exclude: []
+        # Exclude todo and fixme comments.
+        # - "^fixme:"
+        # - "^todo:"
+
+      # Check that each sentence ends with a period.
+      # Default: true
+      period: true
+
+      # Check that each sentence starts with a capital letter.
+      # Default: false
+      capital: false
+      # @config-manager:end linters-settings-godot
 
     godox:
       # @config-manager:start linters-settings-godox
@@ -1330,7 +1349,12 @@ linters:
       skip-single-param: false
       # @config-manager:end linters-settings-inamedparam
 
-    ineffassign: # @TODO
+    ineffassign:
+      # @config-manager:start linters-settings-ineffassign
+      # Check escaping variables of type error, may cause false positives.
+      # Default: false
+      check-escaping-errors: true
+      # @config-manager:end linters-settings-ineffassign
 
     interfacebloat:
       # @config-manager:start linters-settings-interfacebloat
@@ -1339,7 +1363,12 @@ linters:
       max: 10
       # @config-manager:end linters-settings-interfacebloat
 
-    iotamixing: # @TODO
+    iotamixing:
+      # @config-manager:start linters-settings-iotamixing
+      # Whether to report individual consts rather than just the const block.
+      # Default: false
+      report-individual: true
+      # @config-manager:end linters-settings-iotamixing
 
     lll:
       # @config-manager:start linters-settings-lll
@@ -1453,7 +1482,12 @@ linters:
         #   - '^http\.StatusText$'
         # @config-manager:end linters-settings-mnd
 
-    modernize: # @TODO
+    modernize:
+      # @config-manager:start linters-settings-modernize
+      # List of analyzers to disable.
+      # By default, all analyzers are enabled.
+      disable: []
+      # @config-manager:end linters-settings-modernize
 
     nakedret:
       # @config-manager:start linters-settings-nakedret
@@ -2893,7 +2927,92 @@ linters:
       generated-is-used: true
       # @config-manager:end linters-settings-unused
 
-    unqueryvet: # @TODO
+    # unqueryvet:
+    # @config-manager:start linters-settings-unqueryvet
+    # # Enable SQL builder checking.
+    # # Default: true
+    # check-sql-builders: false
+
+    # # Enable aliased wildcard detection like `SELECT t.*`.
+    # # Default: true
+    # check-aliased-wildcard: false
+
+    # # Enable string concatenation analysis.
+    # # Default: true
+    # check-string-concat: false
+
+    # # Enable format string analysis like `fmt.Sprintf`.
+    # # Default: true
+    # check-format-strings: false
+
+    # # Enable strings.Builder analysis.
+    # # Default: true
+    # check-string-builder: false
+
+    # # Enable subquery analysis.
+    # # Default: true
+    # check-subqueries: false
+
+    # # Detects N+1 Query.
+    # # Default: false
+    # check-n1: true
+
+    # # Detects SQL injection.
+    # # Default: false
+    # check-sql-injection: true
+
+    # # Detects transaction leaks.
+    # # Default: false
+    # check-tx-leaks: true
+
+    # # Regex patterns for acceptable `SELECT *` usage.
+    # # Default:
+    # # - "SELECT \\* FROM information_schema\\..*"
+    # # - "SELECT \\* FROM pg_catalog\\..*"
+    # # - "SELECT COUNT\\(\\*\\)"
+    # # - "SELECT MAX\\(\\*\\)"
+    # # - "SELECT MIN\\(\\*\\)"
+    # allowed-patterns:
+    #   - "SELECT \\* FROM temp_.*"
+    #   - "SELECT \\* FROM.*-- migration"
+
+    # # Allow is a list of SQL patterns to allow (whitelist).
+    # # Default: []
+    # allow:
+    #   - foo
+
+    # # Functions to ignore (regex patterns)
+    # # Default: []
+    # ignored-functions:
+    #   - "debug\\..*"
+    #   - "test.*"
+
+    # # SQL builder libraries to check.
+    # # Default: all true.
+    # sql-builders:
+    #   squirrel: false
+    #   gorm: false
+    #   sqlx: false
+    #   ent: false
+    #   pgx: false
+    #   bun: false
+    #   sqlboiler: false
+    #   jet: false
+
+    # # List of user-defined DSL rules.
+    # # https://github.com/MirrexOne/unqueryvet?tab=readme-ov-file#custom-rules-dsl
+    # # Default: []
+    # custom-rules:
+    #   - id: allow-temp-tables
+    #     pattern: "SELECT * FROM $TABLE"
+    #     when: "isTempTable(table)"
+    #     action: allow
+
+    #   - id: dangerous-delete
+    #     pattern: "DELETE FROM $TABLE"
+    #     when: "!has_where"
+    #     message: "DELETE without WHERE clause"
+    # @config-manager:end linters-settings-unqueryvet
 
     whitespace:
       # @config-manager:start linters-settings-whitespace

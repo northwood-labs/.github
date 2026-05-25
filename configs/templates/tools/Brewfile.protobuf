@@ -1,0 +1,20 @@
+##
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.protobuf
+##
+
+#-------------------------------------------------------------------------------
+# FORMULAE
+
+# @config-manager:start brew
+# https://protobuf.dev
+brew "protobuf"
+# @config-manager:end brew
+
+#-------------------------------------------------------------------------------
+# GO PACKAGES
+
+# @config-manager:start go
+go "entgo.io/contrib/entproto/cmd/protoc-gen-entgrpc"
+go "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
+go "google.golang.org/protobuf/cmd/protoc-gen-go"
+# @config-manager:end go

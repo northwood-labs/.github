@@ -3,33 +3,18 @@ aubx -y @open-gitagent/gitagent@latest run -r https://github.com/shreyas-lyzr/ar
 npx skills add aws/agent-toolkit-for-aws/skills
 
 python3 + uv (and tools)
-aws-vault
-aws-sso-manager
 tbls
 
 go get -tool -modfile go.tools.mod github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server@latest
-go get -tool -modfile go.tools.mod github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs@latest
-go run github.com/nieomylnieja/go-libyear/cmd/go-libyear@latest --releases --skip-fresh --json go.mod
-go run github.com/adonovan/spaghetti@latest .
 
 ---
-
-# github.com/nicksnyder/go-i18n/v2/goi18n
 
 # github.com/siderolabs/conform/cmd/conform
 # github.com/dependabot/cli/cmd/dependabot
 
 # https://github.com/nicksnyder/go-i18n
 
-# entgo.io/contrib/entproto/cmd/protoc-gen-entgrpc
-# google.golang.org/protobuf/cmd/protoc-gen-go
-# google.golang.org/grpc/cmd/protoc-gen-go-grpc
-# brew install protobuf
-
 # github.com/open-telemetry/opentelemetry-collector-contrib/cmd/telemetrygen
-
-# github.com/hashicorp/terraform-config-inspect
-# github.com/hashicorp/terraform-plugin-docs/cmd/tfplugindocs
 
 # github.com/99designs/gqlgen
 # github.com/Khan/genqlient
@@ -37,12 +22,7 @@ go run github.com/adonovan/spaghetti@latest .
 
 ---
 
-@ $(HEADER) "=====> Installing Chag (may require password)..."
 curl -sSLf https://raw.githubusercontent.com/mtdowling/chag/master/install.sh | sudo bash
-
-aube add -D @contextlint/cli
-aubx contextlint init
-aubx contextlint
 
 project bootstrapping
 support removals
@@ -57,45 +37,38 @@ support removals
 
 ---
 
-# tap "aws/tap"
-
-# tap "minamijoyo/tfschema"
 # tap "terraform-docs/tap"
 
-# awscli
-# gh
-# hugo
-# infracost
-# mlx
-# mlx-c
-# mlx-lm
-# pnpm
-# protobuf
-# python3
-# qsv
-# terraform-docs
-# terrascan
-# tflint
-# tfschema
-# uv
+brew "awscli"
+brew "gh"
+brew "hugo"
+brew "infracost"
+brew "mlx"
+brew "mlx-c"
+brew "mlx-lm"
+brew "pnpm"
+brew "qsv"
+brew "terraform-docs"
+brew "terrascan"
+brew "tflint"
 
-# aws-vault-binary
-# claude-code
-# container
-# cyberduck
-# dash
-# datagrip
-# docker
-# docker-desktop
-# insomnia
-# kiro
-# kiro-cli
-# mountain-duck
-# obsidian
-# parallels
-# parallels-virtualization-sdk
-# sketch
-# raycast
-# textexpander
-# visual-studio-code
-# zed
+cask "aws-vault-binary"
+cask "claude-code"
+cask "container"
+cask "cyberduck"
+cask "dash"
+cask "datagrip"
+cask "docker"
+cask "docker-desktop"
+cask "insomnia"
+cask "kiro"
+cask "kiro-cli"
+cask "mountain-duck"
+cask "obsidian"
+cask "parallels"
+cask "parallels-virtualization-sdk"
+cask "sketch"
+cask "raycast"
+cask "textexpander"
+cask "visual-studio-code"
+cask "zed"
