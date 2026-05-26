@@ -45,7 +45,7 @@ func main() {
 	_, _, err = client.Repositories.Edit(ctx, "northwood-labs", fRepo, &github.Repository{
 		AllowAutoMerge:      github.Bool(true),
 		AllowMergeCommit:    github.Bool(false),
-		AllowRebaseMerge:    github.Bool(false),
+		AllowRebaseMerge:    github.Bool(true),
 		AllowSquashMerge:    github.Bool(true),
 		AllowUpdateBranch:   github.Bool(true),
 		Archived:            github.Bool(false),
