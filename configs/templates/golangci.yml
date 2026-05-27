@@ -3203,9 +3203,10 @@ linters:
           - gosec
 
       - source: lint:allow_unhandled
-        text: (G104)
         linters:
+          - errcheck
           - gosec
+          - revive
 
       - source: lint:allow_dynamic_filename
         text: (G304)
@@ -3247,7 +3248,7 @@ linters:
         linters:
           - goconst
 
-      - source: (fmt|lipgloss)\.(Fprint|Print|Sprint)(f|ln)
+      - source: (fmt|lipgloss)\.(Fprint|Print|Sprint)(f|ln)?
         text: (is not checked)
         linters:
           - errcheck

@@ -2,6 +2,7 @@
 __pycache__
 ._*
 .cache
+.claude
 .dccache
 .hypothesis
 .iac-data
