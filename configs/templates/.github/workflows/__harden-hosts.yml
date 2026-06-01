@@ -1,0 +1,51 @@
+jobs:
+  name:
+    steps:
+      - with:
+          allowed:
+            # @config-manager:start step-security-hosts
+            168.63.129.16:53
+            52.13.150.152:443
+            54.203.187.250:443
+            api.cloudflare.com:443
+            api.deps.dev:443
+            api.github.com:443
+            api.gumroad.com:443
+            api.osv.dev:443
+            api.scorecard.dev:443
+            api.securityscorecards.dev:443
+            checkpoint-api.hashicorp.com:443
+            files.pythonhosted.org:443
+            fulcio.sigstore.dev:443
+            get.opentofu.org:443
+            ghcr.io:443
+            github-cloud.githubusercontent.com:443
+            github-cloud.s3.amazonaws.com:443
+            github.com:443
+            gitlab.com:443
+            go.googlesource.com:443
+            golang.org:443
+            goreleaser.com:443
+            hosted-compute-watchdog-prod-eus-01.githubapp.com:443
+            hosted-compute-watchdog-prod-eus-02.githubapp.com:443
+            hosted-compute-watchdog-prod-iad-01.githubapp.com:443
+            hosted-compute-watchdog-prod-iad-02.githubapp.com:443
+            lfs.github.com:443
+            objects.githubusercontent.com:443
+            oss-fuzz-build-logs.storage.googleapis.com:443
+            osv-vulnerabilities.storage.googleapis.com:443
+            pkg-containers.githubusercontent.com:443
+            proxy.golang.org:443
+            raw.githubusercontent.com:443
+            registry.npmjs.org:443
+            rekor.sigstore.dev:443
+            release-assets.githubusercontent.com:443
+            releases.astral.sh:443
+            releases.hashicorp.com:443
+            storage.googleapis.com:443
+            sum.golang.org:443
+            tuf-repo-cdn.sigstore.dev:443
+            uploads.github.com:443
+            vuln.go.dev:443
+            www.bestpractices.dev:443
+            # @config-manager:end step-security-hosts

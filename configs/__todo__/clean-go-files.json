@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "enabled": true,
+  "name": "Clean Go files",
+  "description": "Runs the fast linters on code changes,",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "**/*.go"
+    ]
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "task lint",
+    "timeout": 10
+  }
+}
