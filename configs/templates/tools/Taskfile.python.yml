@@ -12,9 +12,9 @@ set: [pipefail]
 shopt: [globstar]
 
 vars:
-  # BASH: /opt/homebrew/opt/bash/bin/bash
-  # FIND: /opt/homebrew/opt/findutils/bin/gfind
-  # XARGS: /opt/homebrew/opt/findutils/bin/gxargs
+# BASH: /opt/homebrew/opt/bash/bin/bash
+# FIND: /opt/homebrew/opt/findutils/bin/gfind
+# XARGS: /opt/homebrew/opt/findutils/bin/gxargs
 
 tasks:
   #-----------------------------------------------------------------------------
@@ -32,20 +32,27 @@ tasks:
           TEXT: "Packaging..."
       - cmd: echo "@TODO"
 
-  deps:
-    desc: Update packages to their latest semver minor versions.
+  deps:py:
+    desc: Update packages to their latest versions supported by the range in pyproject.toml.
     summary: |
-      Updates all of the packages to their latest semver minor versions.
+      Updates packages to their latest versions supported by the range in pyproject.toml.
 
       This is useful for keeping the dependencies up to date with little effort.
     cmds:
       - task: internal:header
         vars:
-          TEXT: "Upgrade the minor versions of Python dependencies..."
-      - cmd: echo "@TODO"
+          TEXT: "Upgrade Python dependencies..."
+      - cmd: uv lock --upgrade
 
   #-----------------------------------------------------------------------------
   # Testing
+
+  test:py:
+    desc: "Run Python testing tasks."
+    summary: |
+      Runs Python testing tasks.
+    cmds:
+      - cmd: uv run tryke test
 
   #-------------------------------------------------------------------------------
   # Documentation
@@ -56,11 +63,10 @@ tasks:
   clean:py:
     desc: Clean Python artifacts
     summary: Cleans Python artifacts.
-    prompt: Are you certain that you want to remove Python cache and artifacts?
     cmds:
       - task: internal:header
         vars:
           TEXT: "Cleaning Python cache and artifacts..."
-      - cmd: echo "@TODO"
+      - cmd: rm -rfv .hypothesis .ruff_cache .tryke .venv *.egg-info/ **/__pycache__ dist/
 
 # @config-manager:end python

@@ -13,7 +13,7 @@
 'python.terminal.activateEnvInCurrentTerminal' = true
 'pythonTestExplorer.testFramework' = 'pytest'
 'yapf.args' = [ '-i', '*.py' ]
-# @config-manager:end docker-top-level
+# @config-manager:end python-top-level
 
 # @config-manager:start python
 ['[python]']

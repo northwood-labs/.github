@@ -38,18 +38,11 @@ includes:
     taskfile: ./tools/Taskfile.internal.yml
   # @config-manager:end standard
 
-  # @config-manager:start aws-user
-  aws:
-    taskfile: ./tools/Taskfile.aws.yml
-  # @config-manager:end aws-user
-
-  # @config-manager:start golang
-  go:
-    taskfile: ./tools/Taskfile.golang.yml
+  # @config-manager:start python
+  python:
+    taskfile: ./tools/Taskfile.python.yml
     flatten: true
-    # @config-manager:end golang
-    vars:
-      GO_VER: 1.26.3
+    # @config-manager:end python
 
 tasks:
   #-----------------------------------------------------------------------------
@@ -227,8 +220,42 @@ tasks:
   #-----------------------------------------------------------------------------
   # Building
 
+  # @config-manager:start deps-standard
+  deps:
+    desc: "! Run all standard dependency-upgrading tasks."
+    summary: |
+      Runs all standard dependency-upgrading tasks.
+
+      This runs all `deps:*` tasks. We do this by exporting a list of tasks to
+      JSON, parsing it with jq, then using a for-loop to call the matches.
+    vars:
+      TASKS:
+        sh: task --list --json | jq -Mr '.tasks[] | select(.name | startswith("deps:")) | .name'
+    cmds:
+      - for:
+          var: TASKS
+        task: "{{ .ITEM }}"
+  # @config-manager:end deps-standard
+
   #-----------------------------------------------------------------------------
   # Testing
+
+  # @config-manager:start testing-standard
+  test:
+    desc: "! Run all standard testing tasks."
+    summary: |
+      Runs all standard testing tasks.
+
+      This runs all `test:*` tasks. We do this by exporting a list of tasks to
+      JSON, parsing it with jq, then using a for-loop to call the matches.
+    vars:
+      TASKS:
+        sh: task --list --json | jq -Mr '.tasks[] | select(.name | startswith("test:")) | .name'
+    cmds:
+      - for:
+          var: TASKS
+        task: "{{ .ITEM }}"
+  # @config-manager:end testing-standard
 
   #-------------------------------------------------------------------------------
   # Documentation
@@ -244,7 +271,7 @@ tasks:
       jq, then using a for-loop to call the matches.
     vars:
       TASKS:
-        sh: task --list --json | jq -Mr '.tasks[] | select(.name | startswith("docs-") and . != "docs-serve") | .name'
+        sh: task --list --json | jq -Mr '.tasks[] | select(.name | startswith("docs:") and . != "docs:serve") | .name'
     cmds:
       - for:
           var: TASKS

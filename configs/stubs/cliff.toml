@@ -1,0 +1,35 @@
+# git-cliff ~ default configuration file
+# https://git-cliff.org/docs/configuration
+#
+# Lines starting with "#" are comments.
+# Configuration options are organized into tables and keys.
+# See documentation for more information on available options.
+
+[remote.github]
+  owner = "northwood-labs"
+  repo = "@TODO: Update the repository value here."
+
+[changelog]
+  # @config-manager:start changelog-content
+  # @config-manager:end changelog-content
+
+  postprocessors = [
+    # @config-manager:start post-processors
+    # @config-manager:end post-processors
+  ]
+
+[git]
+  # @config-manager:start reading-git
+  # @config-manager:end reading-git
+
+  # regex for preprocessing the commit messages
+  commit_preprocessors = [
+    # @config-manager:start commit-pre
+    # @config-manager:end commit-pre
+  ]
+
+  # regex for parsing and grouping commits
+  commit_parsers = [
+    # @config-manager:start commit-parsers
+    # @config-manager:end commit-parsers
+  ]

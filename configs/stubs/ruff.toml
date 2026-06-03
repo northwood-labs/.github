@@ -1,0 +1,17 @@
+# @config-manager:start lines
+# @config-manager:end lines
+
+[format]
+# @config-manager:start format
+# @config-manager:end format
+
+[lint]
+select = [
+  # @config-manager:start lint-select
+  # @config-manager:end lint-select
+]
+
+ignore = [
+  # @config-manager:start lint-ignore
+  # @config-manager:end lint-ignore
+]

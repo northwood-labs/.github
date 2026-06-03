@@ -124,11 +124,13 @@ local linters = new Mapping<String, Group> {
       }
       ["go-mod-tidy"] {
         workspace_indicator = "go.mod"
+        glob = "**/*.go"
         check = "cd {{ workspace }} && go mod tidy -diff"
         fix = "cd {{ workspace }} && go mod tidy"
       }
       ["go-mod-tidy-tools"] {
         workspace_indicator = "go.tools.mod"
+        glob = "**/*.go"
         check = "cd {{ workspace }} && go mod tidy -modfile=go.tools.mod -diff"
         fix = "cd {{ workspace }} && go mod tidy -modfile=go.tools.mod"
       }
@@ -150,6 +152,31 @@ local linters = new Mapping<String, Group> {
         glob = "**/*.go"
         check = "cd {{ workspace }} && go vet ./..."
         profiles = List("slow")
+      }
+    }
+  }
+  ["python"] = new Group {
+    steps {
+      ["python-check-ast"] = (Builtins.python_check_ast) {
+        glob = List("**/*.py", "**/*.pyi")
+        profiles = List("slow")
+      }
+      ["python-debug-statements"] = (Builtins.python_debug_statements) {
+        glob = List("**/*.py", "**/*.pyi")
+      }
+      ["python-ruff"] = (Builtins.ruff) {
+        glob = List("**/*.py", "**/*.pyi")
+        check = "uv tool run ruff check --force-exclude {{ files }}"
+        fix = "uv tool run ruff check --force-exclude --fix {{ files }}"
+      }
+      ["python-format"] = (Builtins.ruff_format) {
+        glob = List("**/*.py", "**/*.pyi")
+        check = "uv tool run ruff format --quiet --force-exclude --diff {{ files }}"
+        fix = "uv tool run ruff format --quiet --force-exclude {{ files }}"
+      }
+      ["python-typechecking"] {
+        glob = List("**/*.py", "**/*.pyi")
+        check = "uv tool run zuban check {{ files }}"
       }
     }
   }
@@ -191,7 +218,6 @@ local linters = new Mapping<String, Group> {
   }
   ["tofu"] = new Group {
     steps {
-      ["hcl-fmt"] = (Builtins.hclfmt) {}
       ["opentofu-format"] = (Builtins.tofu) {
         glob = List("**/*.tf", "**/*.tofu", "**/*.tfvars", "**/*.tftest.hcl")
       }
