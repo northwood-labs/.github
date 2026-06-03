@@ -38,6 +38,19 @@ includes:
     taskfile: ./tools/Taskfile.internal.yml
   # @config-manager:end standard
 
+  # @config-manager:start aws-user
+  aws:
+    taskfile: ./tools/Taskfile.aws.yml
+  # @config-manager:end aws-user
+
+  # @config-manager:start golang
+  go:
+    taskfile: ./tools/Taskfile.golang.yml
+    flatten: true
+    # @config-manager:end golang
+    vars:
+      GO_VER: 1.26.3
+
   # @config-manager:start python
   python:
     taskfile: ./tools/Taskfile.python.yml
