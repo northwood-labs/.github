@@ -3,5 +3,7 @@ recommendations = [
   'docker.docker',
   'exiasr.hadolint',
   'ms-azuretools.vscode-containers',
+  'ms-azuretools.vscode-docker',
+  'p1c2u.docker-compose',
   # @config-manager:end containers
 ]

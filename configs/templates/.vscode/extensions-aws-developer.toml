@@ -1,0 +1,5 @@
+recommendations = [
+  # @config-manager:start aws-developer
+  'amazonwebservices.aws-toolkit-vscode',
+  # @config-manager:end aws-developer
+]

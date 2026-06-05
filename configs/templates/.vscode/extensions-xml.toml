@@ -1,6 +1,5 @@
 recommendations = [
   # @config-manager:start xml
-  'DotJoshJohnson.xml',
   'redhat.vscode-xml',
   # @config-manager:end xml
 ]
