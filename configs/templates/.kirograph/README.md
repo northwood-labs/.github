@@ -13,17 +13,13 @@ We use [Kirograph] to provide a knowledge graph for LLMs and MCP servers to leve
 ### Install Kirograph CLI (first time)
 
 ```bash
-git clone https://github.com/davide-desio-eleva/kirograph.git
-cd kirograph
-npm install
-npm run build
-sudo npm install -g .
+sudo npm install -g kirograph
 ```
 
 ### Install Kirograph into your project
 
 ```bash
-kg install
+npx -y kirograph install
 ```
 
 Kirograph's indexing will work best when your functions and complex code sections have comments which explain _why_ the code exists.
