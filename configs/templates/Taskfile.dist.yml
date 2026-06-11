@@ -38,19 +38,6 @@ includes:
     taskfile: ./tools/Taskfile.internal.yml
   # @config-manager:end standard
 
-  # @config-manager:start aws-user
-  aws:
-    taskfile: ./tools/Taskfile.aws.yml
-  # @config-manager:end aws-user
-
-  # @config-manager:start golang
-  go:
-    taskfile: ./tools/Taskfile.golang.yml
-    flatten: true
-    # @config-manager:end golang
-    vars:
-      GO_VER: 1.26.3
-
   # @config-manager:start python
   python:
     taskfile: ./tools/Taskfile.python.yml
@@ -62,7 +49,7 @@ tasks:
   # Installation and setup
 
   # @config-manager:start installation-standard
-  install-hooks:
+  install:hooks:
     desc: Install Git hooks which perform standard tasks on pre-commit.
     summary: |
       Installs Git hooks which perform standard tasks on pre-commit.
@@ -106,6 +93,24 @@ tasks:
         vars: { TEXT: "Configuring project Git configuration..." }
       - git config blame.ignoreRevsFile .git-blame-ignore-revs
   # @config-manager:end gitconfig-standard
+
+  #-----------------------------------------------------------------------------
+  # Building and packaging
+
+  build:
+    desc: "! Run all standard building tasks."
+    summary: |
+      Runs all standard building tasks.
+
+      This runs all `build:*` tasks. We do this by exporting a list of tasks to
+      JSON, parsing it with jq, then using a for-loop to call the matches.
+    vars:
+      TASKS:
+        sh: task --list --json | jq -Mr '.tasks[] | select(.name | startswith("build:")) | .name'
+    cmds:
+      - for:
+          var: TASKS
+        task: "{{ .ITEM }}"
 
   #-----------------------------------------------------------------------------
   # Linting and code quality

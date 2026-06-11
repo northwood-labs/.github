@@ -58,7 +58,7 @@ hidden = true
 user_agent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Safari/537.36"
 
 # Website timeout from connect to response finished.
-timeout = 20
+timeout = 30
 
 # Minimum wait time in seconds between retries of failed requests.
 retry_wait_time = 2
@@ -146,6 +146,4 @@ exclude = [
   'shellcheck.net',
   'taplo://',
   # @config-manager:end host-excludes
-  '://...',
-  '://host/',
 ]
