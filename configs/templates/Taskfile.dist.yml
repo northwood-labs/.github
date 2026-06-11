@@ -97,6 +97,7 @@ tasks:
   #-----------------------------------------------------------------------------
   # Building and packaging
 
+  # @config-manager:start building-standard
   build:
     desc: "! Run all standard building tasks."
     summary: |
@@ -111,6 +112,7 @@ tasks:
       - for:
           var: TASKS
         task: "{{ .ITEM }}"
+  # @config-manager:end building-standard
 
   #-----------------------------------------------------------------------------
   # Linting and code quality
@@ -372,3 +374,23 @@ tasks:
         vars: { TEXT: "Cleaning Lychee artifacts..." }
       - "{{ .RM }} -vf .lychee* lychee.md"
   # @config-manager:end cleaning-standard
+
+  #-----------------------------------------------------------------------------
+  # Git and commits
+
+  # @config-manager:start commits-standard
+  changelog:
+    desc: "Generate a CHANGELOG for this project."
+    summary: |
+      Generates a CHANGELOG for this project.
+
+      Uses `git-cliff` to generate a CHANGELOG from the conventional commits
+      made to this repository.
+    cmds:
+      - task: internal:header
+        vars: { TEXT: "Generating CHANGELOG..." }
+      - git cliff --output CHANGELOG.md --github-repo "$(git remote get-url origin | cut -d':' -f2 | sed -E 's,\.git,,' | tr -d "\n")"
+    requires:
+      vars:
+        - GITHUB_TOKEN
+  # @config-manager:end commits-standard
