@@ -339,6 +339,7 @@
     # @config-manager:start proper-names
     "Commonmark",
     "CSS",
+    "Dependabot",
     "GFM",
     "GitHub-Flavored Markdown",
     "HTML",

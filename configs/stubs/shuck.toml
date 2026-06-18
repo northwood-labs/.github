@@ -1,0 +1,15 @@
+[check]
+# @config-manager:start check
+# @config-manager:end check
+
+[format]
+# @config-manager:start format
+# @config-manager:end format
+
+[lint]
+# @config-manager:start lint
+# @config-manager:end lint
+
+[run]
+# @config-manager:start run
+# @config-manager:end run
