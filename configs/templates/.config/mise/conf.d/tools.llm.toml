@@ -1,6 +1,0 @@
-[tools]
-  # @config-manager:start llm
-  claude-code = "2.1.132"
-  copilot = "1.0.41"
-  # hf
-  # @config-manager:end llm

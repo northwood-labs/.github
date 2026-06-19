@@ -1,5 +1,0 @@
-[tools]
-  # @config-manager:start rest
-  oapi-codegen = "2.7.0"
-  spectral = "6.15.0"
-  # @config-manager:end rest

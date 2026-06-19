@@ -1,5 +1,0 @@
-[tools]
-  # @config-manager:start sql-database
-  atlas = "1.2.0"
-  tbls = "1.94.5"
-  # @config-manager:end sql-database

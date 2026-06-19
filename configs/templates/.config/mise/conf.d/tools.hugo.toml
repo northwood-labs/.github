@@ -1,4 +1,0 @@
-[tools]
-  # @config-manager:start hugo
-  hugo = "0.161.1"
-  # @config-manager:end hugo

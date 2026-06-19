@@ -1,5 +1,0 @@
-[tools]
-  # @config-manager:start aws-user
-  amazon-ecr-credential-helper = "0.12.0"
-  aws-vault = "7.10.5"
-  # @config-manager:end aws-user

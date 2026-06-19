@@ -1,5 +1,0 @@
-[tools]
-  # @config-manager:start frontend
-  deno = "2.7.14"
-  # ogvs
-  # @config-manager:end frontend

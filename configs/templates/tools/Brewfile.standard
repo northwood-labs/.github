@@ -32,6 +32,9 @@ brew "editorconfig-checker"
 # https://github.com/junegunn/fzf
 brew "fzf"
 
+# https://github.com/suzuki-shunsuke/ghalint
+brew "ghalint"
+
 # https://git-cliff.org/
 brew "git-cliff"
 
@@ -94,6 +97,9 @@ brew "shellcheck"
 
 # https://github.com/mvdan/sh
 brew "shfmt"
+
+# https://ewhauser.github.io/shuck/
+brew "ewhauser/tap/shuck-cli"
 
 # https://taplo.tamasfe.dev
 brew "taplo"

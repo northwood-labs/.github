@@ -1,6 +1,0 @@
-[tools]
-  # @config-manager:start python
-  python = "3.14.4"
-  ruff = "0.15.12"
-  uv = "0.11.11"
-  # @config-manager:end python

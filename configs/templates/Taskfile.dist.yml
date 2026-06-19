@@ -55,13 +55,6 @@ includes:
     vars:
       GO_VER: 1.26.4
 
-  # @config-manager:start python
-  python:
-    taskfile: ./tools/Taskfile.python.yml
-    flatten: true
-    optional: true
-    # @config-manager:end python
-
 tasks:
   #-----------------------------------------------------------------------------
   # Installation and setup
@@ -114,26 +107,6 @@ tasks:
   # @config-manager:end gitconfig-standard
 
   #-----------------------------------------------------------------------------
-  # Building and packaging
-
-  # @config-manager:start building-standard
-  build:
-    desc: "! Run all standard building tasks."
-    summary: |
-      Runs all standard building tasks.
-
-      This runs all `build:*` tasks. We do this by exporting a list of tasks to
-      JSON, parsing it with jq, then using a for-loop to call the matches.
-    vars:
-      TASKS:
-        sh: task --list --json | jq -Mr '.tasks[] | select(.name | startswith("build:")) | .name'
-    cmds:
-      - for:
-          var: TASKS
-        task: "{{ .ITEM }}"
-  # @config-manager:end building-standard
-
-  #-----------------------------------------------------------------------------
   # Linting and code quality
 
   # @config-manager:start linting-standard
@@ -165,17 +138,6 @@ tasks:
         vars: { TEXT: "Linting changed files..." }
       - hk fix --no-fail-fast --profile slow
 
-  lint:*:
-    desc: Run a specific linter on changed files.
-    summary: |
-      Runs a specific linter on changed files.
-    vars:
-      STEP: "{{ index .MATCH 0 }}"
-    cmds:
-      - task: internal:header
-        vars: { TEXT: "Linting changed files with {{ .STEP }}..." }
-      - hk fix --no-fail-fast --step {{ .STEP }} --profile slow
-
   lint:deep:
     desc: Run a battery of linters to ensure high quality on ALL files.
     summary: |
@@ -199,17 +161,6 @@ tasks:
       - task: internal:header
         vars: { TEXT: "Linting ALL files with ALL (including slow) tools..." }
       - hk fix --all --no-fail-fast --profile slow
-
-  lint:deep:*:
-    desc: Run a specific linter on ALL files.
-    summary: |
-      Runs a specific linter on ALL files.
-    vars:
-      STEP: "{{ index .MATCH 0 }}"
-    cmds:
-      - task: internal:header
-        vars: { TEXT: "Linting ALL files with {{ .STEP }}..." }
-      - hk fix --all --no-fail-fast --step {{ .STEP }} --profile slow
 
   lint:list:
     desc: Get a list of available linters as an fzf list.
@@ -255,46 +206,35 @@ tasks:
               --header='[Type to filter, or select with arrows. Esc to close.]'
           )"
         silent: true
+
+  lint:deep:*:
+    desc: Run a specific linter on ALL files.
+    summary: |
+      Runs a specific linter on ALL files.
+    vars:
+      STEP: "{{ index .MATCH 0 }}"
+    cmds:
+      - task: internal:header
+        vars: { TEXT: "Linting ALL files with {{ .STEP }}..." }
+      - hk fix --all --no-fail-fast --step {{ .STEP }} --profile slow
+
+  lint:*:
+    desc: Run a specific linter on changed files.
+    summary: |
+      Runs a specific linter on changed files.
+    vars:
+      STEP: "{{ index .MATCH 0 }}"
+    cmds:
+      - task: internal:header
+        vars: { TEXT: "Linting changed files with {{ .STEP }}..." }
+      - hk fix --no-fail-fast --step {{ .STEP }} --profile slow
+
   # @config-manager:end linting-standard
   #-----------------------------------------------------------------------------
   # Building
 
-  # @config-manager:start deps-standard
-  deps:
-    desc: "! Run all standard dependency-upgrading tasks."
-    summary: |
-      Runs all standard dependency-upgrading tasks.
-
-      This runs all `deps:*` tasks. We do this by exporting a list of tasks to
-      JSON, parsing it with jq, then using a for-loop to call the matches.
-    vars:
-      TASKS:
-        sh: task --list --json | jq -Mr '.tasks[] | select(.name | startswith("deps:")) | .name'
-    cmds:
-      - for:
-          var: TASKS
-        task: "{{ .ITEM }}"
-  # @config-manager:end deps-standard
-
   #-----------------------------------------------------------------------------
   # Testing
-
-  # @config-manager:start testing-standard
-  test:
-    desc: "! Run all standard testing tasks."
-    summary: |
-      Runs all standard testing tasks.
-
-      This runs all `test:*` tasks. We do this by exporting a list of tasks to
-      JSON, parsing it with jq, then using a for-loop to call the matches.
-    vars:
-      TASKS:
-        sh: task --list --json | jq -Mr '.tasks[] | select(.name | startswith("test:")) | .name'
-    cmds:
-      - for:
-          var: TASKS
-        task: "{{ .ITEM }}"
-  # @config-manager:end testing-standard
 
   #-------------------------------------------------------------------------------
   # Documentation
@@ -393,68 +333,3 @@ tasks:
         vars: { TEXT: "Cleaning Lychee artifacts..." }
       - "{{ .RM }} -vf .lychee* lychee.md"
   # @config-manager:end cleaning-standard
-
-  #-----------------------------------------------------------------------------
-  # Git and commits
-
-  # @config-manager:start commits-standard
-  changelog:
-    desc: "Generate a CHANGELOG for this project."
-    summary: |
-      Generates a CHANGELOG for this project.
-
-      Uses `git-cliff` to generate a CHANGELOG from the conventional commits
-      made to this repository.
-    cmds:
-      - task: internal:header
-        vars: { TEXT: "Generating CHANGELOG..." }
-      - git cliff --output CHANGELOG.md --github-repo "$(git remote get-url origin | cut -d':' -f2 | sed -E 's,\.git,,' | tr -d "\n")"
-    requires:
-      vars:
-        - GITHUB_TOKEN
-
-  tag:
-    desc: "Sign and tag a new Git version."
-    summary: |
-      Signs and tag a new Git version.
-
-      The workspace MUST be clean to tag a new release.
-    vars:
-      NEXT_VERSION:
-        sh: git cliff --bump --unreleased --context | jq -r .[0].version
-    preconditions:
-      - sh: "[$(git status -s -uall | wc -l) == 1]"
-        msg: "Git workspace must be clean."
-      - sh: command -v chag
-        msg: "chag must be installed to handle tagging. Run 'task install:tools` first."
-      - sh: command -v git-cliff
-        msg: "git-cliff must be installed to handle the CHANGELOG. Run 'task install:tools` first."
-    cmds:
-      - task: internal:header
-        vars: { TEXT: "Signing and tagging the release..." }
-      - task: internal:bold
-        vars: { TEXT: "This release will be tagged as: {{ .NEXT_VERSION }}" }
-      - cmd: echo "---------------------------------------------------------------------"
-        silent: true
-      - task: internal:prompt
-        vars: { TEXT: "Do you want to continue with this version number?" }
-      - cmd: chag update "{{ .NEXT_VERSION }}"
-      - task: internal:header
-        vars:
-          { TEXT: "These are the contents of the CHANGELOG for this release." }
-      - cmd: echo "---------------------------------------------------------------------"
-        silent: true
-      - cmd: chag contents
-        silent: true
-      - cmd: echo "---------------------------------------------------------------------"
-        silent: true
-      - task: internal:prompt
-        vars:
-          {
-            TEXT: "Are these release notes correct? If not, cancel and update CHANGELOG.md.",
-          }
-      - cmd: git add .
-      - cmd: >
-          git commit -a -m "relprep: Preparing the {{ .NEXT_VERSION }} release." --no-verify
-      - cmd: chag tag --sign --force
-  # @config-manager:end commits-standard

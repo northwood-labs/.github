@@ -191,6 +191,7 @@ local linters = new Mapping<String, Group> {
   }
   ["security"] = new Group {
     steps {
+      ["detect-private-key"]  = (Builtins.detect_private_key) {}
       ["govulncheck"] {
         workspace_indicator = "go.mod"
         glob = "**/*.go"
