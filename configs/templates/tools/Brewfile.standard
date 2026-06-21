@@ -115,6 +115,9 @@ brew "vet-run/vet/vet-run"
 
 # https://github.com/google/yamlfmt
 brew "yamlfmt"
+
+# https://zizmor.sh
+brew "zizmor"
 # @config-manager:end brew
 
 #-------------------------------------------------------------------------------
