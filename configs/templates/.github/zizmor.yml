@@ -4,99 +4,82 @@ rules:
   # https://docs.zizmor.sh/audits/#adhoc-packages
   adhoc-packages:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#anonymous-definition
   anonymous-definition:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#archived-uses
   archived-uses:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#artipacked
   artipacked:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#bot-conditions
   bot-conditions:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#cache-poisoning
   cache-poisoning:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#concurrency-limits
   concurrency-limits:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#dangerous-triggers
   dangerous-triggers:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#dependabot-cooldown
   dependabot-cooldown:
     disable: false
-    ignore: false
     config:
       days: 7
 
   # https://docs.zizmor.sh/audits/#dependabot-execution
   dependabot-execution:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#excessive-permissions
   excessive-permissions:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#forbidden-uses
   forbidden-uses:
     disable: false
-    ignore: false
     config:
       allow:
         - actions/*
         - github/codeql-action/*
+        - orhun/git-cliff-action
         - step-security/*
 
   # https://docs.zizmor.sh/audits/#github-app
   github-app:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#github-env
   github-env:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#hardcoded-container-credentials
   hardcoded-container-credentials:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#impostor-commit
   impostor-commit:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#insecure-commands
   insecure-commands:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#known-vulnerable-actions
   known-vulnerable-actions:
     disable: false
-    ignore: false
     config:
       allow:
         # - GHSA
@@ -104,82 +87,66 @@ rules:
   # https://docs.zizmor.sh/audits/#misfeature
   misfeature:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#obfuscation
   obfuscation:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#overprovisioned-secrets
   overprovisioned-secrets:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#ref-confusion
   ref-confusion:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#ref-version-mismatch
   ref-version-mismatch:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#secrets-inherit
   secrets-inherit:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#secrets-outside-env
   secrets-outside-env:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#self-hosted-runner
   self-hosted-runner:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#stale-action-refs
   stale-action-refs:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#superfluous-actions
   superfluous-actions:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#template-injection
   template-injection:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#typosquat-uses
   typosquat-uses:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#undocumented-permissions
   undocumented-permissions:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#unpinned-images
   unpinned-images:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#unpinned-tools
   unpinned-tools:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#unpinned-uses
   unpinned-uses:
     disable: false
-    ignore: false
     config:
       policies:
         "*": hash-pin
@@ -187,25 +154,20 @@ rules:
   # https://docs.zizmor.sh/audits/#unredacted-secrets
   unredacted-secrets:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#unsound-conditions
   unsound-condition:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#unsound-contains
   unsound-contains:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#unsound-ternary
   unsound-ternary:
     disable: false
-    ignore: false
 
   # https://docs.zizmor.sh/audits/#use-trusted-publishing
   use-trusted-publishing:
     disable: false
-    ignore: false
   # @config-manager:end zizmor
