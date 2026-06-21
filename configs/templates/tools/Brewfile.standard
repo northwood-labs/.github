@@ -6,11 +6,11 @@
 # TAPS
 
 # @config-manager:start taps
-tap "go-task/tap"
-tap "okooo5km/tap"
-tap "oven-sh/bun"
-tap "trufflesecurity/trufflehog"
-tap "vet-run/vet"
+tap "go-task/tap", trusted: true
+tap "okooo5km/tap", trusted: true
+tap "oven-sh/bun", trusted: true
+tap "trufflesecurity/trufflehog", trusted: true
+tap "vet-run/vet", trusted: true
 # @config-manager:end taps
 
 #-------------------------------------------------------------------------------

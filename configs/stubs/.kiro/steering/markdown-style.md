@@ -5,7 +5,7 @@ fileMatchPattern: "**/*.md"
 
 # Markdown Style Guide
 
-This project enforces markdown conventions via `.rumdl.toml` and `.editorconfig`. Follow these rules when writing or editing any `.md` file.
+This project enforces Markdown conventions via `.rumdl.toml` and `.editorconfig`. Follow these rules when writing or editing any `.md` file.
 
 ## Indentation and whitespace
 
@@ -49,8 +49,8 @@ This project enforces markdown conventions via `.rumdl.toml` and `.editorconfig`
 
 ## HTML
 
-<!-- @config-manager:start html -->
-<!-- @config-manager:end html -->
+<!-- @config-manager:start htmltags -->
+<!-- @config-manager:end htmltags -->
 
 ## Blockquotes
 

@@ -11,12 +11,9 @@
 
 # Single file databases
 # @config-manager:start kg-single
-.session-id
 kirograph.db
-kirograph.lock
-orama.json
-token-savings.jsonl
 vec.db
+orama.json
 # @config-manager:end kg-single
 
 # Database directories
@@ -26,3 +23,8 @@ lancedb/
 qdrant/
 typesense/
 # @config-manager:end kg-dir
+
+# @config-manager:start kg-files
+.session-id
+*.jsonl
+# @config-manager:end kg-files

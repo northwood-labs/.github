@@ -28,17 +28,21 @@ permissions: read-all
 
 jobs:
   update_on_push_job:
+    # @config-manager:start update-on-push-job
     runs-on: ubuntu-latest
     name: Generate CHANGELOG on push
     timeout-minutes: 2
     permissions:
       contents: write
+    # @config-manager:end update-on-push-job
     steps:
+      # @config-manager:start harden-runner
       - name: Harden Runner
         uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
         with:
           disable-sudo: true
           egress-policy: block
+          # @config-manager:end harden-runner
           allowed-endpoints: >
             # This is filled-in by configs/templates/.github/workflows/__harden-hosts.yml
 

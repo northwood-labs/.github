@@ -14,7 +14,7 @@ linters:
     # @config-manager:start linters-enable
     # @config-manager:end linters-enable
 
-  # All available settings of specific linters.
+    # All available settings of specific linters.
   settings:
     asasalint:
       # @config-manager:start linters-settings-asasalint
@@ -37,9 +37,20 @@ linters:
       # @config-manager:end linters-settings-decorder
 
     depguard:
+      # - File Variables
+      #   Use an exclamation mark `!` to negate a variable.
+      #   Example: `!$test` matches any file that is not a go test file.
+      #
+      #   `$all` - matches all go files
+      #   `$test` - matches all go test files
+      #
+      # - Package Variables
+      #
+      #   `$gostd` - matches all of go's standard library (Pulled from `GOROOT`)
       rules:
-        # @config-manager:start linters-settings-depguard
-        # @config-manager:end linters-settings-depguard
+        main:
+          # @config-manager:start linters-settings-depguard
+          # @config-manager:end linters-settings-depguard
 
     dogsled:
       # @config-manager:start linters-settings-dogsled
@@ -102,12 +113,80 @@ linters:
       # @config-manager:end linters-settings-gocritic
 
     gocyclo:
-      # @config-manager:start linters-settings-gocyclo
-      # @config-manager:end linters-settings-gocyclo
+      # Minimal code complexity to report.
+      # Default: 30 (but we recommend 10-20)
+      min-complexity: 21
 
     godoclint:
-      # @config-manager:start linters-settings-godoclint
-      # @config-manager:end linters-settings-godoclint
+      # Default set of rules to enable.
+      # Possible values are: `basic`, `all` or `none`.
+      # Default: `basic` (enables `pkg-doc`, `single-pkg-doc`, `start-with-name`, and `deprecated`)
+      default: none
+
+      # List of rules to enable in addition to the default set.
+      # Default: empty
+      enable:
+        # Check proper package-level godoc, if any.
+        # https://github.com/godoc-lint/godoc-lint?tab=readme-ov-file#pkg-doc
+        - pkg-doc
+
+        # Assert at most one godoc per package.
+        # https://github.com/godoc-lint/godoc-lint?tab=readme-ov-file#single-pkg-doc
+        - single-pkg-doc
+
+        # Require all packages to have a godoc.
+        # https://github.com/godoc-lint/godoc-lint?tab=readme-ov-file#require-pkg-doc
+        - require-pkg-doc
+
+        # Assert symbol godocs start with the symbol name.
+        # https://github.com/godoc-lint/godoc-lint?tab=readme-ov-file#start-with-name
+        - start-with-name
+
+        # Require godoc for all public symbols.
+        # https://github.com/godoc-lint/godoc-lint?tab=readme-ov-file#require-doc
+        - require-doc
+
+        # Assert correct formatting of deprecation notes.
+        # https://github.com/godoc-lint/godoc-lint?tab=readme-ov-file#deprecated
+        - deprecated
+
+        # Assert maximum line length for godocs.
+        # https://github.com/godoc-lint/godoc-lint?tab=readme-ov-file#max-len
+        - max-len
+
+        # Assert no unused link in godocs.
+        # https://github.com/godoc-lint/godoc-lint?tab=readme-ov-file#no-unused-link
+        - no-unused-link
+
+        # Require proper doc links to standard library declarations where applicable.
+        # https://github.com/godoc-lint/godoc-lint?tab=readme-ov-file#require-stdlib-doclink
+        - require-stdlib-doclink
+
+      # List of rules to disable.
+      # Default: empty
+      disable: []
+
+      # A map for fine-tuning individual rules.
+      # All subkeys are optional.
+      options:
+        max-len:
+          # Maximum line length for godocs, not including the `//`, `/*` or `*/` tokens.
+          # Default: 77
+          length: 77
+
+        require-doc:
+          # Ignore exported (public) symbols when applying the `require-doc` rule.
+          # Default: false
+          ignore-exported: false
+
+          # Ignore unexported (private) symbols when applying the `require-doc` rule.
+          # Default: true
+          ignore-unexported: true
+
+        start-with-name:
+          # Include unexported symbols when applying the `start-with-name` rule.
+          # Default: false
+          include-unexported: false
 
     godot:
       # @config-manager:start linters-settings-godot
@@ -217,17 +296,48 @@ linters:
       # @config-manager:start linters-settings-perfsprint
       # @config-manager:end linters-settings-perfsprint
 
-    prealloc:
-      # @config-manager:start linters-settings-prealloc
-      # @config-manager:end linters-settings-prealloc
+    # prealloc:
+    #   # IMPORTANT: we don't recommend using this linter before doing performance profiling.
+    #   # For most programs usage of prealloc will be a premature optimization.
+
+    #   # Report pre-allocation suggestions only on simple loops that have no returns/breaks/continues/gotos in them.
+    #   # Default: true
+    #   simple: false
+    #   # Report pre-allocation suggestions on range loops.
+    #   # Default: true
+    #   range-loops: false
+    #   # Report pre-allocation suggestions on for loops.
+    #   # Default: false
+    #   for-loops: true
 
     predeclared:
       # @config-manager:start linters-settings-predeclared
       # @config-manager:end linters-settings-predeclared
 
-    promlinter:
-      # @config-manager:start linters-settings-promlinter
-      # @config-manager:end linters-settings-promlinter
+    # promlinter:
+    #   # Promlinter cannot infer all metrics name in static analysis.
+    #   # Enable strict mode will also include the errors caused by failing to parse the args.
+    #   # Default: false
+    #   strict: true
+    #   # Please refer to https://github.com/yeya24/promlinter#usage for detailed usage.
+    #   # Default: []
+    #   disabled-linters:
+    #     # Help detects issues related to the help text for a metric.
+    #     - Help
+    #     # MetricUnits detects issues with metric unit names.
+    #     - MetricUnits
+    #     # Counter detects issues specific to counters, as well as patterns that should only be used with counters.
+    #     - Counter
+    #     # HistogramSummaryReserved detects when other types of metrics use names or labels reserved for use by histograms and/or summaries.
+    #     - HistogramSummaryReserved
+    #     # MetricTypeInName detects when metric types are included in the metric name.
+    #     - MetricTypeInName
+    #     # ReservedChars detects colons in metric names.
+    #     - ReservedChars
+    #     # CamelCase detects metric names and label names written in camelCase.
+    #     - CamelCase
+    #     # UnitAbbreviations detects abbreviated units in the metric name.
+    #     - UnitAbbreviations
 
     protogetter:
       # @config-manager:start linters-settings-protogetter

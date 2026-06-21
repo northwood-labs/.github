@@ -6,8 +6,6 @@
 # TAPS
 
 # @config-manager:start taps
-tap "aws/tap"
-tap "localstack/tap"
 # @config-manager:end taps
 
 #-------------------------------------------------------------------------------
@@ -15,8 +13,7 @@ tap "localstack/tap"
 
 # @config-manager:start brew
 brew "ec2-metadata-mock"
-brew "localstack-cli"
-brew "lstk"
+brew "fakecloud"
 # @config-manager:end brew
 
 #-------------------------------------------------------------------------------

@@ -18,4 +18,6 @@ brew "uv"
 
 # @config-manager:start uv
 uv "ruff"
+uv "tryke"
+uv "zuban"
 # @config-manager:end uv

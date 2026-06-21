@@ -92,6 +92,70 @@ Standalone functions (declared with `func` outside the `var()` block) are NOT af
 
 Functions that have access to a `context.Context` must pass it to callees that accept one. If a helper is called from a context-bearing function, add `ctx context.Context` to the helper's signature.
 
+### Argument count (revive argument-limit)
+
+`revive` enforces a maximum of 4 parameters per function. When a function exceeds this limit, extract all parameters (except the testing handle) into a named input struct and pass it by pointer.
+
+**Naming convention:** name the struct after the function it serves, using the `Input` suffix. For example, `assertFileRuleEqual` → `FileRuleInput`.
+
+**Testing functions:** `t *testing.T` and `t *rapid.T` must remain as direct parameters. All other arguments are extracted into the struct.
+
+**Struct placement:** define the struct in the file's existing `type (...)` block. If no block exists yet, add one following the `const → var → type → func` order required by `decorder`.
+
+**Pass by pointer:** always pass input structs by pointer so that large structs do not also trigger `gocritic hugeParam`. Apply this consistently even for structs below the 64-byte threshold, so the pattern is uniform across the codebase.
+
+```go
+// Wrong — too many parameters
+func assertFileRuleEqual(t *rapid.T, expected, actual FileRule, label string, idx int)
+
+// Right
+type (
+    FileRuleInput struct {
+        Expected FileRule
+        Actual   FileRule
+        Label    string
+        Idx      int
+    }
+)
+
+func assertFileRuleEqual(t *rapid.T, input *FileRuleInput)
+```
+
+Call sites construct and take the address of the struct inline:
+
+```go
+assertFileRuleEqual(t, &FileRuleInput{
+    Expected: expected.Files[i],
+    Actual:   actual.Files[i],
+    Label:    label,
+    Idx:      i,
+})
+```
+
+### Control flags (revive flag-parameter)
+
+`revive` flags boolean parameters that switch between two code paths inside a function. Renaming the parameter does not fix the diagnostic — the type and usage pattern are what the linter checks.
+
+The fix is to wrap the bool in a named options struct so the call site is self-documenting and the parameter is no longer a bare boolean. See [[Code conventions — Function parameters]] for the full pattern.
+
+```go
+// Wrong — bare bool control flag
+func Discover(configFlag string, flagChanged bool) (*DiscoverResult, error) {
+    if flagChanged { ... }
+}
+
+// Right
+type DiscoverOptions struct {
+    FlagChanged bool
+}
+
+func Discover(configFlag string, opts DiscoverOptions) (*DiscoverResult, error) {
+    if opts.FlagChanged { ... }
+}
+```
+
+When the calling function already has an options struct that contains the relevant bool (e.g., `SyncOptions.DryRun`), pass that struct directly rather than creating a redundant single-field wrapper.
+
 ### Parameter size (gocritic hugeParam)
 
 Structs larger than 64 bytes should be passed by pointer. Common in this codebase: `config.FileRule` (88 bytes). Use `*config.FileRule` in function signatures and dereference at call sites where the original API expects a value.
@@ -122,6 +186,25 @@ Maximum line length is 120 characters. Common sources and fixes:
 **Struct tag alignment:** When struct tags trigger lll, first remove all alignment padding (extra spaces between tag groups like `json:`, `jsonschema:`, `toml:`). If still over 120 chars after removing padding, add `// lint:ignore_length`.
 
 **Interaction with tagliatelle:** When adding `// lint:ignore_length` to struct fields with non-camelCase JSON tags (e.g., `json:"snake_case_name"`), also add `// lint:allow_format` on the same line to suppress the `tagliatelle` linter. These tag names are intentional (matching TOML config format).
+
+### Comment line length
+
+Comments, including any whitespace (where tabs count as 4 spaces), must not have individual lines longer than 80 characters. Wrap to the next line instead of continuing on the same line.
+
+Wrong:
+
+```go
+// validateManagedMarkers checks all profiles at once, used by the validate
+// command to give a comprehensive report rather than stopping at the first error.
+```
+
+Right:
+
+```go
+// validateManagedMarkers checks all profiles at once, used by the validate
+// command to give a comprehensive report rather than stopping at the first
+// error.
+```
 
 ### Cognitive complexity (gocognit)
 
@@ -168,9 +251,128 @@ asmConfig.Set("profile-name", "test-profile")
 
 **Cobra context nil panic:** Calling `cmd.RunE(cmd, args)` directly (without Cobra's `Execute` dispatch) leaves `cmd.Context()` as nil. Any code that calls `context.WithTimeout(cmd.Context(), ...)` will panic with `cannot create context from nil parent`. Fix by calling `cmd.SetContext(context.Background())` before `RunE`.
 
+### Sorting (slices package)
+
+* **Avoid `sort.Slice`**: Use the appropriate function from the `slices` package instead.
+  * Simple ascending sort: `slices.Sort(s)`
+  * Custom comparator: `slices.SortFunc(s, cmp)`
+  * Stable sort with comparator: `slices.SortStableFunc(s, cmp)`
+* **String comparators**: When the sort key is a string, use `strings.Compare` as the comparator rather than inline `<`/`>` expressions.
+
+```go
+// Wrong
+sort.Slice(items, func(i, j int) bool { return items[i].Name < items[j].Name })
+
+// Right
+slices.SortFunc(items, func(a, b Item) int { return strings.Compare(a.Name, b.Name) })
+```
+
 ### Suppression comment scope
 
 `lint:allow_unhandled` suppresses `gosec` G104 but does NOT suppress `errcheck`. `lint:allow_defer_close` suppresses `errcheck` but does NOT suppress `gosec`. When both linters flag the same unhandled error, prefer handling the error properly (e.g., `if closeErr := f.Close(); closeErr != nil { t.Fatal(closeErr) }`) rather than stacking suppression comments.
+
+## Code conventions
+
+These rules apply to all Go code in the project, independent of linter enforcement.
+
+### Comment blocks
+
+When making any code change, review and update all comment blocks relevant to the changed code. Doc comments on functions, types, constants, and variables must remain accurate. Do not leave stale comments that describe old behavior.
+
+### Interfaces
+
+Anonymous interfaces are not allowed. Every interface must be named and defined at the package level, separately from the functions or types that use it.
+
+```go
+// Wrong
+func Process(r interface{ Read() ([]byte, error) }) {}
+
+// Right
+type Reader interface {
+    Read() ([]byte, error)
+}
+
+func Process(r Reader) {}
+```
+
+### Function parameters
+
+If a function requires more than 3 input parameters (excluding `context.Context`), group them into a named struct and pass it as a single argument. `context.Context` must never be included in a struct — always pass it as a direct argument.
+
+```go
+// Wrong — too many parameters
+func Sync(ctx context.Context, source, dest, profile string, dryRun bool) error
+
+// Right
+type SyncOptions struct {
+    Source  string
+    Dest    string
+    Profile string
+    DryRun  bool
+}
+
+func Sync(ctx context.Context, opts SyncOptions) error
+```
+
+### Function return values
+
+If a function returns more than 3 values (excluding `error`), group them into a named struct. `context.Context` must never be included in a struct.
+
+```go
+// Wrong — too many return values
+func Parse() (string, int, bool, error)
+
+// Right
+type ParseResult struct {
+    Name  string
+    Count int
+    Valid bool
+}
+
+func Parse() (ParseResult, error)
+```
+
+### os.Exit
+
+`os.Exit` must only be called from the outermost functions in the call chain: `main` or `init`. All other functions must signal failure by returning a wrapped error via `fmt.Errorf` or a sentinel via `errors.New`. This ensures deferred cleanup runs and callers can handle errors.
+
+### Windows path compatibility
+
+Always use `filepath.Join` (from `path/filepath`) when constructing file paths. Never concatenate path segments with `/` directly. When locating executables, use `exec.LookPath` rather than appending `.exe` manually.
+
+```go
+// Wrong
+path := dir + "/" + filename
+
+// Right
+path := filepath.Join(dir, filename)
+```
+
+### Error check separation
+
+Do not combine a function call and a nil-check in the same `if` statement using `;`. Separate the call from the check.
+
+```go
+// Wrong
+if err := someFunc(); err != nil {
+
+// Right
+err := someFunc()
+if err != nil {
+```
+
+### File locking
+
+Implement file locking with platform-specific files using file name suffixes rather than inline build guards:
+
+* `_unix` suffix — non-Windows builds. Use `golang.org/x/sys/unix.Flock`.
+* `_windows` suffix — Windows builds. Use `golang.org/x/sys/windows.LockFileEx`.
+
+### Git operations
+
+When Git functionality is required, prefer the `go-git` library
+(`github.com/go-git/go-git/v5`) over shell `git` invocations. Only fall back
+to `os/exec` when the required functionality is not available from the library.
 
 ## Suppression
 

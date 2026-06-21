@@ -6,7 +6,7 @@
 # TAPS
 
 # @config-manager:start taps
-tap "minamijoyo/tfschema"
+tap "minamijoyo/tfschema", trusted: true
 # @config-manager:end taps
 
 #-------------------------------------------------------------------------------

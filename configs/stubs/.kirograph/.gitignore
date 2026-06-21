@@ -8,3 +8,6 @@
 # Database directories
 # @config-manager:start kg-dir
 # @config-manager:end kg-dir
+
+# @config-manager:start kg-files
+# @config-manager:end kg-files

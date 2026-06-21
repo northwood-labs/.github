@@ -1,11 +1,9 @@
-aube add -g context-mode
-aubx -y @open-gitagent/gitagent@latest run -r https://github.com/shreyas-lyzr/architect -a claude
 npx skills add aws/agent-toolkit-for-aws/skills
 
 python3 + uv (and tools)
 tbls
 
-go get -tool -modfile go.tools.mod github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server@latest
+github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server@latest
 
 ---
 
@@ -27,13 +25,6 @@ curl -sSLf https://raw.githubusercontent.com/mtdowling/chag/master/install.sh | 
 project bootstrapping
 support removals
     .vscode/settings-go.toml
-
----
-
-# cloudflared = "latest"
-# duckdb = "latest"
-# ffmpeg = "latest"
-# vhs = "latest"
 
 ---
 

@@ -870,9 +870,9 @@ linters:
       # List of regexps for excluding particular comment lines from check.
       # Default: []
       exclude: []
-        # Exclude todo and fixme comments.
-        # - "^fixme:"
-        # - "^todo:"
+      # Exclude todo and fixme comments.
+      # - "^fixme:"
+      # - "^todo:"
 
       # Check that each sentence ends with a period.
       # Default: true
