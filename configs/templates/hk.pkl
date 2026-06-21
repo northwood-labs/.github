@@ -46,6 +46,7 @@ local linters = new Mapping<String, Group> {
         glob = "**/*.pkl"
       }
       // vale
+      ["zizmor"] = (Builtins.zizmor) {}
     }
   }
   ["containers"] = new Group {

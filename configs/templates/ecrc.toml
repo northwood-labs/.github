@@ -15,6 +15,7 @@ Exclude = [
   # @config-manager:start excludes
   # Directories
   "\\.config-manager\\.d/",
+  "\\.github/workflows/",
   "\\.kiro/",
   "\\.kirograph/",
   "\\.rumdl_cache/",
