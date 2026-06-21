@@ -9,12 +9,12 @@ name: Auto-merge Dependabot Pull Requests
 
 on:
   # @config-manager:start workflow-on
-  pull_request_target:
+  pull_request:
   # @config-manager:end workflow-on
 
 concurrency:
   # @config-manager:start workflow-concurrency
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
   # @config-manager:end workflow-concurrency
 
@@ -26,7 +26,7 @@ permissions: read-all
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: ${{ github.actor == 'dependabot[bot]' }}
+    if: ${{ github.event.pull_request.user.login == 'dependabot[bot]' }}
     permissions:
       # @config-manager:start workflow-permissions-job
       contents: write

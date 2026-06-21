@@ -6,7 +6,59 @@ on:
       repo:
         description: "Repository name"
         required: true
-        type: string
+        type: choice
+        options:
+          # Need to automate this.
+          # gh repo list northwood-labs --no-archived --source --visibility public --limit 200 --json name | jq -Mr '[.[].name] | sort | .[] | "          - \(.)"'
+          - .github
+          - assume-spoke-role
+          - aws-account-list
+          - aws-config-parser
+          - aws-mcp-credential-proxy
+          - aws-service-models
+          - aws-sso-manager
+          - branding
+          - cli-helpers
+          - crowdstrike-falcon-downloader
+          - csp-parser
+          - devsec-tools
+          - devsec-tools-sdk-go
+          - devsec-tools-sdk-php
+          - devsec-tools-sdk-ts
+          - devsec-ui
+          - discussions
+          - download-asset
+          - git-gen
+          - git-mirrors
+          - go-x-perf
+          - go.nwlabs.dev
+          - gocache-valkey
+          - hcl-formatter
+          - homebrew-tap
+          - hugo-dst2024
+          - lambda-provided-al2023
+          - lintbrush
+          - local-lambda-environments-with-go
+          - macos-for-development
+          - mod-aws-networking
+          - mod-aws-resource-tags
+          - northwood-labs.github.io
+          - opentofu-support
+          - package-building
+          - password-complexity-evaluator
+          - privacy-policy
+          - reviewdog
+          - ssm-shell
+          - terms-of-service
+          - terraform-provider-corefunc
+          - tflint-config-generator
+          - tomlrt-cli
+          - vendor-icons
+          - x
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 defaults:
   run:
@@ -35,6 +87,7 @@ jobs:
         uses: actions/checkout@9bb56186c3b09b4f86b1c65136769dd318469633 # v4.1.2
         with:
           ref: ${{ github.base_ref }}
+          persist-credentials: false
 
       - name: Setup Go environment
         uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0

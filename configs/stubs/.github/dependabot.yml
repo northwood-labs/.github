@@ -9,6 +9,10 @@
 version: 2
 updates:
   - package-ecosystem: github-actions
+    insecure-external-code-execution: deny
     directory: /
     schedule:
       interval: daily
+    cooldown:
+      # Not lower than 7 days, please!
+      default-days: 7
