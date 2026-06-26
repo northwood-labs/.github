@@ -38,6 +38,9 @@ includes:
     flatten: true
   internal:
     taskfile: ./tools/Taskfile.internal.yml
+  x:
+    taskfile: ./Taskfile.x.yml
+    optional: true
   # @config-manager:end standard
 
   # @config-manager:start aws-user
@@ -52,8 +55,6 @@ includes:
     flatten: true
     optional: true
     # @config-manager:end golang
-    vars:
-      GO_VER: 1.26.4
 
 tasks:
   #-----------------------------------------------------------------------------
