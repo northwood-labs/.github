@@ -176,7 +176,7 @@ The fix should always rename the INNER variable, not the outer one. Choose a nam
 
 ### Line length (lll)
 
-Maximum line length is 120 characters. Common sources and fixes:
+Line length is 120 characters. Do not break too early. Do not break too late. Common sources and fixes:
 
 * **Struct tags with `jsonschema` descriptions:** These are inherently long and cannot be broken across lines in Go. Use `// lint:ignore_length` on the same line. Remove alignment padding between tag groups to minimize length.
 * **Format strings in `fmt.Sprintf`/`fmt.Errorf`:** Break the string using `+` concatenation across lines.
@@ -266,6 +266,10 @@ sort.Slice(items, func(i, j int) bool { return items[i].Name < items[j].Name })
 // Right
 slices.SortFunc(items, func(a, b Item) int { return strings.Compare(a.Name, b.Name) })
 ```
+
+### Performance
+
+Using `fmt.Println`, `fmt.Printf`, `fmt.Print`, `fmt.Sprintln`, `fmt.Sprintf`, `fmt.Sprint`, `fmt.Fprintln`, `fmt.Fprintf`, or `fmt.Fprint` often degrades performance. There is performance overhead every time we write to stdout or stderr. We can improve performance by using `strings.Builder` to collect what needs to be written up-front with `fmt.Fprint*`, then printed to stdout or stderr with standard methods from the `fmt` package. This should be the default pattern when printing text.
 
 ### Suppression comment scope
 

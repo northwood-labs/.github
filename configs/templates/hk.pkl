@@ -16,8 +16,12 @@ local linters = new Mapping<String, Group> {
       ["check-json"] = (Builtins.jq) {}
       ["check-merge-conflict"] = (Builtins.check_merge_conflict) {}
       ["check-symlinks"] = (Builtins.check_symlinks) {}
-      ["check-toml-fmt"] = (Builtins.taplo_format) {}
-      ["check-toml-lint"] = (Builtins.taplo) {}
+      ["check-toml-fmt"] = (Builtins.taplo_format) {
+        glob = "**/*.toml"
+      }
+      ["check-toml-lint"] = (Builtins.taplo) {
+        glob = "**/*.toml"
+      }
       ["check-trailing-whitespace"] = (Builtins.trailing_whitespace) {}
       ["check-xml"] = (Builtins.xmllint) {}
       ["check-yaml"] = (Builtins.yamlfmt) {}
