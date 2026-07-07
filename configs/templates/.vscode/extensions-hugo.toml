@@ -1,5 +1,8 @@
 recommendations = [
   # @config-manager:start hugo
   'budparr.language-hugo-vscode',
+  'eliostruyf.vscode-hugo-themer',
+  'GoHugoIO.gotmplfmt',
+  'thuliteio.hugo-shortcodes',
   # @config-manager:end hugo
 ]

@@ -378,6 +378,10 @@ When Git functionality is required, prefer the `go-git` library
 (`github.com/go-git/go-git/v5`) over shell `git` invocations. Only fall back
 to `os/exec` when the required functionality is not available from the library.
 
+### Performance
+
+Using `fmt.Println`, `fmt.Printf`, `fmt.Print`, `fmt.Sprintln`, `fmt.Sprintf`, `fmt.Sprint`, `fmt.Fprintln`, `fmt.Fprintf`, or `fmt.Fprint` often degrades performance. There is performance overhead every time we write to stdout or stderr. We can improve performance by using `strings.Builder` to collect what needs to be written up-front with `fmt.Fprint*`, then printed to stdout or stderr with standard methods from the `fmt` package. This should be the default pattern when printing text.
+
 ## Suppression
 
 When a diagnostic cannot be resolved cleanly, use the project's lint suppression comments. Always include a justification. Suppression is a last resort — STRONGLY prefer fixing the root cause.

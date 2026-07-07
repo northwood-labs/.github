@@ -51,50 +51,9 @@
 # @config-manager:end core-editor-top-level
 
 # @config-manager:start core-editor
-# ['alignment.chars']
-#   ['alignment.chars'.'*=']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.'+=']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.'-=']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.'/=']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.':']
-#     spaceAfter = 1.0
-#     spaceBefore = 0.0
-
-#   ['alignment.chars'.'::']
-#     spaceAfter = 0.0
-#     spaceBefore = 0.0
-
-#   ['alignment.chars'.'=']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.'==']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.'===']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
-#   ['alignment.chars'.'=>']
-#     spaceAfter = 1.0
-#     spaceBefore = 1.0
-
 ['editor.codeActionsOnSave']
   'source.addMissingImports' = 'always'
-  'source.fixAll.eslint' = 'always'
+  'source.fixAll.oxc' = 'always'
   'source.organizeImports' = 'always'
 
 ['evenBetterToml.schema.associations']

@@ -1,0 +1,55 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+##
+# https://taskfile.dev/docs/guide
+##
+
+# @config-manager:start hugo
+version: "3"
+
+set: [pipefail]
+shopt: [globstar]
+
+vars:
+
+tasks:
+  #-----------------------------------------------------------------------------
+  # Building
+
+  build:hugo:
+    desc: Generate a production build of the site.
+    summary: |
+      Generates a production build of the site.
+    cmds:
+      - task: internal:header
+        vars:
+          TEXT: "Generating a production build of the site...."
+      - cmd: echo "To be implemented."
+
+  serve:hugo:
+    desc: Serve a development build of the site.
+    summary: |
+      Serves a development build of the site.
+    cmds:
+      - task: internal:header
+        vars:
+          TEXT: "Serving a development build of the site...."
+      - cmd: echo "To be implemented."
+
+  #-----------------------------------------------------------------------------
+  # Cleanup
+
+  clean:hugo:
+    desc: Clean Hugo artifacts.
+    summary: Cleans Hugo artifacts.
+    cmds:
+      - task: internal:header
+        vars:
+          TEXT: "Cleaning Hugo artifacts..."
+      - cmd: |
+          {{ .FIND }} . -type d -name "dist" | {{ .XARGS }} -I% {{ .RM }} -Rfv "%"
+          {{ .FIND }} . -type d -name "node_modules" | {{ .XARGS }} -I% {{ .RM }} -Rfv "%"
+          {{ .FIND }} . -type d -name "sourcemaps" | {{ .XARGS }} -I% {{ .RM }} -Rfv "%"
+
+# @config-manager:end hugo

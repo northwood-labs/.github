@@ -147,3 +147,7 @@ exclude = [
   'taplo://',
   # @config-manager:end host-excludes
 ]
+
+exclude_path = [
+  "(^|/)docs/", # skip directories named "docs"
+]

@@ -1,0 +1,34 @@
+##
+# Generate with:
+#   tomljson package.toml > package.json
+##
+
+name = '@TODO: Name of the npm package.'
+private = true
+type = 'module'
+
+[alias]
+  # @config-manager:start alias
+  # @config-manager:end alias
+
+[dependencies]
+  # @config-manager:start dependencies
+  # @config-manager:end dependencies
+
+[devDependencies]
+  # @config-manager:start dev_dependencies
+  # @config-manager:end dev_dependencies
+
+[engines]
+  # @config-manager:start engines
+  # @config-manager:end engines
+
+[peerDependencies]
+  # @config-manager:start peer_dependencies
+  # @config-manager:end peer_dependencies
+
+[scripts]
+  build = 'vite build'
+  'build:images' = 'bun run scripts/optimize-images.ts'
+  'build:videos' = 'bash scripts/transcode-videos.sh'
+  dev = 'vite'

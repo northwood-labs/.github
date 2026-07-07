@@ -1,7 +1,18 @@
 recommendations = [
   # @config-manager:start frontend
+  'antfu.vite',
+  'austenc.tailwind-docs',
   'bradlc.vscode-tailwindcss',
+  'ecmel.vscode-html-css',
+  'KalimahApps.tailwind-config-viewer',
+  'ms-vscode.vscode-typescript-next',
+  'newdlops.vite-debugger',
   'orta.vscode-jest',
+  'oven.bun-vscode',
+  'oxc.oxc-vscode',
   'pranaygp.vscode-css-peek',
+  'stivo.tailwind-fold',
+  'uicomet.fast-preact-snippets',
+  'webpro.vscode-knip',
   # @config-manager:end frontend
 ]

@@ -1,0 +1,13 @@
+{
+  // @config-manager:start schema
+  // @config-manager:end schema
+  // --------------------------------------------------
+  // @config-manager:start configs
+  // @config-manager:end configs
+  // --------------------------------------------------
+  // @config-manager:start ignore_patterns
+  // @config-manager:end ignore_patterns
+  // --------------------------------------------------
+  // @config-manager:start jsdoc
+  // @config-manager:end jsdoc
+}

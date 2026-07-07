@@ -27,4 +27,5 @@ typesense/
 # @config-manager:start kg-files
 .session-id
 *.jsonl
+kirograph.lock
 # @config-manager:end kg-files

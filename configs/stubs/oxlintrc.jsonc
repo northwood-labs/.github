@@ -1,0 +1,20 @@
+{
+  // @config-manager:start schema
+  // @config-manager:end schema
+  // --------------------------------------------------
+  // @config-manager:start plugins
+  // @config-manager:end plugins
+  // --------------------------------------------------
+  // @config-manager:start env
+  // @config-manager:end env
+  // --------------------------------------------------
+  // @config-manager:start globals
+  // @config-manager:end globals
+  "rules": {
+    // @config-manager:start stylistic
+    // @config-manager:end stylistic
+    // --------------------------------------------------
+    // @config-manager:start standard_rules
+    // @config-manager:end standard_rules
+  }
+}

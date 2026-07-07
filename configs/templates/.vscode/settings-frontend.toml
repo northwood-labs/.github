@@ -1,8 +1,15 @@
 # @config-manager:start frontend-top-level
-'eslint.validate' = [ 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' ]
+'oxc.fmt.configPath' = '.oxfmtrc.jsonc'
 # @config-manager:end frontend-top-level
 
 # @config-manager:start frontend
-['[css]']
-  'editor.defaultFormatter' = 'esbenp.prettier-vscode'
+['[javascript]']
+  'editor.defaultFormatter' = 'oxc.oxc-vscode'
+  'editor.formatOnSave' = true
+['[javascriptreact]']
+  'editor.defaultFormatter' = 'oxc.oxc-vscode'
+  'editor.formatOnSave' = true
+['typescript]']
+  'editor.defaultFormatter' = 'oxc.oxc-vscode'
+  'editor.formatOnSave' = true
   # @config-manager:end frontend

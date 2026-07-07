@@ -1,5 +1,5 @@
 ##
-# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.aws-user
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.data
 ##
 
 #-------------------------------------------------------------------------------
@@ -12,9 +12,8 @@
 # FORMULAE
 
 # @config-manager:start brew
-brew "awscli"
-brew "aws-sso-manager"
-brew "aws-vault-binary"
+# https://www.duckdb.org
+brew "duckdb"
 # @config-manager:end brew
 
 #-------------------------------------------------------------------------------

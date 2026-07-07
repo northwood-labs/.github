@@ -1,0 +1,76 @@
+##
+# Generate with:
+#   tomljson tsconfig.toml > tsconfig.json
+##
+
+# @config-manager:start extends
+extends = "@tsconfig/bun/tsconfig.json"
+# @config-manager:end extends
+
+# MUST come before `compilerOptions` in the TOML.
+include = [
+  "../../assets/**/*.js",
+  "../../assets/**/*.jsx",
+  "../../assets/**/*.ts",
+  "../../assets/**/*.tsx",
+  "assets/**/*.js",
+  "assets/**/*.jsx",
+  "assets/**/*.ts",
+  "assets/**/*.tsx",
+]
+
+# MUST come before `compilerOptions` in the TOML.
+exclude = [ "**/*.spec.ts" ]
+
+[compilerOptions]
+  # @config-manager:start compiler_options
+  lib = [ "DOM", "DOM.Iterable", "ESNext" ]
+  allowArbitraryExtensions = false
+  allowImportingTsExtensions = true
+  allowJs = true
+  allowUmdGlobalAccess = false
+  allowUnreachableCode = false
+  allowUnusedLabels = false
+  alwaysStrict = true
+  baseUrl = "."
+  checkJs = true
+  declaration = true
+  declarationDir = "./types"
+  declarationMap = true
+  emitDeclarationOnly = false
+  exactOptionalPropertyTypes = true
+  explainFiles = false
+  extendedDiagnostics = true
+  forceConsistentCasingInFileNames = true
+  importHelpers = true
+  inlineSourceMap = false
+  inlineSources = false
+  jsx = "react-jsx"
+  jsxImportSource = "preact"
+  listEmittedFiles = true
+  module = "Preserve"
+  moduleDetection = "force"
+  moduleResolution = "bundler"
+  newLine = "lf"
+  noEmit = true
+  noErrorTruncation = true
+  noFallthroughCasesInSwitch = true
+  noImplicitAny = false
+  noImplicitOverride = true
+  noImplicitReturns = true
+  noImplicitThis = false
+  noPropertyAccessFromIndexSignature = true
+  noUncheckedIndexedAccess = true
+  noUncheckedSideEffectImports = true
+  noUnusedLocals = true
+  noUnusedParameters = true
+  removeComments = true
+  resolveJsonModule = true
+  rewriteRelativeImportExtensions = true
+  skipLibCheck = true
+  sourceMap = true
+  strict = true
+  target = "ESNext"
+  types = [ "bun" ]
+  verbatimModuleSyntax = true
+  # @config-manager:end compiler_options

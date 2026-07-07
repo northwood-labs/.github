@@ -1,0 +1,81 @@
+{
+  // @config-manager:start schema
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  // @config-manager:end schema
+  // --------------------------------------------------
+  // @config-manager:start configs
+  "arrowParens": "avoid",
+  "bracketSameLine": false,
+  "bracketSpacing": false,
+  "embeddedLanguageFormatting": "auto",
+  "htmlWhitespaceSensitivity": "css",
+  "jsxSingleQuote": true,
+  "objectWrap": "collapse",
+  "overrides": [],
+  "printWidth": 120,
+  "proseWrap": "never",
+  "quoteProps": "as-needed",
+  "semi": true,
+  "singleAttributePerLine": true,
+  "sortImports": {
+    "newlinesBetween": true,
+    "groups": [
+      "type-import",
+      [
+        "value-builtin",
+        "value-external"
+      ],
+      "type-internal",
+      "value-internal",
+      [
+        "type-parent",
+        "type-sibling",
+        "type-index"
+      ],
+      [
+        "value-parent",
+        "value-sibling",
+        "value-index"
+      ],
+      "unknown"
+    ]
+  },
+  "sortPackageJson": true,
+  "sortTailwindcss": {
+    "functions": [
+      "clsx",
+      "cn"
+    ],
+    "preserveDuplicates": false,
+    "preserveWhitespace": false,
+  },
+  "trailingComma": "all",
+  // @config-manager:end configs
+  // --------------------------------------------------
+  // @config-manager:start ignore_patterns
+  "ignorePatterns": [
+    "*",
+    "!*/",
+    "!**/*.js",
+    "!**/*.jsx",
+    "!**/*.ts",
+    "!**/*.tsx",
+  ],
+  // @config-manager:end ignore_patterns
+  // --------------------------------------------------
+  // @config-manager:start jsdoc
+  "jsdoc": {
+    "addDefaultToDescription": true,
+    "bracketSpacing": false,
+    "capitalizeDescriptions": true,
+    "commentLineStrategy": "singleLine",
+    "descriptionTag": true,
+    "descriptionWithDot": true,
+    "keepUnparsableExampleIndent": true,
+    "lineWrappingStyle": "greedy",
+    "preferCodeFences": true,
+    "separateReturnsFromParam": true,
+    "separateTagGroups": false
+  },
+  // @config-manager:end jsdoc
+}

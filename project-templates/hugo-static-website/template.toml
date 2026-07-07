@@ -1,0 +1,19 @@
+name = 'Hugo Static Website'
+description = 'Base project for a standard Northwood Labs static website.'
+
+# @TODO: Add frontend configs.
+default_configs = [ 'config.toml', 'golang.toml', 'hugo.toml', 'standard.toml' ]
+
+[post_bootstrap_hook]
+  bash = """
+git init
+git lfs install
+config-manager sync
+hugo server trust
+"""
+  powershell = """
+git init
+git lfs install
+config-manager sync
+hugo server trust
+"""

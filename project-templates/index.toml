@@ -1,0 +1,8 @@
+# Optional: override the directory where config fragments live.
+# Defaults to "config-fragments" if omitted.
+fragments_path = 'config-fragments'
+
+[[templates]]
+  name = 'Hugo Static Website'
+  slug = 'hugo-static-website'
+  description = 'Base project for a standard Northwood Labs static website.'

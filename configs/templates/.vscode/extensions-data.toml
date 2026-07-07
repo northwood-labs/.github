@@ -1,0 +1,7 @@
+recommendations = [
+  # @config-manager:start data
+  'AdamViola.parquet-explorer',
+  'chuckjonas.duckdb',
+  'galbezalel.vscode-duckdb-notebook',
+  # @config-manager:end data
+]

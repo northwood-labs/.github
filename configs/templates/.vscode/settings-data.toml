@@ -1,0 +1,10 @@
+# @config-manager:start data-top-level
+# @config-manager:end data-top-level
+
+# @config-manager:start data
+['workbench.editorAssociations']
+  '*.csv' = 'duckdb.dataFileViewer'
+  '*.parquet' = 'duckdb.dataFileViewer'
+  '*.tsv' = 'duckdb.dataFileViewer'
+  '*.xlsx' = 'duckdb.dataFileViewer'
+  # @config-manager:end data

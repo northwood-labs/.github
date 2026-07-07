@@ -1,0 +1,42 @@
+#-------------------------------------------------------------------------------
+# VSCODE
+
+[[files]]
+  stub = 'configs/stubs/.vscode/extensions.sh'
+  source = 'configs/templates/.vscode/extensions.sh'
+  destination = '.vscode/extensions.sh'
+  executable = true
+
+[[files]]
+  stub = 'configs/stubs/.vscode/extensions-hugo.toml'
+  source = 'configs/templates/.vscode/extensions-hugo.toml'
+  destination = '.vscode/extensions-hugo.toml'
+
+  [files.post_update_hook]
+    bash = 'bash .vscode/extensions.sh'
+
+    #-------------------------------------------------------------------------------
+    # BREWFILE
+
+# Brewfile tools
+# https://docs.brew.sh/Brew-Bundle-and-Brewfile
+[[files]]
+  stub = 'configs/stubs/tools/Brewfile.hugo'
+  source = 'configs/templates/tools/Brewfile.hugo'
+  destination = 'tools/Brewfile.hugo'
+
+  [files.post_update_hook]
+    bash = 'brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=tools/Brewfile.hugo'
+
+    #-------------------------------------------------------------------------------
+    # TOOLS
+
+[[files]]
+  stub = 'configs/stubs/tools/Brewfile.hugo'
+  source = 'configs/templates/tools/Brewfile.hugo'
+  destination = 'tools/Brewfile.hugo'
+
+[[files]]
+  stub = 'configs/stubs/tools/Taskfile.hugo.yml'
+  source = 'configs/templates/tools/Taskfile.hugo.yml'
+  destination = 'tools/Taskfile.hugo.yml'

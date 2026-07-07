@@ -90,6 +90,7 @@ Exclude = [
   "go\\.sum$",
   "go\\.tools\\.mod$",
   "go\\.tools\\.sum$",
+  "LICENSE(\\.(md|txt))?$",
   "min\\.css$",
   "min\\.js$",
   "package-lock\\.json$",

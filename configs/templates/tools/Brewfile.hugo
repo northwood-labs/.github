@@ -1,5 +1,5 @@
 ##
-# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.aws-user
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.hugo
 ##
 
 #-------------------------------------------------------------------------------
@@ -12,13 +12,16 @@
 # FORMULAE
 
 # @config-manager:start brew
-brew "awscli"
-brew "aws-sso-manager"
-brew "aws-vault-binary"
+# https://firefox-source-docs.mozilla.org/security/nss/index.html
+brew "nss"
+
+# https://gohugo.io
+brew "hugo"
 # @config-manager:end brew
 
 #-------------------------------------------------------------------------------
-# UV PACKAGES
+# GO PACKAGES
 
-# @config-manager:start uv
-# @config-manager:end uv
+# @config-manager:start go
+go "github.com/gohugoio/gotmplfmt"
+# @config-manager:end go

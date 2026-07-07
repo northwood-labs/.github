@@ -1,0 +1,90 @@
+#-------------------------------------------------------------------------------
+# STANDARD
+
+[[files]]
+  stub = 'configs/stubs/knip.jsonc'
+  source = 'configs/templates/knip.jsonc'
+  destination = '.knip.jsonc'
+
+[[files]]
+  stub = 'configs/stubs/oxfmtrc.jsonc'
+  source = 'configs/templates/oxfmtrc.jsonc'
+  destination = '.oxfmtrc.jsonc'
+
+[[files]]
+  stub = 'configs/stubs/oxlintrc.jsonc'
+  source = 'configs/templates/oxlintrc.jsonc'
+  destination = '.oxlintrc.jsonc'
+
+[[files]]
+  stub = 'configs/stubs/package.toml'
+  source = 'configs/templates/package.toml'
+  destination = 'package.toml'
+
+  [files.post_update_hook]
+    bash = 'tomljson package.toml > package.json'
+
+[[files]]
+  stub = 'configs/stubs/tsconfig.toml'
+  source = 'configs/templates/tsconfig.toml'
+  destination = 'tsconfig.toml'
+
+  [files.post_update_hook]
+    bash = 'tomljson tsconfig.toml > tsconfig.json'
+
+[[files]]
+  stub = 'configs/stubs/vite.config.ts'
+  source = 'configs/templates/vite.config.ts'
+  destination = 'vite.config.ts'
+
+  #-------------------------------------------------------------------------------
+  # VSCODE
+
+[[files]]
+  stub = 'configs/stubs/.vscode/extensions.sh'
+  source = 'configs/templates/.vscode/extensions.sh'
+  destination = '.vscode/extensions.sh'
+  executable = true
+
+[[files]]
+  stub = 'configs/stubs/.vscode/settings.sh'
+  source = 'configs/templates/.vscode/settings.sh'
+  destination = '.vscode/settings.sh'
+  executable = true
+
+[[files]]
+  stub = 'configs/stubs/.vscode/extensions-frontend.toml'
+  source = 'configs/templates/.vscode/extensions-frontend.toml'
+  destination = '.vscode/extensions-frontend.toml'
+
+  [files.post_update_hook]
+    bash = 'bash .vscode/extensions.sh'
+
+[[files]]
+  stub = 'configs/stubs/.vscode/settings-frontend.toml'
+  source = 'configs/templates/.vscode/settings-frontend.toml'
+  destination = '.vscode/settings-frontend.toml'
+
+  [files.post_update_hook]
+    bash = 'bash .vscode/settings.sh'
+
+    #-------------------------------------------------------------------------------
+    # BREWFILE
+
+# Brewfile tools
+# https://docs.brew.sh/Brew-Bundle-and-Brewfile
+[[files]]
+  stub = 'configs/stubs/tools/Brewfile.frontend'
+  source = 'configs/templates/tools/Brewfile.frontend'
+  destination = 'tools/Brewfile.frontend'
+
+  [files.post_update_hook]
+    bash = 'brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=tools/Brewfile.frontend'
+
+    #-------------------------------------------------------------------------------
+    # TOOLS
+
+[[files]]
+  stub = 'configs/stubs/tools/Taskfile.frontend.yml'
+  source = 'configs/templates/tools/Taskfile.frontend.yml'
+  destination = 'tools/Taskfile.frontend.yml'

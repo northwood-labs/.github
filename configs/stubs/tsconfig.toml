@@ -1,0 +1,24 @@
+##
+# Generate with:
+#   tomljson tsconfig.toml > tsconfig.json
+##
+
+# @config-manager:start extends
+# @config-manager:end extends
+
+[compilerOptions]
+  # @config-manager:start compiler_options
+  # @config-manager:end compiler_options
+
+  include = [
+    "../../assets/**/*.js",
+    "../../assets/**/*.jsx",
+    "../../assets/**/*.ts",
+    "../../assets/**/*.tsx",
+    "assets/**/*.js",
+    "assets/**/*.jsx",
+    "assets/**/*.ts",
+    "assets/**/*.tsx",
+  ]
+
+  exclude = ["**/*.spec.ts"]

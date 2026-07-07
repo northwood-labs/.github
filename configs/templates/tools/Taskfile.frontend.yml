@@ -1,0 +1,148 @@
+---
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+##
+# https://taskfile.dev/docs/guide
+##
+
+version: "3"
+
+set: [pipefail]
+shopt: [globstar]
+
+vars:
+  THEME_DIR: ./themes/nwl2026
+
+tasks:
+  #-----------------------------------------------------------------------------
+  # Installation and setup
+
+  install:frontend:
+    desc: Install frontend JavaScript dependencies.
+    summary: |
+      Installs frontend JavaScript dependencies.
+
+      Runs `bun install` in the nwl2026 theme directory to install all packages
+      defined in package.json. Generates or updates the bun.lock file.
+    preconditions:
+      - sh: command -v bun
+        msg: "bun must be installed. See https://bun.sh for installation instructions."
+    dir: "{{ .THEME_DIR }}"
+    cmds:
+      - task: internal:header
+        vars:
+          TEXT: "Installing frontend dependencies..."
+      - cmd: bun install
+
+  #-----------------------------------------------------------------------------
+  # Building
+
+  build:frontend:
+    desc: Build frontend assets for production.
+    summary: |
+      Builds frontend assets for production.
+
+      Checks that dependencies are installed, runs the Vite production build,
+      generates SRI hashes for CSS/JS assets, and copies the manifest to the
+      Hugo data directory for template consumption.
+    preconditions:
+      - sh: command -v bun
+        msg: "bun must be installed. See https://bun.sh for installation instructions."
+      - sh: test -d {{ .THEME_DIR }}/node_modules
+        msg: "Frontend dependencies not installed. Run 'task install:frontend' first."
+    dir: "{{ .THEME_DIR }}"
+    cmds:
+      - task: internal:header
+        vars:
+          TEXT: "Building frontend assets for production..."
+      - cmd: bun run build
+      - cmd: bun run scripts/generate-sri.ts
+      - cmd: cp {{ .THEME_DIR }}/data/manifest.json data/manifest.json
+
+  build:images:
+    desc: Optimize images to WebP and AVIF formats.
+    summary: |
+      Optimizes images to WebP and AVIF formats.
+
+      Runs the Sharp-based image optimization script to generate WebP (quality 80)
+      and AVIF (quality 65) variants of all PNG/JPG source images. Output goes to
+      static/dist/images/ with content-hashed filenames.
+    preconditions:
+      - sh: command -v bun
+        msg: "bun must be installed. See https://bun.sh for installation instructions."
+      - sh: test -d {{ .THEME_DIR }}/node_modules
+        msg: "Frontend dependencies not installed. Run 'task install:frontend' first."
+    dir: "{{ .THEME_DIR }}"
+    cmds:
+      - task: internal:header
+        vars:
+          TEXT: "Optimizing images..."
+      - cmd: bun run scripts/optimize-images.ts
+
+  build:videos:
+    desc: Transcode videos to H.264 and VP9 formats.
+    summary: |
+      Transcodes videos to H.264 and VP9 formats.
+
+      Runs the FFmpeg-based video transcoding script to generate H.264/MP4
+      (CRF 23, faststart) and VP9/WebM (CRF 31, two-pass) variants. Enforces
+      a maximum resolution of 1920×1080.
+    preconditions:
+      - sh: command -v ffmpeg
+        msg: "ffmpeg must be installed. Run 'brew install ffmpeg' or see https://ffmpeg.org."
+    dir: "{{ .THEME_DIR }}"
+    cmds:
+      - task: internal:header
+        vars:
+          TEXT: "Transcoding videos..."
+      - cmd: bash scripts/transcode-videos.sh
+
+  #-----------------------------------------------------------------------------
+  # Development
+
+  serve:dev:
+    desc: Start Hugo and Vite development servers in parallel.
+    summary: |
+      Starts Hugo and Vite development servers in parallel.
+
+      Launches both the Hugo dev server (with TLS on port 443) and the Vite dev
+      server (port 5173 with HMR). If either server exits, the task fails.
+    deps:
+      - serve:hugo
+      - serve:vite
+
+  serve:vite:
+    desc: Start Vite development server (internal).
+    summary: |
+      Starts the Vite development server.
+
+      This is an internal task used by serve:dev to run Vite in parallel with
+      Hugo. It runs `bun run dev` in the theme directory.
+    internal: true
+    preconditions:
+      - sh: command -v bun
+        msg: "bun must be installed. See https://bun.sh for installation instructions."
+      - sh: test -d {{ .THEME_DIR }}/node_modules
+        msg: "Frontend dependencies not installed. Run 'task install:frontend' first."
+    dir: "{{ .THEME_DIR }}"
+    cmds:
+      - cmd: bun run dev
+
+  #-----------------------------------------------------------------------------
+  # Cleanup
+
+  clean:frontend:
+    desc: Clean frontend build artifacts.
+    summary: |
+      Cleans frontend build artifacts.
+
+      Removes the static/dist/ output directory, Vite's cache directory, and
+      any generated image variants. This forces a full rebuild on the next
+      build:frontend invocation.
+    cmds:
+      - task: internal:header
+        vars:
+          TEXT: "Cleaning frontend build artifacts..."
+      - cmd: rm -rf {{ .THEME_DIR }}/static/dist/
+      - cmd: rm -rf {{ .THEME_DIR }}/node_modules/.vite/
+      - cmd: rm -f data/manifest.json

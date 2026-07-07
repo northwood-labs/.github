@@ -1,9 +1,12 @@
 jobs:
   name:
     steps:
-      - with:
-          allowed:
-            # @config-manager:start step-security-hosts
+      - nothing: []
+        # @config-manager:start step-security-hosts
+        with:
+          disable-sudo: true
+          egress-policy: block
+          allowed-endpoints: >
             100.20.106.61:443
             100.23.207.142:443
             100.23.248.170:443
@@ -94,6 +97,7 @@ jobs:
             pkg-containers.githubusercontent.com:443
             production.cloudflare.docker.com:443
             proxy.golang.org:443
+            pypi.org:443
             raw.githubusercontent.com:443
             registry-1.docker.io:443
             registry.npmjs.org:443
@@ -119,4 +123,4 @@ jobs:
             winatp-gw-cus.microsoft.com:443
             www.bestpractices.dev:443
             x.cp.wd.microsoft.com:443
-            # @config-manager:end step-security-hosts
+        # @config-manager:end step-security-hosts
