@@ -17,8 +17,10 @@ on:
           - aws-mcp-credential-proxy
           - aws-service-models
           - aws-sso-manager
+          - aws.nwlabs.dev
           - branding
           - cli-helpers
+          - config-manager.vsix
           - crowdstrike-falcon-downloader
           - csp-parser
           - devsec-tools
