@@ -196,8 +196,8 @@
 [[files]]
   stub = 'configs/stubs/.github/workflows/update-on-push.yml'
   source = [
-    'configs/templates/.github/workflows/__harden-hosts.yml',
     'configs/templates/.github/workflows/update-on-push.yml',
+    'configs/templates/.github/workflows/__harden-hosts.yml',
   ]
   destination = '.github/workflows/update-on-push.yml'
 
