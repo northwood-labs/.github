@@ -19,6 +19,7 @@ Exclude = [
   "\\.kiro/",
   "\\.kirograph/",
   "\\.rumdl_cache/",
+  "\\.vite/",
   "node_modules/",
   "testdata/",
 
@@ -91,6 +92,7 @@ Exclude = [
   "go\\.tools\\.mod$",
   "go\\.tools\\.sum$",
   "LICENSE(\\.(md|txt))?$",
+  "manifest\\.json$",
   "min\\.css$",
   "min\\.js$",
   "package-lock\\.json$",

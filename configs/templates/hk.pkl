@@ -70,11 +70,17 @@ local linters = new Mapping<String, Group> {
   ["frontend"] = new Group {
     steps {
       // astro
-      ["knip"] = (Builtins.knip_strict) {
-        workspace_indicator = ".knip.jsonc"
-        check = "cd {{ workspace }} && bun knip --strict --exports --no-progress --directory ."
-        fix = "cd {{ workspace }} && bun knip --fix --strict --exports --no-progress --directory ."
-      }
+    //   ["knip"] = (Builtins.knip_strict) {
+    //     workspace_indicator = ".knip.jsonc"
+    //     check = """
+    //         cd {{ workspace }} && \\
+    //         bun knip --strict --exports --no-progress --directory .
+    //         """
+    //     fix = """
+    //         cd {{ workspace }} && \\
+    //         bun knip --fix --strict --exports --no-progress --directory .
+    //         """
+    //   }
       ["oxfmt"] = (Builtins.oxfmt) {
         workspace_indicator = ".oxfmtrc.jsonc"
         glob = "**/*.{jsx?,tsx?}"
@@ -84,8 +90,18 @@ local linters = new Mapping<String, Group> {
       ["oxlint"] = (Builtins.ox_lint) {
         workspace_indicator = ".oxlintrc.jsonc"
         glob = "**/*.{jsx?,tsx?}"
-        check = "cd {{ workspace }} && oxlint --import-plugin --jsdoc-plugin --jsx-a11y-plugin --react-perf-plugin --no-error-on-unmatched-pattern {{ files }}"
-        fix = "cd {{ workspace }} && oxlint --import-plugin --jsdoc-plugin --jsx-a11y-plugin --react-perf-plugin --fix --no-error-on-unmatched-pattern {{ files }}"
+
+        // https://pkl-lang.org/main/current/language-reference/index.html#multiline-strings
+        check = """
+            cd {{ workspace }} && \\
+            oxlint --import-plugin --jsdoc-plugin --jsx-a11y-plugin --react-perf-plugin \\
+                --no-error-on-unmatched-pattern {{ files }}
+            """
+        fix = """
+            cd {{ workspace }} && \\
+            oxlint --import-plugin --jsdoc-plugin --jsx-a11y-plugin --react-perf-plugin \\
+                --fix --no-error-on-unmatched-pattern {{ files }}
+            """
       }
       ["sort-package-json"] = (Builtins.sort_package_json) {
         check = "bunx sort-package-json --check {{ files }}"
