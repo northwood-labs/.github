@@ -20,7 +20,6 @@ on:
           - aws.nwlabs.dev
           - branding
           - cli-helpers
-          - config-manager.vsix
           - crowdstrike-falcon-downloader
           - csp-parser
           - devsec-tools
