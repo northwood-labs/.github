@@ -24,12 +24,9 @@ jobs:
     # @config-manager:end update-on-push-job
     steps:
       # @config-manager:start harden-runner
-      fake1:
-        fake2:
-          # @config-manager:end harden-runner
-          allowed-endpoints: >
-            # @config-manager:start step-security-hosts
-            # @config-manager:end step-security-hosts
+      # @config-manager:end harden-runner
+      # @config-manager:start step-security-hosts
+      # @config-manager:end step-security-hosts
 
       # @config-manager:start workflow-run-steps
       # @config-manager:end workflow-run-steps
