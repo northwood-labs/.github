@@ -19,14 +19,19 @@ We believe that all of this can be made better, and we intend to try.
   
 [Website] • [Crunchbase] • [LinkedIn] • [Pinterest] • [Facebook] • [Instagram] • [TikTok] • [YouTube] • [Mastodon] • [Threads] • [Bluesky] • [X]
 
+**Support open-source:** [GitHub Sponsors] • [OpenCollective] • [Liberapay]
+
 </div>
 
 [Bluesky]: https://bsky.app/profile/northwood-labs.com
 [Crunchbase]: https://www.crunchbase.com/organization/northwood-labs
 [Facebook]: https://www.facebook.com/profile.php?id=61558955227346
+[GitHub Sponsors]: https://github.com/sponsors/northwood-labs
 [Instagram]: https://www.instagram.com/northwood.labs
+[Liberapay]: https://liberapay.com/northwood-labs
 [LinkedIn]: https://www.linkedin.com/company/northwood-labs
 [Mastodon]: https://techhub.social/@northwoodlabs
+[OpenCollective]: https://opencollective.com/northwood-labs
 [Pinterest]: https://www.pinterest.com/northwoodlabs
 [Threads]: https://www.threads.net/@northwood.labs
 [TikTok]: https://www.tiktok.com/@northwood.labs
