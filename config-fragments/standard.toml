@@ -169,6 +169,12 @@
   source = 'configs/templates/.github/dco.yml'
   destination = '.github/dco.yml'
 
+# FUNDING
+[[files]]
+  stub = 'configs/stubs/.github/FUNDING.yml'
+  source = 'configs/templates/.github/FUNDING.yml'
+  destination = '.github/FUNDING.yml'
+
 # GitHub issue templates
 # https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
 [[files]]
