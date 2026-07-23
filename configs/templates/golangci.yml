@@ -266,6 +266,7 @@ linters:
             - github.com/gin-contrib/
             - github.com/gin-gonic/
             - github.com/go-enry/go-enry
+            - github.com/go-openapi/testify
             - github.com/google/go-cmp
             - github.com/google/go-github
             - github.com/grpc-ecosystem/
@@ -292,7 +293,6 @@ linters:
             - github.com/rs/zerolog
             - github.com/spf13/cobra
             - github.com/spf13/viper
-            - github.com/stretchr/testify
             - github.com/teekennedy/goldmark-markdown
             - github.com/valkey-io/valkey-go
             - github.com/valkey-io/valkey-go/valkeycompat
@@ -359,6 +359,9 @@ linters:
             - pkg: "github.com/sirupsen/logrus"
               desc: Use charm.land/log/v2 (with log/slog) for CLIs or github.com/rs/zerolog for servers instead.
 
+            - pkg: "github.com/stretchr/testify"
+              desc: Use github.com/go-openapi/testify instead.
+
             - pkg: "go.uber.org/zap"
               desc: Use charm.land/log/v2 (with log/slog) for CLIs or github.com/rs/zerolog for servers instead.
 
@@ -400,7 +403,7 @@ linters:
         # Default: []
         # ignore:
         #   - "0C0C"
-        # @config-manager:end linters-settings-dupword
+      # @config-manager:end linters-settings-dupword
 
     embeddedstructfieldcheck:
       # @config-manager:start linters-settings-embeddedstructfieldcheck
@@ -784,7 +787,7 @@ linters:
         #   # Whether to check exported functions.
         #   # Default: false
         #   checkExported: false
-        # @config-manager:end linters-settings-gocritic
+      # @config-manager:end linters-settings-gocritic
 
     gocyclo:
       # Minimal code complexity to report.
@@ -1424,7 +1427,7 @@ linters:
           # - restricted: checks only comments.
           # Default: ""
           # mode: restricted
-          # @config-manager:end linters-settings-misspell
+      # @config-manager:end linters-settings-misspell
 
     mnd:
       # @config-manager:start linters-settings-mnd
@@ -1480,7 +1483,7 @@ linters:
         # ignored-functions:
         #   - '^math\.'
         #   - '^http\.StatusText$'
-        # @config-manager:end linters-settings-mnd
+      # @config-manager:end linters-settings-mnd
 
     modernize:
       # @config-manager:start linters-settings-modernize
@@ -2177,7 +2180,7 @@ linters:
           severity: warning
           disabled: false
           exclude: [""]
-          arguments: [5]
+          arguments: [20]
 
         # https://github.com/mgechev/revive/blob/HEAD/RULES_DESCRIPTIONS.md#modifies-parameter
         - name: modifies-parameter
@@ -2583,7 +2586,7 @@ linters:
         # Default: []
         # extra-start-span-signatures:
         #   - "github.com/user/repo/telemetry/trace.Start:opentelemetry"
-        # @config-manager:end linters-settings-spancheck
+      # @config-manager:end linters-settings-spancheck
 
     staticcheck:
       # @config-manager:start linters-settings-staticcheck
