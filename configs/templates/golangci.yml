@@ -790,11 +790,14 @@ linters:
       # @config-manager:end linters-settings-gocritic
 
     gocyclo:
+      # @config-manager:start linters-settings-gocyclo
       # Minimal code complexity to report.
       # Default: 30 (but we recommend 10-20)
       min-complexity: 21
+      # @config-manager:end linters-settings-gocyclo
 
     godoclint:
+      # @config-manager:start linters-settings-godoclint
       # Default set of rules to enable.
       # Possible values are: `basic`, `all` or `none`.
       # Default: `basic` (enables `pkg-doc`, `single-pkg-doc`, `start-with-name`, and `deprecated`)
@@ -864,6 +867,7 @@ linters:
           # Include unexported symbols when applying the `start-with-name` rule.
           # Default: false
           include-unexported: false
+      # @config-manager:end linters-settings-godoclint
 
     godot:
       # @config-manager:start linters-settings-godot
@@ -2747,7 +2751,7 @@ linters:
         # Default: true
         check-format-string: true
 
-        # To require f-assertions (e.g. `assert.Equalf`) if format string is used, even if there are no variable-length
+        # To require f-assertions (e.g., `assert.Equalf`) if format string is used, even if there are no variable-length
         # variables, i.e. it requires `require.NoErrorf` for both these cases:
         # - require.NoErrorf(t, err, "unexpected error")
         # - require.NoErrorf(t, err, "unexpected error for sid: %v", sid)
@@ -2909,7 +2913,7 @@ linters:
       # Default: true
       field-writes-are-uses: true
 
-      # Treat IncDec statement (e.g. `i++` or `i--`) as both read and write operation instead of just write.
+      # Treat IncDec statement (e.g., `i++` or `i--`) as both read and write operation instead of just write.
       # Default: false
       post-statements-are-reads: false
 
@@ -3242,14 +3246,35 @@ linters:
           - wsl
 
       - source: lint:allow_complexity
-        text: (cognitive complexity)
+        text: ((cognitive|cyclomatic) complexity)
         linters:
           - gocognit
+          - gocyclo
 
       - source: lint:no_const
         text: (make it a constant)
         linters:
           - goconst
+
+      - source: lint:allow_naming_conflict_stdlib
+        text: (because it conflicts with Go standard library package)
+        linters:
+          - revive
+
+      - source: lint:allow_bad_package_name
+        text: (because it is a bad package name)
+        linters:
+          - revive
+
+      - source: lint:allow_unexported_return
+        text: (returns unexported type)
+        linters:
+          - revive
+
+      - source: lint:allow_control_coupling_antipattern
+        text: (avoid control coupling)
+        linters:
+          - revive
 
       - source: (fmt|lipgloss)\.(Fprint|Print|Sprint)(f|ln)?
         text: (is not checked)
@@ -3518,7 +3543,7 @@ output:
 # Options for analysis running.
 run:
   # @config-manager:start run
-  # Timeout for total work, e.g. 30s, 5m, 5m30s.
+  # Timeout for total work, e.g., 30s, 5m, 5m30s.
   # If the value is lower or equal to 0, the timeout is disabled.
   # Default: 0 (disabled)
   timeout: 1m
@@ -3591,7 +3616,7 @@ severity:
   # - GitHub: https://help.github.com/en/actions/reference/workflow-commands-for-github-actions#setting-an-error-message
   # - TeamCity: https://www.jetbrains.com/help/teamcity/service-messages.html#Inspection+Instance
   #
-  # `@linter` can be used as severity value to keep the severity from linters (e.g. revive, gosec, ...)
+  # `@linter` can be used as severity value to keep the severity from linters (e.g., revive, gosec, ...)
   #
   # Default: ""
   default: error
@@ -3599,7 +3624,7 @@ severity:
   # Severity rules have the same filtering capability as exclude rules
   # except you are allowed to specify one matcher per severity rule.
   #
-  # `@linter` can be used as severity value to keep the severity from linters (e.g. revive, gosec, ...)
+  # `@linter` can be used as severity value to keep the severity from linters (e.g., revive, gosec, ...)
   #
   # Only affects out formats that support setting severity information.
   #
