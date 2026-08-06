@@ -1,0 +1,36 @@
+---
+# @config-manager:start workflow-name
+name: TruffleHog
+# @config-manager:end workflow-name
+
+# @config-manager:start workflow-on
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches:
+      - main
+# @config-manager:end workflow-on
+
+# @config-manager:start workflow-permissions
+permissions: read-all
+# @config-manager:end workflow-permissions
+
+jobs:
+  literally_anything:
+    strategy:
+      # @config-manager:start workflow-strategy
+      fail-fast: false
+      # @config-manager:end workflow-strategy
+    steps:
+      # @config-manager:start workflow-trufflehog-scan
+      - name: Check secrets with TruffleHog OSS
+        uses: trufflesecurity/trufflehog@6f3c981e7b77f235fd2702dd74af25fc4b72bf11 # v3.96.0
+        with:
+          path: ./
+          head: HEAD
+          extra_args: --only-verified
+      # @config-manager:end workflow-trufflehog-scan

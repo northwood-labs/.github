@@ -1,25 +1,15 @@
 ---
-# This workflow uses actions that are not certified by GitHub. They are provided
-# by a third-party and are governed by separate terms of service, privacy
-# policy, and support documentation.
-
 # @config-manager:start workflow-name
 name: Auto-merge Dependabot Pull Requests
 # @config-manager:end workflow-name
 
+# @config-manager:start workflow-on
 on:
-  # @config-manager:start workflow-on
   pull_request:
-  # @config-manager:end workflow-on
+# @config-manager:end workflow-on
 
-concurrency:
-  # @config-manager:start workflow-concurrency
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
-  # @config-manager:end workflow-concurrency
-
-# Declare default permissions as read only.
 # @config-manager:start workflow-permissions
+# Declare default permissions as read only.
 permissions: read-all
 # @config-manager:end workflow-permissions
 
@@ -27,8 +17,10 @@ jobs:
   dependabot:
     runs-on: ubuntu-latest
     name: Auto-merge Dependabot PRs
+    # @config-manager:start workflow-configs
     timeout-minutes: 2
     if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == github.event.pull_request.head.repo.full_name
+    # @config-manager:end workflow-configs
     permissions:
       # @config-manager:start workflow-permissions-job
       contents: write
@@ -38,12 +30,6 @@ jobs:
       # @config-manager:end workflow-permissions-job
     steps:
       # @config-manager:start workflow-steps
-      - name: Harden Runner
-        uses: step-security/harden-runner@9af89fc71515a100421586dfdb3dc9c984fbf411 # v2.19.4
-        with:
-          disable-sudo: true
-          egress-policy: block
-
       - name: Dependabot metadata
         id: metadata
         uses: step-security/dependabot-fetch-metadata@bf8fb6e0be0a711c669dc236de6e7f7374ba626e # v3.1.0
@@ -65,4 +51,4 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
           gh pr merge --auto --squash "${PR_URL}"
-      # @config-manager:end workflow-steps
+    # @config-manager:end workflow-steps

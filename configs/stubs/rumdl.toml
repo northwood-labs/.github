@@ -24,11 +24,8 @@
 
 # https://rumdl.dev/md044/
 [MD044]
-  # proper-names
-  enabled = true
-  code-blocks = false
-  html-elements = false
-  html-comments = true
+  # @config-manager:start md044
+  # @config-manager:end md044
   names = [
     # @config-manager:start proper-names
     # @config-manager:end proper-names

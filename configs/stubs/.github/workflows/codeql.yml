@@ -9,42 +9,31 @@
 # @config-manager:start workflow-on
 # @config-manager:end workflow-on
 
-# @config-manager:start workflow-concurrency
-# @config-manager:end workflow-concurrency
-
 # @config-manager:start workflow-permissions
 # @config-manager:end workflow-permissions
 
 jobs:
-  update_on_push_job:
-    # @config-manager:start update-on-push-job
-    # @config-manager:end update-on-push-job
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
     permissions:
       # @config-manager:start workflow-permissions-job
       # @config-manager:end workflow-permissions-job
+    strategy:
+      # @config-manager:start workflow-strategy
+      # @config-manager:end workflow-strategy
+      matrix:
+        # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
+        language: ["go"] # @TODO: Check the list of languages to scan.
+
     steps:
       # @config-manager:start harden-runner
       # @config-manager:end harden-runner
       # @config-manager:start step-security-hosts
       # @config-manager:end step-security-hosts
 
-      # @config-manager:start workflow-install-node
-      # @config-manager:end workflow-install-node
-
       # @config-manager:start workflow-clone
       # @config-manager:end workflow-clone
 
-      # @config-manager:start workflow-https-pat
-      # @config-manager:end workflow-https-pat
-
-      # @config-manager:start workflow-gen-changelog
-      # @config-manager:end workflow-gen-changelog
-
-      # @config-manager:start workflow-cleanup
-      # @config-manager:end workflow-cleanup
-
-      # @config-manager:start workflow-contributors
-      # @config-manager:end workflow-contributors
-
-      # @config-manager:start workflow-commit
-      # @config-manager:end workflow-commit
+      # @config-manager:start workflow-codeql
+      # @config-manager:end workflow-codeql

@@ -1,0 +1,42 @@
+# @config-manager:start workflow-concurrency
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+# @config-manager:end workflow-concurrency
+
+jobs:
+  name:
+    steps:
+      # @config-manager:start harden-runner
+      - name: Harden Runner
+        uses: step-security/harden-runner@b09bb98e06d4d774595224525879c09bc6e98c40 # v2.20.1
+      # @config-manager:end harden-runner
+
+      # @config-manager:start workflow-clone
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          # @config-manager:end workflow-clone
+          # @config-manager:start workflow-clone-fetch-all
+          fetch: 0
+      # @config-manager:end workflow-clone-fetch-all
+
+      # @config-manager:start workflow-https-pat
+      - name: Configure Git to use HTTPS with the PAT
+        run: |
+          git config --global url."https://${{ secrets.GH_PUBLIC_TOKEN }}@github.com/".insteadOf "https://github.com/"
+          git config --global url."https://${{ secrets.GH_PUBLIC_TOKEN }}@github.com".insteadOf "ssh://git@github.com"
+          git config --global advice.detachedHead false
+      # @config-manager:end workflow-https-pat
+
+      # @config-manager:start workflow-dependency-review
+      - name: "Dependency Review"
+        uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
+        with:
+          fail-on-severity: low
+          license-check: true
+          vulnerability-check: true
+          comment-summary-in-pr: on-failure
+          allow-licenses: Apache-2.0, BSD-2-Clause, BSD-3-Clause, ISC, MPL-2.0, MIT
+      # @config-manager:end workflow-dependency-review

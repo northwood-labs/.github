@@ -1,0 +1,48 @@
+---
+# This workflow uses actions that are not certified by GitHub. They are provided
+# by a third-party and are governed by separate terms of service, privacy
+# policy, and support documentation.
+
+# @config-manager:start workflow-name
+# @config-manager:end workflow-name
+
+# @config-manager:start workflow-on
+# @config-manager:end workflow-on
+
+# @config-manager:start workflow-permissions
+# @config-manager:end workflow-permissions
+
+jobs:
+  terratest:
+    runs-on: ubuntu-latest
+    name: Terratest
+    steps:
+      # @config-manager:start harden-runner
+      # @config-manager:end harden-runner
+      # @config-manager:start step-security-hosts
+      # @config-manager:end step-security-hosts
+
+      # @config-manager:start workflow-clone
+      # @config-manager:end workflow-clone
+      # @config-manager:start workflow-clone-fetch-all
+      # @config-manager:end workflow-clone-fetch-all
+
+      # @config-manager:start workflow-go
+      # @config-manager:end workflow-go
+
+      # @config-manager:start workflow-terraform
+      # @config-manager:end workflow-terraform
+
+      # @config-manager:start workflow-opentofu
+      # @config-manager:end workflow-opentofu
+
+      # @config-manager:start workflow-goroot-env
+      # @config-manager:end workflow-goroot-env
+
+      - name: Run Terratest (data sources)
+        run: |
+          cd ./terratest/data-sources && go test -count=1 -parallel=$(nproc)
+
+      - name: Run Terratest (functions)
+        run: |
+          cd ./terratest/functions && go test -count=1 -parallel=$(nproc)

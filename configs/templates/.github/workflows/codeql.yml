@@ -1,0 +1,56 @@
+---
+# This workflow uses actions that are not certified by GitHub. They are provided
+# by a third-party and are governed by separate terms of service, privacy
+# policy, and support documentation.
+
+# @config-manager:start workflow-name
+name: "CodeQL"
+# @config-manager:end workflow-name
+
+# @config-manager:start workflow-on
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: ["main"]
+  schedule:
+    # https://crontab.guru/#0_0_*_*_1
+    - cron: "0 0 * * 1"
+# @config-manager:end workflow-on
+
+# @config-manager:start workflow-permissions
+permissions:
+  contents: read
+# @config-manager:end workflow-permissions
+
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: ubuntu-latest
+    permissions:
+      # @config-manager:start workflow-permissions-job
+      actions: read
+      contents: read
+      security-events: write
+      # @config-manager:end workflow-permissions-job
+    strategy:
+      # @config-manager:start workflow-strategy
+      fail-fast: false
+      # @config-manager:end workflow-strategy
+      matrix:
+        # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
+        language: ["go"]
+
+    steps:
+      # @config-manager:start workflow-codeql
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@5595ccaf912efad79be6eef63a5619ff05969be3 # v4.37.6
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@5595ccaf912efad79be6eef63a5619ff05969be3 # v4.37.6
+        with:
+          category: "/language:${{matrix.language}}"
+      # @config-manager:end workflow-codeql

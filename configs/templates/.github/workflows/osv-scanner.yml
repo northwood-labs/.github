@@ -1,0 +1,48 @@
+---
+# This workflow uses actions that are not certified by GitHub. They are provided
+# by a third-party and are governed by separate terms of service, privacy
+# policy, and support documentation.
+
+# @config-manager:start workflow-name
+name: OSV Scanner
+# @config-manager:end workflow-name
+
+# @config-manager:start workflow-on
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    # https://crontab.guru/#0_0_*_*_4
+    - cron: "0 0 * * 4"
+# @config-manager:end workflow-on
+
+# @config-manager:start workflow-permissions
+permissions:
+  # Required to upload SARIF file to CodeQL. See: https://github.com/github/codeql-action/issues/2117
+  actions: read
+  # Require writing security events to upload SARIF file to security tab
+  security-events: write
+  # Only need to read contents
+  contents: read
+# @config-manager:end workflow-permissions
+
+jobs:
+  osv_scanner_job:
+    runs-on: ubuntu-latest
+    name: Scan for vulns
+    steps:
+      # @config-manager:start workflow-scanner
+      - name: "Run scanner on existing code"
+        uses: google/osv-scanner-action/osv-scanner-action@9a498708959aeaef5ef730655706c5a1df1edbc2 # v2.3.8
+        continue-on-error: true
+        with:
+          scan-args: |-
+            --format=json
+            --output=results.json
+            --recursive .
+      # @config-manager:end workflow-scanner

@@ -57,6 +57,7 @@ rules:
         - github/codeql-action/*
         - orhun/git-cliff-action
         - step-security/*
+        - trufflesecurity/trufflehog
 
   # https://docs.zizmor.sh/audits/#github-app
   github-app:
@@ -83,7 +84,7 @@ rules:
     disable: false
     config:
       allow:
-        # - GHSA
+      # - GHSA
 
   # https://docs.zizmor.sh/audits/#misfeature
   misfeature:

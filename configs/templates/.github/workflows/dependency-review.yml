@@ -1,0 +1,14 @@
+---
+# @config-manager:start workflow-name
+name: "Dependency Review"
+# @config-manager:end workflow-name
+
+# @config-manager:start workflow-on
+on:
+  pull_request:
+# @config-manager:end workflow-on
+
+# @config-manager:start workflow-permissions
+permissions:
+  contents: read
+# @config-manager:end workflow-permissions

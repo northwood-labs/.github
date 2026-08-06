@@ -1,0 +1,33 @@
+---
+# Dependency Review Action
+#
+# This Action will scan dependency manifest files that change as part of a Pull
+# Request, surfacing known-vulnerable versions of the packages declared or
+# updated in the PR. Once installed, if the workflow run is marked as required,
+# PRs introducing known-vulnerable packages will be blocked from merging.
+#
+# Source repository: https://github.com/actions/dependency-review-action
+
+# @config-manager:start workflow-name
+# @config-manager:end workflow-name
+
+# @config-manager:start workflow-on
+# @config-manager:end workflow-on
+
+# @config-manager:start workflow-permissions
+# @config-manager:end workflow-permissions
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      # @config-manager:start harden-runner
+      # @config-manager:end harden-runner
+      # @config-manager:start step-security-hosts
+      # @config-manager:end step-security-hosts
+
+      # @config-manager:start workflow-clone
+      # @config-manager:end workflow-clone
+
+      # @config-manager:start workflow-dependency-review
+      # @config-manager:end workflow-dependency-review

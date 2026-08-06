@@ -1,0 +1,59 @@
+---
+# @config-manager:start workflow-name
+name: Security scorecard
+# @config-manager:end workflow-name
+
+# @config-manager:start workflow-on
+on:
+  push:
+    branches: [main]
+  # For Branch-Protection check. Only the default branch is supported. See
+  # https://github.com/ossf/scorecard/blob/main/docs/checks.md#branch-protection
+  branch_protection_rule:
+  # To guarantee Maintained check is occasionally updated. See
+  # https://github.com/ossf/scorecard/blob/main/docs/checks.md#maintained
+  schedule:
+    # https://crontab.guru/#40_8_*_*_1
+    - cron: 40 8 * * 5
+# @config-manager:end workflow-on
+
+# @config-manager:start workflow-permissions
+# Declare default permissions as read only.
+permissions: read-all
+# @config-manager:end workflow-permissions
+
+jobs:
+  literally_anything:
+    permissions:
+      # @config-manager:start workflow-permissions-job
+      # Needed to upload the results to code-scanning dashboard.
+      security-events: write
+      # Needed to publish results and get a badge (see publish_results below).
+      id-token: write
+      # @config-manager:end workflow-permissions-job
+
+    steps:
+      # @config-manager:start workflow-analysis
+      - name: Run analysis
+        uses: ossf/scorecard-action@2d1146689b8cda280b9bc96326124645441f03bc # v2.4.4
+        with:
+          results_file: results.sarif
+          results_format: sarif
+          publish_results: true
+      # @config-manager:end workflow-analysis
+
+      # @config-manager:start workflow-upload
+      - name: Upload artifact
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: SARIF file
+          path: results.sarif
+          retention-days: 90
+      # @config-manager:end workflow-upload
+
+      # @config-manager:start workflow-upload-codeql
+      - name: Upload to code-scanning
+        uses: github/codeql-action/upload-sarif@5595ccaf912efad79be6eef63a5619ff05969be3 # v4.37.6
+        with:
+          sarif_file: results.sarif
+      # @config-manager:end workflow-upload-codeql

@@ -1,0 +1,59 @@
+---
+# This workflow uses actions that are not certified by GitHub. They are provided
+# by a third-party and are governed by separate terms of service, privacy
+# policy, and support documentation.
+
+# @config-manager:start workflow-name
+name: Terratest (Post-Release)
+# @config-manager:end workflow-name
+
+# @config-manager:start workflow-on
+on:
+  workflow_dispatch:
+# @config-manager:end workflow-on
+
+# @config-manager:start workflow-permissions
+permissions: read-all
+# @config-manager:end workflow-permissions
+
+jobs:
+  terratest:
+    runs-on: ubuntu-latest
+    name: Terratest
+    steps:
+      # @config-manager:start workflow-go
+      - name: Install Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version: ">= 1.26.4"
+          cache: true
+      # @config-manager:end workflow-go
+
+      # @config-manager:start workflow-terraform
+      - name: Install Terraform
+        uses: step-security/setup-terraform@11f45fe036ccfd27d231861d38b183d405b059a9 # v4.0.0
+        with:
+          terraform_version: 1.9
+          terraform_wrapper: false
+      # @config-manager:end workflow-terraform
+
+      # @config-manager:start workflow-opentofu
+      - name: Install OpenTofu
+        uses: step-security/setup-opentofu@84cc3a843a234d872b49bd729cb74b65f938bf1f # v2.0.1
+        with:
+          tofu_version: 1.8
+          tofu_wrapper: false
+      # @config-manager:end workflow-opentofu
+
+      # @config-manager:start workflow-goroot-env
+      - name: Set GOROOT as an environment variable
+        run: echo "GOROOT=$(go env GOROOT)" >> $GITHUB_ENV
+      # @config-manager:end workflow-goroot-env
+
+      - name: Run Terratest (data sources)
+        run: |
+          cd ./terratest/data-sources && go test -count=1 -parallel=$(nproc)
+
+      - name: Run Terratest (functions)
+        run: |
+          cd ./terratest/functions && go test -count=1 -parallel=$(nproc)
