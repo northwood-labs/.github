@@ -189,7 +189,8 @@ Line length is 120 characters. Do not break too early. Do not break too late. Co
 
 ### Comment line length
 
-Comments, including any whitespace (where tabs count as 4 spaces), must not have individual lines longer than 80 characters. Wrap to the next line instead of continuing on the same line.
+* Wrap comment prose text at 80 characters. This is a hard limit — do not exceed it, but also do not wrap early (use the full width).
+* URLs in comments are exempt from the 80-character limit. Never break a URL across lines.
 
 Wrong:
 
