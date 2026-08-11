@@ -17,8 +17,9 @@
 
 jobs:
   trufflehog_job:
-    runs-on: ubuntu-latest
     name: Scan for secrets
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
     strategy:
       # @config-manager:start workflow-strategy
       # @config-manager:end workflow-strategy

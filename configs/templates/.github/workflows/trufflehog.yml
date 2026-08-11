@@ -16,7 +16,8 @@ on:
 # @config-manager:end workflow-on
 
 # @config-manager:start workflow-permissions
-permissions: read-all
+permissions:
+  contents: read
 # @config-manager:end workflow-permissions
 
 jobs:

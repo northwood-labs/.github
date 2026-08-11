@@ -20,6 +20,7 @@
 jobs:
   dependency-review:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       # @config-manager:start harden-runner
       # @config-manager:end harden-runner

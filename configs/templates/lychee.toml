@@ -149,3 +149,12 @@ exclude = [
   'x-access-token',
   # @config-manager:end host-excludes
 ]
+
+#-------------------------------------------------------------------------------
+# FILE PATHS
+
+exclude_path = [
+  # @config-manager:start filepath-excludes
+  "pom\\.xml$",
+  # @config-manager:end filepath-excludes
+]

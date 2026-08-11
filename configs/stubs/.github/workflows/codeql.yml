@@ -16,6 +16,7 @@ jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     permissions:
       # @config-manager:start workflow-permissions-job
       # @config-manager:end workflow-permissions-job

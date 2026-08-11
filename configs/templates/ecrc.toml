@@ -97,6 +97,7 @@ Exclude = [
   "go\\.sum$",
   "go\\.tools\\.mod$",
   "go\\.tools\\.sum$",
+  "golangci-lint\\.sarif",
   "LICENSE(\\.(md|txt))?$",
   "manifest\\.json$",
   "min\\.css$",

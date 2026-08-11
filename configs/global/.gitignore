@@ -25,6 +25,7 @@ __pycache__
 *.out
 *.pyc
 *~
+golangci-lint.sarif
 logs/
 lychee.md
 node_modules

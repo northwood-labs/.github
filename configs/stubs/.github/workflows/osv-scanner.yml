@@ -19,6 +19,7 @@ jobs:
   osv_scanner_job:
     runs-on: ubuntu-latest
     name: Scan for vulns
+    timeout-minutes: 30
     steps:
       # @config-manager:start harden-runner
       # @config-manager:end harden-runner
