@@ -19,6 +19,10 @@
   source      = 'configs/templates/dcignore'
   destination = '.dcignore'
 
+[[files]]
+  stub        = 'configs/stubs/depgen.toml'
+  destination = '.depgen.toml'
+
 # EditorConfig definition
 # https://editorconfig.org
 [[files]]
@@ -81,8 +85,8 @@
 # Pinact
 # https://github.com/suzuki-shunsuke/pinact
 [[files]]
-  stub = 'configs/stubs/pinact.yaml'
-  source = 'configs/templates/pinact.yaml'
+  stub        = 'configs/stubs/pinact.yaml'
+  source      = 'configs/templates/pinact.yaml'
   destination = '.pinact.yaml'
 
 # rumdl replaces Markdownlint
@@ -212,7 +216,7 @@
   destination = '.github/workflows/codeql.yml'
 
 [[files]]
-  stub        = 'configs/stubs/.github/workflows/dependabot-auto-merge.yml'
+  stub = 'configs/stubs/.github/workflows/dependabot-auto-merge.yml'
   source = [
     'configs/templates/.github/workflows/__harden-hosts.yml',
     'configs/templates/.github/workflows/__reusable-steps.yml',
