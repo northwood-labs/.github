@@ -1,6 +1,6 @@
 ---
-inclusion: fileMatch
-fileMatchPattern: "**/*.{js,jsx,ts,tsx}"
+# @config-manager:start zdp-frontmatter
+# @config-manager:end zdp-frontmatter
 ---
 
 <!-- @config-manager:start zdp -->

@@ -1,10 +1,12 @@
 ---
+# @config-manager:start zdp-frontmatter
 inclusion: fileMatch
 fileMatchPattern: "**/*.go"
+# @config-manager:end zdp-frontmatter
 ---
 
 <!-- @config-manager:start zdp -->
-# Zero Diagnostics Policy
+# Go Zero Diagnostics
 
 All Go source files must be free of diagnostic errors and warnings. Code is not considered complete until `getDiagnostics` reports zero issues for every file touched during a change.
 
@@ -13,6 +15,12 @@ All Go source files must be free of diagnostic errors and warnings. Code is not 
 * **Small, surgical edits** are strongly preferred over wide-scale refactoring. Without a larger spec to guide the work, keep changes minimal and focused on the specific diagnostic being resolved.
 * **Fix the problem, not the symptom.** Strongly favor resolving the root cause over suppressing the error. Suppression is a last resort reserved for cases where a fix is genuinely impossible or would introduce worse problems.
 * The goal is **zero remaining diagnostic issues** when running `golangci-lint run --fix ./...` from the project root.
+
+## Installation
+
+It is expected that `golangci-lint` is already installed and on the `$PATH`. Verify installation by running `golangci-lint version`. It should be a 2.x version. Verify this first. If the version is a 1.x version, there is a fundamental problem. Stop processing and inform the user that they have an incompatible version of `golangci-lint` on their `$PATH`.
+
+DO NOT install `golangci-lint` with `go install ...`. If necessary, only install `golangci-lint` using the official installation command, `task install:tools`. If it cannot be installed this way, halt, and provide the user an explanation.
 
 ## Verification workflow
 
@@ -275,6 +283,18 @@ Using `fmt.Println`, `fmt.Printf`, `fmt.Print`, `fmt.Sprintln`, `fmt.Sprintf`, `
 ### Suppression comment scope
 
 `lint:allow_unhandled` suppresses `gosec` G104 but does NOT suppress `errcheck`. `lint:allow_defer_close` suppresses `errcheck` but does NOT suppress `gosec`. When both linters flag the same unhandled error, prefer handling the error properly (e.g., `if closeErr := f.Close(); closeErr != nil { t.Fatal(closeErr) }`) rather than stacking suppression comments.
+
+### Preferred libraries
+
+* Use `github.com/alitto/pond` for pooling and concurrency of network connections.
+* Use `github.com/aws/aws-sdk-go-v2` for communicating with AWS.
+* Use `github.com/go-openapi/testify` for test assertions.
+* Use `github.com/pelletier/go-toml/v2` for processing TOML.
+* Use `github.com/yuin/goldmark` for processing Markdown.
+* Use `go.uber.org/multierr` for handling multiple errors at a time.
+* Use `go.yaml.in/yaml/v4` for processing YAML.
+* Use `math/rand/v2` for random numbers.
+* Use modern Go error handling instead of `github.com/pkg/errors` or `github.com/go-errors/errors`.
 
 ## Code conventions
 

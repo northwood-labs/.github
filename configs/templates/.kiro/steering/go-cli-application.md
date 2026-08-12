@@ -1,6 +1,9 @@
 ---
-inclusion: fileMatch
-fileMatchPattern: "**/*.go"
+# @config-manager:start cli-patterns-frontmatter
+inclusion: auto
+name: go-cli-application
+description: Patterns to use when creating or updating a Go-based CLI or TUI application.
+# @config-manager:end cli-patterns-frontmatter
 ---
 
 <!-- @config-manager:start cli-patterns -->
@@ -42,8 +45,12 @@ Use the current year for new files.
 
 * Use `github.com/spf13/cobra` for command structure.
 * Use `charm.land/fang/v2` to wrap Cobra execution for terminal color support.
-* Use `go.nwlabs.dev/cli-helpers/v2` for shared CLI helpers (e.g., `clihelpers.LongHelpText()`).
-* Import the cli-helpers package with the alias `clihelpers`.
+* Use `github.com/knadh/koanf` instead of `github.com/spf13/viper` for CLI configuration.
+* Use `go.nwlabs.dev/cli-helpers/v2` for shared CLI helpers (e.g., `clihelpers.LongHelpText()`) and standardized colors.
+  * Import the cli-helpers package with the alias `clihelpers`.
+* Use `go.nwlabs.dev/x/logutils` for logging, and pass the "verbose" flag (e.g., `fVerbosity`) as the parameter.
+* Use `charm.land/lipgloss/v2` for general purpose terminal coloring.
+* Use the `charm.land/<library>/v2` import variants instead of the older `github.com/charmbracelet/` imports.
 
 ## Configuration management
 

@@ -1,10 +1,12 @@
 ---
+# @config-manager:start zdp-frontmatter
 inclusion: fileMatch
 fileMatchPattern: "**/*.{js,jsx,ts,tsx}"
+# @config-manager:end zdp-frontmatter
 ---
 
 <!-- @config-manager:start zdp -->
-# Zero Diagnostics Policy
+# JavaScript/TypeScript Zero Diagnostics
 
 All JavaScript and TypeScript source files must be free of diagnostic errors and warnings. Code is not considered complete until `getDiagnostics` reports zero issues for every file touched during a change.
 

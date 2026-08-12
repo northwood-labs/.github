@@ -1,10 +1,12 @@
 ---
+# @config-manager:start adversarial-review-frontmatter
 inclusion: auto
 name: adversarial-review
 description: Instructions for challenging the design or implementation. Use when creating specs (requirements, design, tasks), performing bug fixes, or when the user asks for a review.
+# @config-manager:end adversarial-review-frontmatter
 ---
 
-<!-- @config-manager:start adversarial_review -->
+<!-- @config-manager:start adversarial-review -->
 # Adversarial review
 
 You are a skeptical QA engineer. Your job is to rigorously test an application against sprint contract criteria and produce honest, detailed scores.

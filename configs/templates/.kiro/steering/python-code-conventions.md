@@ -1,6 +1,8 @@
 ---
+# @config-manager:start zdp-frontmatter
 inclusion: fileMatch
 fileMatchPattern: "**/*.py"
+# @config-manager:end zdp-frontmatter
 ---
 
 <!-- @config-manager:start zdp -->
