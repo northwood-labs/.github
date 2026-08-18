@@ -1,0 +1,139 @@
+# Only sync to northwood-labs/.github. Other repos pull from there to sync themselves.
+# gh label-sync sync --file labels.yml --repo northwood-labs/.github --delete-unmanaged --force --dry-run
+
+labels:
+  # ─── KIND ───────────────────────────────────────────────────────────────────
+
+  - name: "kind:bug"
+    color: d73a4a
+    description: Something isn't working.
+
+  - name: "kind:chore"
+    color: "171e21"
+    description: Something that simply needs to be done as part of doing business.
+
+  - name: "kind:docs"
+    color: 0075ca
+    description: Improvements or additions to documentation.
+
+  - name: "kind:enhancement"
+    color: a2eeef
+    description: New feature or request.
+
+  - name: "kind:performance"
+    color: e3795c
+    description: Optimization, speed, or resource usage improvements.
+
+  - name: "kind:refactor"
+    color: "8957e5"
+    description: Code improvement without changing functionality.
+
+  - name: "kind:security"
+    color: d4a72c
+    description: Security vulnerability or hardening.
+
+  # ─── STATUS ─────────────────────────────────────────────────────────────────
+
+  - name: "status:blocked"
+    color: cf222e
+    description: Waiting on another issue, decision, or external factor.
+
+  - name: "status:needs-triage"
+    color: e16f24
+    description: New issue — needs review and categorization.
+
+  - name: "status:awaiting-response"
+    color: 1a7ec7
+    description: Waiting for more information from the reporter.
+
+  - name: "status:ready"
+    color: 2da44e
+    description: Triaged and ready to be picked up.
+
+  # ─── COMMUNITY ──────────────────────────────────────────────────────────────
+
+  - name: "community:good-first-issue"
+    color: 7057ff
+    description: Good for newcomers — well-scoped and documented.
+
+  - name: "community:help-wanted"
+    color: 0e8a16
+    description: Open for community contribution.
+
+  - name: "community:maintainer-only"
+    color: b60205
+    description: Reserved for maintainers — not open for external contribution.
+
+  # ─── RESOLUTION ─────────────────────────────────────────────────────────────
+
+  - name: "resolved:duplicate"
+    color: cfd3d7
+    description: This issue or pull request already exists.
+
+  - name: "resolved:invalid"
+    color: cfd3d7
+    description: This doesn't seem right.
+
+  - name: "resolved:wontfix"
+    color: cfd3d7
+    description: This will not be worked on.
+
+  # ─── AREA ───────────────────────────────────────────────────────────────────
+
+  - name: "area:core"
+    color: 0052cc
+    description: Core logic, business rules, and primary functionality.
+
+  - name: "area:ci"
+    color: dfda4e
+    description: Continuous integration and deployment pipelines.
+
+  - name: "area:data"
+    color: 006b75
+    description: Database, storage, caching, or data models.
+
+  - name: "area:dependencies"
+    color: "171e21"
+    description: Ongoing software maintenance.
+
+  - name: "area:infra"
+    color: e16f24
+    description: Build system, CI/CD, deployment, config, and DevOps.
+
+  - name: "area:testing"
+    color: 1a7f37
+    description: Unit tests, integration tests, E2E, and test tooling.
+
+  - name: "area:ux-dx"
+    color: "5319e7"
+    description: User-facing layer — UI, CLI, API endpoints, or SDK surface.
+
+  # ─── VENDOR ─────────────────────────────────────────────────────────────────
+
+  - name: "vendor:aws"
+    color: "ff9900"
+    description: Having to do with Amazon Web Services.
+
+  - name: "vendor:azure"
+    color: "0078d4"
+    description: Having to do with Microsoft Azure.
+
+  - name: "vendor:cloudflare"
+    color: "ff3800"
+    description: Having to do with Cloudflare.
+
+  - name: "vendor:gcp"
+    color: "4285f4"
+    description: Having to do with Google Cloud Platform.
+
+  - name: "vendor:github"
+    color: "181717"
+    description: Having to do with GitHub.
+
+  - name: "vendor:homebrew"
+    color: "d1d2d3"
+    description: Having to do with Homebrew.
+
+  - name: "vendor:kiro"
+    color: "8d48ff"
+    description: Having to do with Kiro tooling.
