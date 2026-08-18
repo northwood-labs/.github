@@ -32,13 +32,13 @@ ignore-dirs = [
 
 # @config-manager:start ecosystem-global
 [ecosystems._default]
-  "commit-message.prefix"  = "chore"
-  "commit-message.include" = "scope"
-  "cooldown.default-days"  = 3
-  "schedule.interval"      = "monthly"
-  "groups.batch.patterns"  = ["*"]
-  "assignees"              = ["skyzyx"]
-  "labels"                 = ["area:dependencies", "kind:chore"]
+"commit-message.prefix"  = "chore"
+"commit-message.include" = "scope"
+"cooldown.default-days"  = 3
+"schedule.interval"      = "monthly"
+"groups.batch.patterns"  = ["*"]
+"assignees"              = ["skyzyx"]
+"labels"                 = ["area:dependencies", "kind:chore"]
 # @config-manager:end ecosystem-global
 
 # @config-manager:start ecosystem-bazel
