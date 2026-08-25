@@ -4,6 +4,9 @@ on:
   push: {}
   pull_request: {}
   workflow_dispatch: {}
+  schedule:
+    # https://crontab.guru/#5_4_*_*_*
+    - cron: "5 4 * * *"
 
 jobs:
   pinact:
@@ -28,3 +31,6 @@ jobs:
         with:
           app_id: ${{ vars.PINACT_APP_ID }}
           app_private_key: ${{ secrets.PINACT_APP_PRIVATE_KEY }}
+          fix: "true"
+          update: "true"
+          config: .pinact.yaml
