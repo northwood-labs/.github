@@ -6,6 +6,9 @@
 # FORMULAE
 
 # @config-manager:start brew
+# https://grpc.io
+brew "grpc"
+
 # https://protobuf.dev
 brew "protobuf"
 # @config-manager:end brew

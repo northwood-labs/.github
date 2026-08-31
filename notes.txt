@@ -1,22 +1,12 @@
 npx skills add aws/agent-toolkit-for-aws/skills
 
-python3 + uv (and tools)
-tbls
-
 github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server@latest
 
 ---
 
-# github.com/siderolabs/conform/cmd/conform
-# github.com/dependabot/cli/cmd/dependabot
-
 # https://github.com/nicksnyder/go-i18n
 
 # github.com/open-telemetry/opentelemetry-collector-contrib/cmd/telemetrygen
-
-# github.com/99designs/gqlgen
-# github.com/Khan/genqlient
-# github.com/suessflorian/gqlfetch/gqlfetch
 
 ---
 
@@ -28,30 +18,9 @@ support removals
 
 ---
 
-# tap "terraform-docs/tap"
-
-brew "gh"
 brew "infracost"
-brew "mlx"
-brew "mlx-c"
-brew "mlx-lm"
-brew "qsv"
 brew "taco-docs"
 brew "terrascan"
 brew "tflint"
 
-cask "claude-code"
-cask "cyberduck"
-cask "dash"
 cask "datagrip"
-cask "docker-desktop"
-cask "insomnia"
-cask "mountain-duck"
-cask "obsidian"
-cask "parallels"
-cask "parallels-virtualization-sdk"
-cask "sketch"
-cask "raycast"
-cask "textexpander"
-cask "visual-studio-code"
-cask "zed"

@@ -1,0 +1,13 @@
+##
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.graphql
+##
+
+#-------------------------------------------------------------------------------
+# GO PACKAGES
+
+# @config-manager:start go
+go "github.com/99designs/gqlgen"
+go "github.com/Khan/genqlient"
+go "github.com/suessflorian/gqlfetch/gqlconvert"
+go "github.com/suessflorian/gqlfetch/gqlfetch"
+# @config-manager:end go

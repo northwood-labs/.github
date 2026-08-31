@@ -1,26 +1,21 @@
 ##
-# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.frontend
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.database
 ##
 
 #-------------------------------------------------------------------------------
 # TAPS
 
 # @config-manager:start taps
+tap "ariga/tap", trusted: true
 # @config-manager:end taps
 
 #-------------------------------------------------------------------------------
 # FORMULAE
 
 # @config-manager:start brew
-# https://oxc.rs
-brew "oxfmt"
+# https://atlasgo.io
+brew "ariga/tap/atlas"
 
-# https://oxc.rs
-brew "oxlint"
+# https://github.com/k1LoW/tbls
+brew "tbls"
 # @config-manager:end brew
-
-#-------------------------------------------------------------------------------
-# GO PACKAGES
-
-# @config-manager:start go
-# @config-manager:end go

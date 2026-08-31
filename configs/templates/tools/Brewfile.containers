@@ -1,26 +1,21 @@
 ##
-# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.frontend
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.containers
 ##
 
 #-------------------------------------------------------------------------------
 # TAPS
 
 # @config-manager:start taps
+tap "slp/krunvm", trusted: true if OS.mac?
 # @config-manager:end taps
 
 #-------------------------------------------------------------------------------
 # FORMULAE
 
 # @config-manager:start brew
-# https://oxc.rs
-brew "oxfmt"
+# https://github.com/google/go-containerregistry/tree/main/cmd/crane
+brew "crane"
 
-# https://oxc.rs
-brew "oxlint"
+# https://github.com/slp/krunvm
+brew "slp/krunvm/krunvm" if OS.mac?
 # @config-manager:end brew
-
-#-------------------------------------------------------------------------------
-# GO PACKAGES
-
-# @config-manager:start go
-# @config-manager:end go

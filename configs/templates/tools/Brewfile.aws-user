@@ -12,13 +12,12 @@
 # FORMULAE
 
 # @config-manager:start brew
+# https://aws.amazon.com/cli/
 brew "awscli"
+
+# TBD
 brew "aws-sso-manager"
-brew "aws-vault-binary"
+
+# https://github.com/ByteNess/aws-vault
+brew "aws-vault"
 # @config-manager:end brew
-
-#-------------------------------------------------------------------------------
-# UV PACKAGES
-
-# @config-manager:start uv
-# @config-manager:end uv

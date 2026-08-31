@@ -1,0 +1,11 @@
+##
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.github
+##
+
+#-------------------------------------------------------------------------------
+# FORMULAE
+
+# @config-manager:start brew
+# https://cli.github.com
+brew "gh"
+# @config-manager:end brew

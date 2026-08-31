@@ -1,26 +1,18 @@
 ##
-# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.frontend
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.payments
 ##
 
 #-------------------------------------------------------------------------------
 # TAPS
 
 # @config-manager:start taps
+tap "stripe/stripe-cli", trusted: true
 # @config-manager:end taps
 
 #-------------------------------------------------------------------------------
 # FORMULAE
 
 # @config-manager:start brew
-# https://oxc.rs
-brew "oxfmt"
-
-# https://oxc.rs
-brew "oxlint"
+# https://docs.stripe.com/stripe-cli
+brew "stripe/stripe-cli/stripe"
 # @config-manager:end brew
-
-#-------------------------------------------------------------------------------
-# GO PACKAGES
-
-# @config-manager:start go
-# @config-manager:end go

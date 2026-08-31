@@ -1,0 +1,46 @@
+##
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.llm
+##
+
+#-------------------------------------------------------------------------------
+# TAPS
+
+# @config-manager:start taps
+# @config-manager:end taps
+
+#-------------------------------------------------------------------------------
+# FORMULAE
+
+# @config-manager:start brew
+# https://ml-explore.github.io/mlx/
+brew "mlx" if OS.mac?
+
+# https://ml-explore.github.io/mlx-c/
+brew "mlx-c" if OS.mac?
+
+# https://github.com/ml-explore/mlx-lm
+brew "mlx-lm" if OS.mac?
+# @config-manager:end brew
+
+#-------------------------------------------------------------------------------
+# CASKS
+
+# @config-manager:start casks
+# https://chatgpt.com
+cask "chatgpt"
+
+# https://claude.com/download
+cask "claude"
+
+# https://claude.com/product/claude-code
+cask "claude-code"
+
+# https://github.com/openai/codex
+cask "codex"
+
+# https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli
+cask "copilot-cli"
+
+# https://kiro.dev/docs/cli/
+cask "kiro-cli"
+# @config-manager:end casks

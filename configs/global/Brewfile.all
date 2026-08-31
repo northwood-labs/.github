@@ -140,6 +140,9 @@ cask "gpg-suite@nightly"
 # https://imageoptim.com/mac
 cask "imageoptim"
 
+# https://osquery.io
+cask "osquery"
+
 # https://developer.apple.com/sf-symbols/
 cask "sf-symbols"
 

@@ -122,6 +122,35 @@ brew "zizmor"
 # @config-manager:end brew
 
 #-------------------------------------------------------------------------------
+# CASKS
+
+# @config-manager:start casks
+# https://cyberduck.io
+cask "cyberduck"
+
+# https://kapeli.com/dash
+cask "dash"
+
+# https://www.docker.com/products/docker-desktop
+cask "docker-desktop"
+
+# https://insomnia.rest
+cask "insomnia"
+
+# https://kiro.dev
+cask "kiro"
+
+# https://mountainduck.io
+cask "mountain-duck"
+
+# https://obsidian.md
+cask "obsidian"
+
+# https://www.raycast.com
+cask "raycast"
+# @config-manager:end casks
+
+#-------------------------------------------------------------------------------
 # NPM
 
 # @config-manager:start npm
