@@ -44,8 +44,12 @@ jobs:
       # @config-manager:start workflow-app-token
       - name: Fetch temporary app token for job
         uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
-        id: app-token
+        id: gh_token
         with:
-          client-id: ${{ vars.APP_CLIENT_ID }}
-          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          client-id: ${{ vars.SECRET_SYNC_CLIENT_ID }}
+          private-key: ${{ secrets.SECRET_SYNC_PRIVATE_KEY }}
+          owner: northwood-labs
+          repositories: org-secret-list
+          permission-organization-secrets: write
+          permission-secrets: write
       # @config-manager:end workflow-app-token
