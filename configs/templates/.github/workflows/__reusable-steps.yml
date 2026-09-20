@@ -23,6 +23,7 @@ jobs:
       # @config-manager:end workflow-clone-fetch-all
 
       # @config-manager:start workflow-https-pat
+      # Replace me with GitHub App tokens!
       - name: Configure Git to use HTTPS with the PAT
         run: |
           git config --global url."https://${{ secrets.GH_PUBLIC_TOKEN }}@github.com/".insteadOf "https://github.com/"
