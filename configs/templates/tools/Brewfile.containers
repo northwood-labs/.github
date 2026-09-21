@@ -16,6 +16,9 @@ tap "slp/krunvm", trusted: true if OS.mac?
 # https://github.com/google/go-containerregistry/tree/main/cmd/crane
 brew "crane"
 
+# https://davit.app
+brew "davit" if OS.mac?
+
 # https://github.com/slp/krunvm
 brew "slp/krunvm/krunvm" if OS.mac?
 # @config-manager:end brew
