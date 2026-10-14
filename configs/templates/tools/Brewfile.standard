@@ -12,6 +12,7 @@ tap "oven-sh/bun", trusted: true
 tap "trufflesecurity/trufflehog", trusted: true
 tap "updatecli/updatecli", trusted: true
 tap "vet-run/vet", trusted: true
+tap "suzuki-shunsuke/ghatm", trusted: true
 # @config-manager:end taps
 
 #-------------------------------------------------------------------------------
@@ -32,6 +33,9 @@ brew "fzf"
 
 # https://github.com/suzuki-shunsuke/ghalint
 brew "ghalint"
+
+# https://github.com/suzuki-shunsuke/ghatm
+brew "suzuki-shunsuke/ghatm/ghatm"
 
 # https://git-cliff.org/
 brew "git-cliff"

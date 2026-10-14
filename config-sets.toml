@@ -53,7 +53,7 @@
     # python
     #   ruff
     #   uv
-    #   zuban
+    #   pyrefly
     # rest
     #   OpenAPI tooling
     # rust

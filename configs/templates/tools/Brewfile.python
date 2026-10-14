@@ -17,7 +17,7 @@ brew "uv"
 # UV PACKAGES
 
 # @config-manager:start uv
+uv "pyrefly"
 uv "ruff"
 uv "tryke"
-uv "zuban"
 # @config-manager:end uv
