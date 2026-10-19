@@ -9,26 +9,33 @@ description: Instructions for authenticating with AWS in order to leverage AWS M
 <!-- @config-manager:start add-code-comments -->
 # Authenticating with AWS MCP
 
-The Agent Toolkit for AWS gives AI coding agents the tools, knowledge, and guardrails they need to build, deploy, and manage applications on AWS. It works with the coding agents that developers already use, such as Kiro, Claude Code, Cursor, and Codex. You don't need to switch tools or learn a new workflow.
-
-AI coding agents can handle common AWS tasks like creating an Amazon S3 bucket or launching an Amazon EC2 instance. However, they often struggle with complex, multi-step workflows. They choose the wrong service for a use case, misconfigure resources, or repeatedly retry operations on newer services they were not trained on. The Agent Toolkit for AWS addresses these gaps. It gives agents secure access to AWS services, current documentation, and step-by-step guidance.
+The Agent Toolkit for AWS gives AI coding agents the tools, knowledge, and guardrails to build, deploy, and manage applications on AWS. It works with existing coding agents (Kiro, Claude Code, Cursor, Codex) — no need to switch tools or learn a new workflow. It gives agents secure access to AWS services, current documentation, and step-by-step guidance, which helps avoid common failures: choosing the wrong service, misconfiguring resources, or retrying operations on newer services the agent was not trained on.
 
 * [What is the Agent Toolkit for AWS?](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/what-is-agent-toolkit.html)
 * [Getting started](https://docs.aws.amazon.com/agent-toolkit/latest/userguide/quick-start.html)
 
-IMPORTANT: If you are able to call the AWS MCP tools successfully, disregard the rest of this document as you are already authenticated.
+**IMPORTANT:** This document is only relevant when AWS MCP calls fail due to authentication. If you can call the AWS MCP tools successfully, you are already authenticated — disregard the rest of this document.
 
-## Reading the MCP configuration
+Follow the steps below in order only when authentication is needed.
 
-If you are unable to call the AWS MCP tools successfully, it is likely that you need to authenticate.
+## Step 1: Find the AWS profile from the MCP configuration
 
-Read both `~/.kiro/settings/mcp.json` and `<workspace>/.kiro/settings/mcp.json` to identify an MCP server which contains an arg containing `https://aws-mcp.us-east-1.api.aws/mcp`. This MCP configuration is the one which configures the AWS Agent Toolkit MCP server. If there is an arg containing a definition for `AWS_PROFILE` (e.g., `AWS_PROFILE=sandbox`), or an `env` entry for `AWS_PROFILE` (e.g., `"env":{"AWS_PROFILE": "sandbox"}`), then we will use that profile value in the next step.
+Read both `~/.kiro/settings/mcp.json` and `<workspace>/.kiro/settings/mcp.json`. Locate the MCP server whose args contain `https://aws-mcp.us-east-1.api.aws/mcp` — this is the AWS Agent Toolkit MCP server.
 
-## Alternative paths
+In that server's configuration, look for an `AWS_PROFILE` value in either location:
 
-If you cannot read the MCP configuration files, or if the MCP configuration files do not contain a definition for `AWS_PROFILE`, then you can provide a list of available profiles to the user by running `aws-vault list` and presenting the entries listed in the "Profile" column.
+* An arg of the form `AWS_PROFILE=<value>` (e.g., `AWS_PROFILE=sandbox`).
+* An `env` entry such as `"env": { "AWS_PROFILE": "sandbox" }`.
 
-For example, if the output of `aws-vault list` is:
+If found, use that profile value in Step 3 and skip Step 2.
+
+## Step 2: List profiles when none is configured
+
+Perform this step only if you cannot read the MCP configuration files, or they do not define `AWS_PROFILE`.
+
+Run `aws-vault list` and present the user the entries from the "Profile" column.
+
+For example, given this `aws-vault list` output:
 
 ```text
 Profile                  Credentials              Sessions
@@ -43,7 +50,7 @@ msa-admin                -                        oidc:nwl
 msa-ro                   -                        oidc:nwl, sso.GetRoleCredentials:7h58m47s
 ```
 
-…then the list of profiles to present to the user would be:
+…present these profiles to the user:
 
 * `iprod-admin`
 * `iprod-ro`
@@ -54,20 +61,23 @@ msa-ro                   -                        oidc:nwl, sso.GetRoleCredentia
 * `msa`
 * `personal`
 
-CRITICAL: NEVER ASSUME WHICH PROFILE THE USER WANTS TO USE. MAKE THE USER EXPLICITLY SELECT THE ONE THEY WANT.
+**CRITICAL:** NEVER ASSUME WHICH PROFILE THE USER WANTS. The user MUST explicitly select one before you continue.
 
-## Authenticating
+## Step 3: Authenticate
 
-On the shell, execute the following command. This will open a web browser window for the user to interact with for authentication. You should wait patiently for the user to complete their task before continuing. You will know that you have been successful when you can ask "What AWS Regions are available?" and get back a successful response.
+Run the command below, substituting the profile value from Step 1 or Step 2. It opens a web browser for the user to complete authentication — wait patiently for them to finish before continuing.
 
 ```bash
 aws sso login --profile <profile-value>
 ```
 
-For example:
+For example, if the profile is `sandbox`:
 
 ```bash
-# If AWS_PROFILE=sandbox is set, then run:
 aws sso login --profile sandbox
 ```
+
+## Step 4: Verify
+
+Confirm success by making an AWS MCP call (for example, asking "What AWS Regions are available?"). A successful response means authentication worked and you can proceed with the user's original task.
 <!-- @config-manager:end add-code-comments -->

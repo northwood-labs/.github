@@ -9,95 +9,71 @@ description: Use when you need to understand how to use the `gh` CLI for interac
 <!-- @config-manager:start using-github-cli -->
 # Using GitHub CLI (`gh`)
 
-GitHub CLI, or [`gh`](https://cli.github.com/manual/), is a command-line interface to GitHub for use in your terminal or your scripts.
+[`gh`](https://cli.github.com/manual/) is GitHub's command-line interface for interacting with GitHub from a terminal or script. Prefer it over raw `curl` for authenticated requests, since it reuses the user's existing credentials and handles pagination and headers.
 
-## Calling the API
+## When to use what
 
-The [`gh api`](https://cli.github.com/manual/gh_api) command can be used to make direct API calls to GitHub for things which are not covered with built-in commands.
+* Use a built-in command (`gh repo`, `gh pr`, `gh issue`, `gh release`, `gh secret`, `gh variable`, `gh workflow`, `gh run`) whenever one exists for the task.
+* Fall back to [`gh api`](https://cli.github.com/manual/gh_api) only for operations with no built-in command.
+* Pass `graphql` as the endpoint to reach the v4 (GraphQL) API; pass a REST path (for example, `repos/{owner}/{repo}/issues`) to reach the v3 (REST) API.
 
-The endpoint argument should either be a path of a GitHub API v3 endpoint, or `graphql` to access the GitHub API v4.
+## Choosing between REST and GraphQL
 
-### API v3 (REST)
+Both APIs are reachable through `gh api`, and [global node IDs](https://docs.github.com/en/graphql/guides/using-global-node-ids) let you move between them. Pick the one that fits the task.
 
-* [Prose documentation for the v3 (REST) API](https://docs.github.com/en/rest)
-* [Versions of the v3 (REST) API](https://docs.github.com/en/rest/about-the-rest-api/api-versions)
-* [Getting started with the v3 (REST) API](https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api)
-* [OpenAPI definition for the v3 (REST) API](https://raw.githubusercontent.com/github/rest-api-description/refs/heads/main/descriptions/api.github.com/api.github.com.yaml)
+* Prefer GraphQL when you need to fetch related data in one round trip or want to request exactly the fields you need. It replaces several chained REST calls with a single query.
+* Prefer REST for simple, single-resource reads and writes using standard HTTP verbs.
+
+### REST (v3)
+
+* [About the REST API](https://docs.github.com/en/rest/about-the-rest-api/about-the-rest-api)
+* [Getting started with the REST API](https://docs.github.com/en/rest/using-the-rest-api/getting-started-with-the-rest-api)
+* [API versions](https://docs.github.com/en/rest/about-the-rest-api/api-versions)
+* [OpenAPI definition](https://raw.githubusercontent.com/github/rest-api-description/refs/heads/main/descriptions/api.github.com/api.github.com.yaml)
 * [OpenAPI extensions](https://raw.githubusercontent.com/github/rest-api-description/refs/heads/main/extensions.md)
 
-### API v4 (GraphQL)
+### GraphQL (v4)
 
-* [Prose documentation for the v4 (GraphQL) API](https://docs.github.com/en/graphql)
+* [About the GraphQL API](https://docs.github.com/en/graphql/overview/about-the-graphql-api)
 * [Introduction to GraphQL](https://docs.github.com/en/graphql/guides/introduction-to-graphql)
-* [GraphQL schema for the v4 (GraphQL) API](https://docs.github.com/public/fpt/schema.docs.graphql)
+* [GraphQL schema](https://docs.github.com/public/fpt/schema.docs.graphql)
 
-## Comparing GitHub's REST API and GraphQL API
+## Examples
 
-Learn about GitHub's APIs to extend and customize your GitHub experience.
+Create an issue with the built-in command (preferred over a raw REST call):
 
-### About GitHub's APIs
+```bash
+gh issue create --title "Bug with feature X" --body "If you do A, then B happens"
+```
 
-GitHub provides two APIs: a REST API and a GraphQL API. You can interact with both APIs using GitHub CLI, curl, the official Octokit libraries, and third party libraries. Occasionally, a feature may be supported on one API but not the other.
+Call the REST API directly when no built-in command fits:
 
-You should use the API that best aligns with your needs and that you are most comfortable using. You don't need to exclusively use one API over the other. Node IDs let you move between the REST API and GraphQL API. For more information, see [Using global node IDs](https://docs.github.com/en/graphql/guides/using-global-node-ids).
+```bash
+gh api --method POST repos/octocat/Spoon-Knife/issues \
+  --field title="Bug with feature X" \
+  --field body="If you do A, then B happens"
+```
 
-This article discusses the benefits of each API. For more information about the GraphQL API, see [About the GraphQL API](https://docs.github.com/en/graphql/overview/about-the-graphql-api). For more information about the REST API, see [About the REST API](https://docs.github.com/en/rest/about-the-rest-api/about-the-rest-api).
+Query related data in a single GraphQL request (here, ten followers and ten followers of each):
 
-### Choosing the GraphQL API
-
-The GraphQL API returns exactly the data that you request. GraphQL also returns the data in a pre-known structure based on your request. In contrast, the REST API returns more data than you requested and returns it in a pre-determined structure. You can also accomplish the equivalent of multiple REST API request in a single GraphQL request. The ability to make fewer requests and fetch less data makes GraphQL appealing to developers of mobile applications.
-
-For example, to get the GitHub login of ten of your followers, and the login of ten followers of each of your followers, you can send a single request like:
-
-```graphql
-{
-  viewer {
-    followers(first: 10) {
-      nodes {
-        login
-        followers(first: 10) {
-          nodes {
-            login
+```bash
+gh api graphql --raw-field query='
+  query {
+    viewer {
+      followers(first: 10) {
+        nodes {
+          login
+          followers(first: 10) {
+            nodes {
+              login
+            }
           }
         }
       }
     }
   }
-}
+'
 ```
 
-The response will be a JSON object that follows the structure of your request.
-
-In contrast, to get this same information from the REST API, you would need to first make a request to `GET /user/followers`. The API would return the login of each follower, along with other data about the followers that you don't need. Then, for each follower, you would need to make a request to `GET /users/{username}/followers`. In total, you would need to make 11 requests to get the same information that you could get from a single GraphQL request, and you would receive excess data.
-
-### Choosing the REST API
-
-Because REST APIs have been around for longer than GraphQL APIs, some developers are more comfortable with the REST API. Since REST APIs use standard HTTP verbs and concepts, many developers are already familiar with the basic concepts to use the REST API.
-
-For example, to create an issue in the `octocat/Spoon-Knife` repository, you would need to send a request to `POST /repos/octocat/Spoon-Knife/issues` with a JSON request body:
-
-```json
-{
-  "title": "Bug with feature X",
-  "body": "If you do A, then B happens"
-}
-```
-
-In contrast, to make an issue using the GraphQL API, you would need to get the node ID of the `octocat/Spoon-Knife` repository and then send a request like:
-
-```graphql
-mutation {
-  createIssue(
-    input: {
-      repositoryId: "MDEwOlJlcG9zaXRvcnkxMzAwMTky"
-      title: "Bug with feature X"
-      body: "If you do A, then B happens"}
-  ) {
-    issue {
-      number
-      url
-    }
-  }
-}
-```
+The response is a JSON object mirroring the shape of the request. Achieving the same result over REST would require one call to `GET /user/followers` followed by one `GET /users/{username}/followers` per follower.
 <!-- @config-manager:end using-github-cli -->
