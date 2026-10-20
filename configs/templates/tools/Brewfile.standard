@@ -1,5 +1,5 @@
 ##
-# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.standard
+# brew bundle --upgrade --upgrade-formulae --install --file=Brewfile.standard
 ##
 
 #-------------------------------------------------------------------------------
@@ -12,7 +12,6 @@ tap "oven-sh/bun", trusted: true
 tap "trufflesecurity/trufflehog", trusted: true
 tap "updatecli/updatecli", trusted: true
 tap "vet-run/vet", trusted: true
-tap "suzuki-shunsuke/ghatm", trusted: true
 # @config-manager:end taps
 
 #-------------------------------------------------------------------------------
@@ -33,9 +32,6 @@ brew "fzf"
 
 # https://github.com/suzuki-shunsuke/ghalint
 brew "ghalint"
-
-# https://github.com/suzuki-shunsuke/ghatm
-brew "suzuki-shunsuke/ghatm/ghatm"
 
 # https://git-cliff.org/
 brew "git-cliff"
@@ -126,35 +122,6 @@ brew "zizmor"
 # @config-manager:end brew
 
 #-------------------------------------------------------------------------------
-# CASKS
-
-# @config-manager:start casks
-# https://cyberduck.io
-cask "cyberduck"
-
-# https://kapeli.com/dash
-cask "dash"
-
-# https://www.docker.com/products/docker-desktop
-cask "docker-desktop"
-
-# https://insomnia.rest
-cask "insomnia"
-
-# https://kiro.dev
-cask "kiro"
-
-# https://mountainduck.io
-cask "mountain-duck"
-
-# https://obsidian.md
-cask "obsidian"
-
-# https://www.raycast.com
-cask "raycast"
-# @config-manager:end casks
-
-#-------------------------------------------------------------------------------
 # NPM
 
 # @config-manager:start npm
@@ -172,5 +139,6 @@ go "github.com/pelletier/go-toml/v2/cmd/jsontoml"
 go "github.com/pelletier/go-toml/v2/cmd/tomljson"
 go "github.com/pelletier/go-toml/v2/cmd/tomll"
 go "github.com/psampaz/gothanks"
+go "github.com/suzuki-shunsuke/ghatm/cmd/ghatm"
 go "github.com/tomwright/dasel/v3/cmd/dasel"
 # @config-manager:end go
