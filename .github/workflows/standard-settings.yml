@@ -1,6 +1,12 @@
 ---
 name: "🛠️ Standard Settings"
 on:
+  push:
+    branches:
+      - none
+  pull_request:
+    branches:
+      - none
   workflow_dispatch:
     inputs:
       repo:
@@ -67,12 +73,11 @@ defaults:
 
 # env:
 
-permissions: read-all
-
 jobs:
   lookup:
     runs-on: ubuntu-latest
     name: Apply Standard Settings (${{ inputs.repo }})
+    timeout-minutes: 5
     permissions:
       contents: read
     strategy:

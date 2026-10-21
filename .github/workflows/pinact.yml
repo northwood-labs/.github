@@ -1,16 +1,29 @@
 name: Pinact
 
 on:
-  push: {}
-  pull_request: {}
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch: {}
   schedule:
     # https://crontab.guru/#5_4_*_*_*
     - cron: "5 4 * * *"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
 jobs:
   pinact:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     permissions:
       contents: read
     strategy:

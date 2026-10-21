@@ -1,4 +1,8 @@
 ---
+# This workflow uses actions that are not certified by GitHub. They are provided
+# by a third-party and are governed by separate terms of service, privacy
+# policy, and support documentation.
+
 # @config-manager:start workflow-name
 name: Auto-merge Dependabot Pull Requests
 # @config-manager:end workflow-name

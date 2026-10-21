@@ -15,11 +15,6 @@ on:
       - main
 # @config-manager:end workflow-on
 
-# @config-manager:start workflow-permissions
-# Declare default permissions as read only.
-permissions: read-all
-# @config-manager:end workflow-permissions
-
 jobs:
   update_on_push_job:
     # @config-manager:start update-on-push-job
@@ -75,10 +70,9 @@ jobs:
           set +e
 
           git add .
-          git status | grep modified
-          if [ $? -eq 0 ]; then
+          if [[ "$(git status)" -eq 0 ]]; then
             git commit -a -m "automation: Updated AUTHORS and CHANGELOG on $(date)."
             git pull --rebase --autostash
-            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git main
+            git push "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" main
           fi
-      # @config-manager:end workflow-commit
+    # @config-manager:end workflow-commit

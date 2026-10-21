@@ -21,15 +21,54 @@ jobs:
           # @config-manager:start workflow-clone-fetch-all
           fetch: 0
       # @config-manager:end workflow-clone-fetch-all
-
       # @config-manager:start workflow-https-pat
-      # Replace me with GitHub App tokens!
-      - name: Configure Git to use HTTPS with the PAT
-        run: |
-          git config --global url."https://${{ secrets.GH_PUBLIC_TOKEN }}@github.com/".insteadOf "https://github.com/"
-          git config --global url."https://${{ secrets.GH_PUBLIC_TOKEN }}@github.com".insteadOf "ssh://git@github.com"
-          git config --global advice.detachedHead false
+      ##
+      # Replace me with:
+      #
+      #   github-app-token (+ with)
+      #   github-app-userid
+      #   github-app-git-config
+      ##
+      - run: exit 1
       # @config-manager:end workflow-https-pat
+      # @config-manager:start github-app-token
+      - name: Fetch temporary app token for job
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        id: gh_token
+        # @config-manager:end github-app-token
+
+      # @config-manager:start github-app-userid
+      - name: Get GitHub App User ID
+        id: get-user-id
+        env:
+          GH_TOKEN: ${{ steps.gh_token.outputs.token }}
+          STEPS_GH_TOKEN_OUTPUTS_APP_SLUG: ${{ steps.gh_token.outputs.app-slug }}
+        run: |
+          USER_ID=$(gh api "/users/${STEPS_GH_TOKEN_OUTPUTS_APP_SLUG}[bot]" --jq .id)
+          echo "user-id=${USER_ID}" >> "$GITHUB_OUTPUT"
+      # @config-manager:end github-app-userid
+
+      # @config-manager:start github-app-git-config
+      - name: Set Git config
+        env:
+          GH_TOKEN: ${{ steps.gh_token.outputs.token }}
+          STEPS_GH_TOKEN_OUTPUTS_APP_SLUG: ${{ steps.gh_token.outputs.app-slug }}
+          STEPS_GET_USER_ID_OUTPUTS_USER_ID: ${{ steps.get-user-id.outputs.user-id }}
+        run: |
+          git config --global \
+            url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf \
+            "https://github.com/"
+
+          git config --global advice.detachedHead false
+
+          USERNAME="${STEPS_GH_TOKEN_OUTPUTS_APP_SLUG}[bot]"
+          git config --global user.name "${USERNAME}"
+
+          USER_EMAIL="${STEPS_GET_USER_ID_OUTPUTS_USER_ID}+${STEPS_GH_TOKEN_OUTPUTS_APP_SLUG}[bot]@users.noreply.github.com"
+          git config --global user.email "${USER_EMAIL}"
+
+          gh auth setup-git
+      # @config-manager:end github-app-git-config
 
       # @config-manager:start workflow-dependency-review
       - name: "Dependency Review"
