@@ -20,9 +20,21 @@ labels:
     color: a2eeef
     description: New feature or request.
 
+  - name: "kind:needs-design"
+    color: "21e2f0"
+    description: Needs some design work before we go and build it.
+
+  - name: "kind:needs-investigation"
+    color: "5afdae"
+    description: Needs some investigation before we understand it.
+
   - name: "kind:performance"
     color: e3795c
     description: Optimization, speed, or resource usage improvements.
+
+  - name: "kind:question"
+    color: "a6267c"
+    description: This is a question. It should be added to an FAQ when answered.
 
   - name: "kind:refactor"
     color: "8957e5"
@@ -34,6 +46,10 @@ labels:
 
   # ─── STATUS ─────────────────────────────────────────────────────────────────
 
+  - name: "status:awaiting-response"
+    color: 1a7ec7
+    description: Waiting for more information from the reporter.
+
   - name: "status:blocked"
     color: cf222e
     description: Waiting on another issue, decision, or external factor.
@@ -41,10 +57,6 @@ labels:
   - name: "status:needs-triage"
     color: e16f24
     description: New issue — needs review and categorization.
-
-  - name: "status:awaiting-response"
-    color: 1a7ec7
-    description: Waiting for more information from the reporter.
 
   - name: "status:ready"
     color: 2da44e
@@ -107,6 +119,10 @@ labels:
   - name: "area:ux-dx"
     color: "5319e7"
     description: User-facing layer — UI, CLI, API endpoints, or SDK surface.
+
+  - name: "area:vendor-integ"
+    color: e24b17
+    description: Integrating with a particular vendor.
 
   # ─── VENDOR ─────────────────────────────────────────────────────────────────
 
