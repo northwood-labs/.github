@@ -1,0 +1,15 @@
+##
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.python
+##
+
+#-------------------------------------------------------------------------------
+# FORMULAE
+
+# @config-manager:start brew
+# @config-manager:end brew
+
+#-------------------------------------------------------------------------------
+# UV PACKAGES
+
+# @config-manager:start uv
+# @config-manager:end uv

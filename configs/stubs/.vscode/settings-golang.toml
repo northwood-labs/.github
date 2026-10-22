@@ -2,7 +2,7 @@
 # @config-manager:end go-top-level
 
 # @config-manager:start go
-# @config-manager:end go
+  # @config-manager:end go
 
 # @config-manager:start runonsave-go
-# @config-manager:end runonsave-go
+  # @config-manager:end runonsave-go

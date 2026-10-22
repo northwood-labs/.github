@@ -1,5 +1,5 @@
 ##
-# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.hugo
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.frontend
 ##
 
 #-------------------------------------------------------------------------------

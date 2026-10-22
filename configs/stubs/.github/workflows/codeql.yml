@@ -25,7 +25,7 @@ jobs:
       # @config-manager:end workflow-strategy
       matrix:
         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
-        language: ["go"] # @TODO: Check the list of languages to scan.
+        language: ["go"]
 
     steps:
       # @config-manager:start harden-runner

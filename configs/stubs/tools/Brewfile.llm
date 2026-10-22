@@ -1,0 +1,21 @@
+##
+# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.llm
+##
+
+#-------------------------------------------------------------------------------
+# TAPS
+
+# @config-manager:start taps
+# @config-manager:end taps
+
+#-------------------------------------------------------------------------------
+# FORMULAE
+
+# @config-manager:start brew
+# @config-manager:end brew
+
+#-------------------------------------------------------------------------------
+# CASKS
+
+# @config-manager:start casks
+# @config-manager:end casks
