@@ -22,5 +22,94 @@ brew "infracost"
 brew "taco-docs"
 brew "terrascan"
 brew "tflint"
-
 cask "datagrip"
+
+---
+
+level=warning msg="[linter] exhaustive: the value 'map' has been replaced by 'mapliteral'."
+level=warning msg="[linter] exhaustive: the option 'ignore-enum-members' has been replaced by 'ignore-constants'."
+level=warning msg="[linter] exhaustive: the option 'ignore-enum-types' has been replaced by 'ignore-types'."
+level=warning msg="[formatter] gofumpt: `extra-rules` is deprecated, please use `extra.group-params` and `extra.clothe-returns` instead."
+level=warning msg="[formatter] gofumpt: `extra-rules` is deprecated, please use `extra.group-params` and `extra.clothe-returns` instead."
+
+---
+
+git-cliff
+
+setup-standard-base
+    editorconfig-checker
+    ewhauser/tap/shuck-cli
+    ghalint
+    go-task
+    hk
+    lychee
+    ogvs
+    pinact
+    rumdl
+    shellcheck
+    shfmt
+    taplo
+    trivy
+    trufflehog
+    yamlfmt
+    zizmor
+    github.com/antham/gommit
+    github.com/google/osv-scanner/v2/cmd/osv-scanner
+    github.com/goph/licensei/cmd/licensei
+    github.com/pelletier/go-toml/v2/cmd/jsontoml
+    github.com/pelletier/go-toml/v2/cmd/tomljson
+    github.com/pelletier/go-toml/v2/cmd/tomll
+    github.com/suzuki-shunsuke/ghatm/cmd/ghatm
+    github.com/tomwright/dasel/v3/cmd/dasel
+
+setup-standard-docs
+    pandoc
+
+setup-standard-aws
+    aws-cli
+
+setup-standard-dataeng
+    duckdb
+
+setup-standard-database
+    ariga/tap/atlas
+    tbls
+
+setup-standard-frontend
+    bun
+    oxfmt
+    oxlint
+
+setup-standard-go
+    github.com/mdempsky/unconvert
+    github.com/nikolaydubina/go-binsize-treemap
+    github.com/nikolaydubina/go-cover-treemap
+    github.com/nikolaydubina/smrcptr
+    github.com/orlangure/gocovsh
+    github.com/quasilyte/go-consistent
+    github.com/segmentio/golines
+    golang.org/x/perf/cmd/benchstat
+    golang.org/x/tools/cmd/godoc
+    golang.org/x/tools/cmd/goimports
+    golang.org/x/tools/go/analysis/passes/fieldalignment/cmd/fieldalignment
+    golang.org/x/tools/go/analysis/passes/modernize/cmd/modernize
+    golang.org/x/vuln/cmd/govulncheck
+    gotest.tools/gotestsum
+    mvdan.cc/gofumpt
+
+setup-standard-python
+    uv
+    pyrefly
+    ruff
+    tryke
+
+setup-standard-protobuf
+    grpc
+    protobuf
+    entgo.io/contrib/entproto/cmd/protoc-gen-entgrpc
+    google.golang.org/grpc/cmd/protoc-gen-go-grpc
+    google.golang.org/protobuf/cmd/protoc-gen-go
+
+setup-standard-graphql
+    github.com/suessflorian/gqlfetch/gqlconvert
+    github.com/suessflorian/gqlfetch/gqlfetch

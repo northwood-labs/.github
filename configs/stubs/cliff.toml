@@ -18,6 +18,10 @@
     # @config-manager:end post-processors
   ]
 
+[bump]
+  # @config-manager:start version-bump
+  # @config-manager:end version-bump
+
 [git]
   # @config-manager:start reading-git
   # @config-manager:end reading-git
@@ -32,4 +36,9 @@
   commit_parsers = [
     # @config-manager:start commit-parsers
     # @config-manager:end commit-parsers
+  ]
+
+  link_parsers = [
+    # @config-manager:start link-parsers
+    # @config-manager:end link-parsers
   ]
