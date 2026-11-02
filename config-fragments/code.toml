@@ -76,10 +76,15 @@
   ]
   destination = '.github/workflows/trufflehog.yml'
 
-#-------------------------------------------------------------------------------
-# STEERING FILES
+  #-------------------------------------------------------------------------------
+  # STEERING FILES
 
 [[files]]
   stub        = 'configs/stubs/.kiro/steering/commit-rules.md'
   source      = 'configs/templates/.kiro/steering/commit-rules.md'
   destination = '.kiro/steering/commit-rules.md'
+
+[[files]]
+  stub = 'configs/stubs/.kiro/steering/fd-instead-of-find.md'
+  source = 'configs/templates/.kiro/steering/fd-instead-of-find.md'
+  destination = '.kiro/steering/fd-instead-of-find.md'
