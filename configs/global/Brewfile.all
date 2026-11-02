@@ -1,5 +1,5 @@
 ##
-# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.all
+# brew bundle --upgrade --upgrade-formulae --install --file=Brewfile.all
 ##
 
 #-------------------------------------------------------------------------------
@@ -21,7 +21,7 @@ brew "curl"
 brew "diffutils"
 
 # https://github.com/kcrawford/dockutil
-brew "dockutil"
+brew "dockutil" if OS.mac?
 
 # https://github.com/eza-community/eza
 brew "eza"
@@ -72,7 +72,7 @@ brew "jq"
 brew "librsvg"
 
 # https://github.com/mas-cli/mas
-brew "mas"
+brew "mas" if OS.mac?
 
 # https://joeyh.name/code/moreutils/
 brew "moreutils"

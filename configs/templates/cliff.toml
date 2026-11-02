@@ -70,7 +70,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com), adheres t
     { pattern = "go\\.(mod|sum)", replace = "`$0`" },
     { pattern = "(?i)pkg\\.go\\.dev", replace = "`$0`" },
     { pattern = "Bump ([^ ]+)", replace = "Bump `$1`" },
-    { pattern = "\\(#([0-9]+)\\)", replace = "([#${1}](https://github.com/northwood-labs/@@REPO@@/issues/${1}))" }, # @TODO: Replace the repository name in this link.
     # @config-manager:end post-processors
   ]
 

@@ -59,4 +59,4 @@
   destination = 'tools/Brewfile.standard'
 
   [files.post_update_hook]
-    bash = 'brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=tools/Brewfile.python'
+    bash = 'brew bundle --upgrade --upgrade-formulae --install --file=tools/Brewfile.python'

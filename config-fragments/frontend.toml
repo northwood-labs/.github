@@ -79,7 +79,7 @@
   destination = 'tools/Brewfile.frontend'
 
   [files.post_update_hook]
-    bash = 'brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=tools/Brewfile.frontend'
+    bash = 'brew bundle --upgrade --upgrade-formulae --install --file=tools/Brewfile.frontend'
 
     #-------------------------------------------------------------------------------
     # TOOLS

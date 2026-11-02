@@ -34,6 +34,16 @@ level=warning msg="[formatter] gofumpt: `extra-rules` is deprecated, please use 
 
 ---
 
+https://github.com/northwood-labs/dependabot-generator/new/main?filename=.github%2Fworkflows%2Fpolicy-validator-tf.yml&workflow_template=code-scanning%2Fpolicy-validator-tf
+https://github.com/northwood-labs/dependabot-generator/new/main?filename=.github%2Fworkflows%2Fgo-ossf-slsa3-publish.yml&workflow_template=ci%2Fgo-ossf-slsa3-publish
+https://github.com/northwood-labs/dependabot-generator/new/main?filename=.github%2Fworkflows%2Fgenerator-generic-ossf-slsa3-publish.yml&workflow_template=ci%2Fgenerator-generic-ossf-slsa3-publish
+https://github.com/northwood-labs/dependabot-generator/new/main?filename=.github%2Fworkflows%2Fdependency-review.yml&workflow_template=code-scanning%2Fdependency-review
+https://github.com/northwood-labs/dependabot-generator/new/main?filename=.github%2Fworkflows%2Fethicalcheck.yml&workflow_template=code-scanning%2Fethicalcheck
+https://github.com/northwood-labs/dependabot-generator/new/main?filename=.github%2Fworkflows%2Fosv-scanner.yml&workflow_template=code-scanning%2Fosv-scanner
+https://github.com/northwood-labs/dependabot-generator/new/main?filename=.github%2Fworkflows%2Fanchore.yml&workflow_template=code-scanning%2Fanchore
+
+---
+
 git-cliff
 
 setup-standard-base

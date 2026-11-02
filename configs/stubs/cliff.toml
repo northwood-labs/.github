@@ -16,6 +16,7 @@
   postprocessors = [
     # @config-manager:start post-processors
     # @config-manager:end post-processors
+    { pattern = "\\(#([0-9]+)\\)", replace = "([#${1}](https://github.com/northwood-labs/@@REPO@@/issues/${1}))" }, # @TODO: Replace the repository name in this link.
   ]
 
 [bump]

@@ -5,17 +5,10 @@
 * [step-security/gha-jobid-action](https://github.com/step-security/gha-jobid-action)
 * [step-security/github-app-auth-action](https://github.com/step-security/github-app-auth-action)
 * [step-security/action-metadata](https://github.com/step-security/action-metadata)
-* []()
-* []()
-* []()
 
 ## AWS
 
 * [step-security/install-aws-cli-action](https://github.com/step-security/install-aws-cli-action)
-* []()
-* []()
-* []()
-* []()
 
 ## Linting
 
@@ -23,32 +16,21 @@
 * [step-security/trivy-action](https://github.com/step-security/trivy-action)
 * [step-security/setup-trivy](https://github.com/step-security/setup-trivy)
 * [step-security/yamllint-github-action](https://github.com/step-security/yamllint-github-action)
-* []()
-* []()
 
 ## Testing
 
 * [step-security/bats-action](https://github.com/step-security/bats-action)
-* []()
-* []()
-* []()
-* []()
 
 ## Git and repositories
 
 * [step-security/conventional-commit-checker-action](https://github.com/step-security/conventional-commit-checker-action)
 * [step-security/codeowners-validator](https://github.com/step-security/codeowners-validator)
 * [step-security/size-label-action](https://github.com/step-security/size-label-action)
-* []()
-* []()
 
 ## Terraform
 
 * [step-security/tfclean](https://github.com/step-security/tfclean)
 * [step-security/terragrunt-action](https://github.com/step-security/terragrunt-action)
-* []()
-* []()
-* []()
 
 ---
 
@@ -87,7 +69,6 @@
 * [step-security/conventional-pr-title-action](https://github.com/step-security/conventional-pr-title-action)
 * [step-security/cosign-installer](https://github.com/step-security/cosign-installer)
 * [step-security/create-pull-request](https://github.com/step-security/create-pull-request)
-* [step-security/dependabot-fetch-metadata](https://github.com/step-security/dependabot-fetch-metadata)
 * [step-security/dependencies-action](https://github.com/step-security/dependencies-action)
 * [step-security/deployment-status](https://github.com/step-security/deployment-status)
 * [step-security/docker-build-push-action](https://github.com/step-security/docker-build-push-action)

@@ -1,5 +1,5 @@
 ##
-# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.payments
+# brew bundle --upgrade --upgrade-formulae --install --file=Brewfile.payments
 ##
 
 #-------------------------------------------------------------------------------

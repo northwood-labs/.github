@@ -1,5 +1,5 @@
 ##
-# brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=Brewfile.aws-developer
+# brew bundle --upgrade --upgrade-formulae --install --file=Brewfile.aws-developer
 ##
 
 #-------------------------------------------------------------------------------

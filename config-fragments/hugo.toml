@@ -26,7 +26,7 @@
   destination = 'tools/Brewfile.hugo'
 
   [files.post_update_hook]
-    bash = 'brew bundle --upgrade --upgrade-formulae --install --jobs=auto --file=tools/Brewfile.hugo'
+    bash = 'brew bundle --upgrade --upgrade-formulae --install --file=tools/Brewfile.hugo'
 
     #-------------------------------------------------------------------------------
     # TOOLS
