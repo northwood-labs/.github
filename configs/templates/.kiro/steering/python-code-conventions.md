@@ -13,21 +13,21 @@ This project uses [Pyrefly](https://pyrefly.org) as its Python type checker. Pyr
 This project targets zero Pyrefly diagnostics across all Python source files. Run the check with:
 
 ```bash
-pyrefly check {file1} {file2} {file3}
+uv tool run pyrefly check {file1} {file2} {file3}
 ```
 
 ## Philosophy
 
 * **Small, surgical edits** are strongly preferred over wide-scale refactoring. Without a larger spec to guide the work, keep changes minimal and focused on the specific diagnostic being resolved.
 * **Fix the problem, not the symptom.** Strongly favor resolving the root cause over suppressing the error. Suppression is a last resort reserved for cases where a fix is genuinely impossible or would introduce worse problems.
-* The goal is **zero remaining diagnostic issues** when running `pyrefly check {file1} {file2} {file3}` from the project root.
+* The goal is **zero remaining diagnostic issues** when running `uv tool run pyrefly check {file1} {file2} {file3}` from the project root.
 
 ## Verification workflow
 
 1. After editing any `.py` file, run `getDiagnostics` on that file.
 2. If diagnostics are reported, fix every one before moving on.
-3. After all fixes, run `pyrefly check {file1} {file2} {file3}` from the project root to surface anything remaining.
-4. Run `uv run pytest` for the affected package to confirm no regressions.
+3. After all fixes, run `uv tool run pyrefly check {file1} {file2} {file3}` from the project root to surface anything remaining.
+4. Run `uv tool run pytest` for the affected package to confirm no regressions.
 
 Do not present work as finished while diagnostics remain.
 
@@ -37,16 +37,16 @@ This project uses [Ruff](https://docs.astral.sh/ruff/) as its Python formatter a
 
 ```bash
 # Format all Python files in-place
-uv run ruff format
+uv tool run ruff format
 
 # Lint and auto-fix what is fixable
-uv run ruff check --fix
+uv tool run ruff check --fix
 
 # Check formatting without modifying (useful in CI)
-uv run ruff format --check
+uv tool run ruff format --check
 
 # Check linting without modifying (useful in CI)
-uv run ruff check
+uv tool run ruff check
 ```
 
 ## Rules learned from resolving diagnostics
@@ -130,8 +130,8 @@ The `sys.path.insert` ensures the bare `from models import ...` resolves at runt
 Use `ruff` for formatting and linting Python code, and `uv` as the package manager. Run formatting with:
 
 ```bash
-uv run ruff format
-uv run ruff check --fix
+uv tool run ruff format
+uv tool run ruff check --fix
 ```
 
 ## Suppression
