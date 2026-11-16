@@ -92,6 +92,21 @@ brew "ripgrep"
 # https://infozip.sourceforge.net/UnZip.html
 brew "unzip"
 
+# https://uutils.org/coreutils/
+brew "uutils-coreutils"
+
+# https://uutils.org/diffutils/
+brew "uutils-diffutils"
+
+# https://uutils.org/findutils/
+brew "uutils-findutils"
+
+# https://uutils.org/grep/
+brew "uutils-grep"
+
+# https://uutils.org/sed/
+brew "uutils-sed"
+
 # https://developers.google.com/speed/webp/
 brew "webp"
 

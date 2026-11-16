@@ -1,7 +1,9 @@
 npx skills add aws/agent-toolkit-for-aws/skills
 
-github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server@latest
-
+go install github.com/hashicorp/terraform-mcp-server/cmd/terraform-mcp-server@latest
+go install github.com/go-delve/delve/cmd/dlv@latest
+go install github.com/josharian/impl@latest
+go install github.com/haya14busa/goplay/cmd/goplay@latest
 ---
 
 # https://github.com/nicksnyder/go-i18n
@@ -31,6 +33,38 @@ level=warning msg="[linter] exhaustive: the option 'ignore-enum-members' has bee
 level=warning msg="[linter] exhaustive: the option 'ignore-enum-types' has been replaced by 'ignore-types'."
 level=warning msg="[formatter] gofumpt: `extra-rules` is deprecated, please use `extra.group-params` and `extra.clothe-returns` instead."
 level=warning msg="[formatter] gofumpt: `extra-rules` is deprecated, please use `extra.group-params` and `extra.clothe-returns` instead."
+
+---
+
+# config-manager sync ghapp
+# generate-contributors ghapp
+# changelog ghapp
+# copilot ghapp
+# dependabot-auto-merge ghapp
+# dependency-review ghapp
+# ossf scorecard ghapp
+
+# gommit
+# hk
+# osv-scanner
+# depgen
+# trufflehog
+# ecrc
+
+# pinact
+# zizmor
+# ghalint
+# jactionlint
+
+# shellcheck
+# shuck
+# shfmt
+# trivy
+# yamlfmt
+
+# rumdl
+# lychee
+# taplo
 
 ---
 
